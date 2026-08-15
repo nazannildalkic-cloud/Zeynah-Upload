@@ -1241,10 +1241,10 @@ function setLang(lang) {
     if (lang === 'de') el.placeholder = el.dataset.dePh;
     else if (dict[k] !== undefined) el.placeholder = dict[k];
   });
-  /* Bereiche-Video in der passenden Sprache laden (AR → EN) */
+  /* Bereiche-Video in der passenden Sprache laden (DE/EN/TR/AR) */
   const v = document.getElementById('bereicheVideo');
   if (v) {
-    const vl = lang === 'de' ? 'de' : lang === 'tr' ? 'tr' : 'en';
+    const vl = ['de','en','tr','ar'].includes(lang) ? lang : 'de';
     const src = 'https://zeynah.cloud/videos/grosshandel/bereiche_' + vl + '.mp4';
     if (!v.currentSrc.includes('bereiche_' + vl)) { v.src = src; v.load(); }
   }
