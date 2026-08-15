@@ -981,33 +981,34 @@ elevenlabs-convai { z-index: 60; }
   <div class="container">
     <div class="impressum-grid">
       <div class="impressum-col">
-        <h4>📍 Impressum</h4>
+        <h4 data-i18n="imp.h1">📍 Impressum</h4>
         <p><strong>Zeynah</strong><br>
         Nazan Nil Dalkic<br>
         Hamburg, Deutschland<br><br>
         <a href="mailto:info@zeynah.cloud">info@zeynah.cloud</a><br>
         <a href="tel:+491776480485">0177 6480485</a><br><br>
-        USt-IdNr.: [wird ergänzt]<br>
-        Handelsregister: [wird ergänzt]</p>
+        <span data-i18n="imp.ust">USt-IdNr.: [wird ergänzt]</span><br>
+        <span data-i18n="imp.hr">Handelsregister: [wird ergänzt]</span><br><br>
+        <small data-i18n="imp.note" style="color:var(--text-muted)">Rechtsverbindlich ist die deutsche Fassung.</small></p>
       </div>
       <div class="impressum-col">
-        <h4>🔒 Datenschutz (DSGVO)</h4>
-        <p>DSGVO-konforme Datenverarbeitung.<br>
+        <h4 data-i18n="imp.ds.h">🔒 Datenschutz (DSGVO)</h4>
+        <p data-i18n="imp.ds.p">DSGVO-konforme Datenverarbeitung.<br>
         Server in der EU (Deutschland).<br>
-        Alle Daten verschlüsselt (AES-256).<br><br>
-        <strong>Verantwortlich:</strong><br>
+        Alle Daten verschlüsselt (AES-256).</p>
+        <p><strong data-i18n="imp.ds.resp">Verantwortlich:</strong><br>
         Nazan Nil Dalkic<br>
         info@zeynah.cloud<br><br>
-        <a href="#datenschutz">Vollständige Datenschutzerklärung</a></p>
+        <a href="#datenschutz" data-i18n="imp.ds.link">Vollständige Datenschutzerklärung</a></p>
       </div>
       <div class="impressum-col">
-        <h4>⚖️ Rechtliches</h4>
-        <p><a href="#agb">AGB</a><br>
-        <a href="#datenschutz">Datenschutz</a><br>
-        <a href="#widerruf">Widerrufsbelehrung</a><br>
-        <a href="#avv">Auftragsverarbeitung (AVV)</a><br><br>
-        <strong>Streitbeilegung:</strong><br>
-        Plattform der EU-Kommission:<br>
+        <h4 data-i18n="imp.legal.h">⚖️ Rechtliches</h4>
+        <p><a href="#agb" data-i18n="imp.legal.agb">AGB</a><br>
+        <a href="#datenschutz" data-i18n="imp.legal.ds">Datenschutz</a><br>
+        <a href="#widerruf" data-i18n="imp.legal.widerruf">Widerrufsbelehrung</a><br>
+        <a href="#avv" data-i18n="imp.legal.avv">Auftragsverarbeitung (AVV)</a><br><br>
+        <strong data-i18n="imp.legal.streit">Streitbeilegung:</strong><br>
+        <span data-i18n="imp.legal.eu">Plattform der EU-Kommission:</span><br>
         <a href="https://ec.europa.eu/odr" target="_blank">ec.europa.eu/odr</a></p>
       </div>
     </div>
@@ -1018,7 +1019,7 @@ elevenlabs-convai { z-index: 60; }
 <footer class="site-footer">
   <div class="container">
     <p data-i18n="footer.l1">© 2026 Zeynah — Hamburg · 20+ Sprachen · DSGVO-konform · 24/7 erreichbar</p>
-    <p><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a> · <a href="#agb">AGB</a></p>
+    <p><a href="#impressum" data-i18n="footer.imp">Impressum</a> · <a href="#datenschutz" data-i18n="footer.ds">Datenschutz</a> · <a href="#agb" data-i18n="footer.agb">AGB</a></p>
   </div>
 </footer>
 
@@ -1084,7 +1085,11 @@ tr: {
 'kontakt.h2':'Bir daha hiçbir talebi kaçırmamaya hazır mısınız?','kontakt.p':'Bizimle konuşun — size uyan kanaldan.','kontakt.btn':'Pilot yeri talep et →',
 'k1.p':'Bize doğrudan yazın — dakikalar içinde yanıt','k2.h4':'Telefon','k3.h4':'Demo ayırt','k3.p':'15 dakika — canlı, sizin sektörünüzde','k4.p':'info@zeynah.cloud — 24 saatte yanıt',
 'footer.l1':'© 2026 Zeynah — Hamburg · 20+ dil · GDPR uyumlu · 7/24 ulaşılabilir',
-'alert':'Talebiniz için teşekkürler! 24 saat içinde dönüş yapacağız.'
+'alert':'Talebiniz için teşekkürler! 24 saat içinde dönüş yapacağız.',
+'imp.h1':'📍 Künye','imp.ust':'KDV No: [eklenecek]','imp.hr':'Ticaret Sicili: [eklenecek]','imp.note':'Hukuken bağlayıcı olan Almanca metindir.',
+'imp.ds.h':'🔒 Veri Koruma (GDPR)','imp.ds.p':'GDPR uyumlu veri işleme.<br>AB’de sunucular (Almanya).<br>Tüm veriler şifreli (AES-256).','imp.ds.resp':'Sorumlu:','imp.ds.link':'Tam Gizlilik Politikası',
+'imp.legal.h':'⚖️ Yasal','imp.legal.agb':'Kullanım Koşulları','imp.legal.ds':'Gizlilik','imp.legal.widerruf':'Cayma Hakkı','imp.legal.avv':'Veri İşleme Sözleşmesi (DPA)','imp.legal.streit':'Uyuşmazlık Çözümü:','imp.legal.eu':'AB Komisyonu platformu:',
+'footer.imp':'Künye','footer.ds':'Gizlilik','footer.agb':'Koşullar'
 },
 en: {
 'cookie.text':'🍪 We only use technically necessary cookies.','cookie.btn':'Got it',
@@ -1144,7 +1149,11 @@ en: {
 'kontakt.h2':'Ready to never miss a request again?','kontakt.p':'Talk to us — via the channel that suits you.','kontakt.btn':'Request pilot spot →',
 'k1.p':'Message us directly — reply in minutes','k2.h4':'Phone','k3.h4':'Book a demo','k3.p':'15 minutes — live, in your industry','k4.p':'info@zeynah.cloud — reply within 24 h',
 'footer.l1':'© 2026 Zeynah — Hamburg · 20+ languages · GDPR-compliant · reachable 24/7',
-'alert':'Thanks for your request! We’ll get back to you within 24 hours.'
+'alert':'Thanks for your request! We’ll get back to you within 24 hours.',
+'imp.h1':'📍 Legal Notice','imp.ust':'VAT ID: [to be added]','imp.hr':'Commercial Register: [to be added]','imp.note':'Only the German version is legally binding.',
+'imp.ds.h':'🔒 Privacy (GDPR)','imp.ds.p':'GDPR-compliant data processing.<br>Servers in the EU (Germany).<br>All data encrypted (AES-256).','imp.ds.resp':'Responsible:','imp.ds.link':'Full Privacy Policy',
+'imp.legal.h':'⚖️ Legal','imp.legal.agb':'Terms & Conditions','imp.legal.ds':'Privacy','imp.legal.widerruf':'Right of Withdrawal','imp.legal.avv':'Data Processing Agreement (DPA)','imp.legal.streit':'Dispute Resolution:','imp.legal.eu':'EU Commission platform:',
+'footer.imp':'Legal Notice','footer.ds':'Privacy','footer.agb':'Terms'
 },
 ar: {
 'cookie.text':'🍪 نستخدم فقط ملفات تعريف الارتباط الضرورية تقنياً.','cookie.btn':'فهمت',
@@ -1204,7 +1213,11 @@ ar: {
 'kontakt.h2':'مستعد لألا تفوتك أي طلبية بعد الآن؟','kontakt.p':'تحدث معنا — عبر القناة التي تناسبك.','kontakt.btn':'اطلب مكاناً تجريبياً ←',
 'k1.p':'راسلنا مباشرة — الرد خلال دقائق','k2.h4':'الهاتف','k3.h4':'احجز عرضاً','k3.p':'15 دقيقة — مباشرة، في مجالك','k4.p':'info@zeynah.cloud — الرد خلال 24 ساعة',
 'footer.l1':'© 2026 زينة — هامبورغ · أكثر من 20 لغة · متوافق مع GDPR · متاح 24/7',
-'alert':'شكراً لطلبك! سنعود إليك خلال 24 ساعة.'
+'alert':'شكراً لطلبك! سنعود إليك خلال 24 ساعة.',
+'imp.h1':'📍 البيانات القانونية','imp.ust':'رقم ضريبة القيمة المضافة: [يُضاف لاحقاً]','imp.hr':'السجل التجاري: [يُضاف لاحقاً]','imp.note':'النسخة الألمانية هي الملزمة قانوناً.',
+'imp.ds.h':'🔒 حماية البيانات (GDPR)','imp.ds.p':'معالجة بيانات متوافقة مع GDPR.<br>خوادم في الاتحاد الأوروبي (ألمانيا).<br>جميع البيانات مشفرة (AES-256).','imp.ds.resp':'المسؤول:','imp.ds.link':'سياسة الخصوصية الكاملة',
+'imp.legal.h':'⚖️ القانونية','imp.legal.agb':'الشروط والأحكام','imp.legal.ds':'الخصوصية','imp.legal.widerruf':'حق الانسحاب','imp.legal.avv':'اتفاقية معالجة البيانات (DPA)','imp.legal.streit':'تسوية النزاعات:','imp.legal.eu':'منصة المفوضية الأوروبية:',
+'footer.imp':'البيانات القانونية','footer.ds':'الخصوصية','footer.agb':'الشروط'
 }
 };
 
