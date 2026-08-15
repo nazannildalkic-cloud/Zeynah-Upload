@@ -9,8 +9,8 @@
 /* ═══════════════════════════════════════════════════════════════
    ZEYNAH — DESIGN-SYSTEM
    Anthrazit statt Schwarz. Creme statt Weiss. Ein Blau.
-   Glasige Kacheln, schwebend.
-   Palette: --bg #1c1f24 · Creme #ece7dd · Blau #0071e3/#0057ad
+   Schachbrett: dunkel / hell abwechselnd. Glasige Kacheln, schwebend.
+   Palette: --bg #1c1f24 · Creme #ece7dd / #f2ede3 · Blau #0071e3/#0057ad
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
@@ -26,6 +26,12 @@
   --text-secondary: #a9a69d;
   --text-muted: #78756d;
   --creme-auf-blau: #faf7f2;
+
+  /* Helle Schachbrett-Seite */
+  --cream-bg: #f2ede3;
+  --ink: #23262c;
+  --ink-secondary: #5a574f;
+  --ink-muted: #8a867c;
 
   /* EIN Blau */
   --accent: #0071e3;
@@ -58,7 +64,7 @@ body {
 .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
 img, video { max-width: 100%; display: block; }
 
-/* GLASS — glasig, durchscheinend, schwebend */
+/* GLASS — glasig, durchscheinend, schwebend (dunkle Seite) */
 .glass {
   background: var(--glass);
   backdrop-filter: blur(50px) saturate(2);
@@ -73,6 +79,62 @@ img, video { max-width: 100%; display: block; }
   transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
 }
+
+/* SCHACHBRETT — helle Seite */
+.section-light { background: var(--cream-bg); color: var(--ink); }
+.section-light .glass {
+  background: linear-gradient(160deg, rgba(255,255,255,0.78), rgba(255,255,255,0.52));
+  border: 1px solid rgba(35,38,44,0.08);
+  box-shadow: 0 18px 50px rgba(95,85,65,0.16), inset 0 1px 0 rgba(255,255,255,0.85);
+}
+.section-light .glass:hover {
+  border-color: rgba(35,38,44,0.16);
+  box-shadow: 0 34px 80px rgba(95,85,65,0.24), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.section-light h2, .section-light h3,
+.section-light .section-head h2,
+.section-light .step-card h3, .section-light .voice-card h3,
+.section-light .price-card h3, .section-light .price-amount,
+.section-light .roi-content h3, .section-light .form-card h3,
+.section-light .faq-q, .section-light .dash-title, .section-light .dash-big,
+.section-light .contact-card h4 { color: var(--ink); }
+.section-light p, .section-light .section-head p,
+.section-light .step-card p, .section-light .voice-card p,
+.section-light .price-features li, .section-light .roi-content p,
+.section-light .form-card > p, .section-light .faq-a p,
+.section-light .dash-tile p, .section-light .contact-card p,
+.section-light .sos-content p { color: var(--ink-secondary); }
+.section-light .price-note, .section-light .sos-content h4,
+.section-light .order-label, .section-light .order-time,
+.section-light .dash-sub, .section-light .dash-tile h5,
+.section-light .form-note, .section-light .form-group label,
+.section-light .footer-contact { color: var(--ink-muted); }
+.section-light .voice-label { color: var(--accent-deep); }
+.section-light .order-bubble strong,
+.section-light .roi-highlight { color: var(--accent-deep); }
+.section-light .order-bubble { color: var(--ink); }
+.section-light .order-bubble.highlight { border-color: rgba(0,113,227,0.35); background: rgba(0,113,227,0.07); }
+.section-light .price-features li { border-bottom-color: rgba(35,38,44,0.08); }
+.section-light .price-card.popular { background: rgba(0,113,227,0.07); border-color: rgba(0,113,227,0.28); }
+.section-light .dash-tile { background: rgba(255,255,255,0.55); border-color: rgba(35,38,44,0.08); }
+.section-light .dash-tile:hover { border-color: rgba(35,38,44,0.18); }
+.section-light .dash-updated { color: #1e7e34; }
+.section-light .dash-dot { box-shadow: 0 0 12px rgba(30,126,52,0.6); }
+.section-light .btn-secondary { background: rgba(35,38,44,0.06); color: var(--ink); border-color: rgba(35,38,44,0.12); }
+.section-light .btn-secondary:hover { background: rgba(35,38,44,0.10); }
+.section-light .faq-q:hover { color: var(--accent-deep); }
+.section-light .footer-contact a { color: var(--accent-deep); }
+.section-light.footer-cta { border-top-color: rgba(35,38,44,0.10); }
+.section-light .form-group input, .section-light .form-group select, .section-light .form-group textarea {
+  background: rgba(255,255,255,0.85); border-color: rgba(35,38,44,0.12); color: var(--ink);
+}
+.section-light .form-group input:focus, .section-light .form-group select:focus, .section-light .form-group textarea:focus {
+  border-color: var(--accent); background: #ffffff;
+}
+.section-light .form-group input::placeholder, .section-light .form-group textarea::placeholder { color: var(--ink-muted); }
+.section-light .form-group select option { background: #ffffff; color: var(--ink); }
+.section-light .voice-card audio::-webkit-media-controls-panel { background: #ffffff; }
+.section-light .roi-icon { background: rgba(0,113,227,0.12); }
 
 /* SCHWEBENDE KACHELN */
 @keyframes cardFloat {
@@ -137,27 +199,44 @@ img, video { max-width: 100%; display: block; }
 .hero-lead { font-size: 19px; color: var(--text-secondary); max-width: 480px; margin-bottom: 32px; line-height: 1.6; }
 .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
-/* LOGO — echtes Zeynah-Logo, schwebend */
-.logo-3d-wrap { perspective: 800px; display: flex; align-items: center; justify-content: center; height: 100%; position: relative; }
-.logo-3d {
-  width: 230px; height: auto;
-  filter: drop-shadow(0 30px 60px rgba(0,113,227,0.35));
-  animation: logoFloat 5s ease-in-out infinite;
+/* GLASKUGEL — das Logo in der Kugel, schwebend */
+.orb-wrap { perspective: 900px; display: flex; align-items: center; justify-content: center; height: 100%; position: relative; }
+.orb {
+  width: 300px; height: 300px; border-radius: 50%;
   position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.06) 28%, transparent 45%),
+    radial-gradient(circle at 50% 55%, rgba(76,155,240,0.25) 0%, rgba(0,113,227,0.35) 55%, rgba(0,55,115,0.55) 100%);
+  border: 1px solid rgba(236,231,221,0.28);
+  box-shadow:
+    0 40px 100px rgba(0,113,227,0.35),
+    inset 0 -25px 60px rgba(0,70,140,0.45),
+    inset 0 18px 45px rgba(255,255,255,0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: orbFloat 6s ease-in-out infinite;
 }
-@keyframes logoFloat {
-  0%, 100% { transform: translateY(12px) scale(0.97); }
-  50% { transform: translateY(-14px) scale(1.03); }
+.orb-logo { width: 135px; height: auto; transform: translateY(-10px); filter: drop-shadow(0 8px 24px rgba(10,30,60,0.5)); }
+.orb-shine {
+  position: absolute; top: 9%; left: 16%; width: 38%; height: 24%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.65), transparent 70%);
+  transform: rotate(-18deg); pointer-events: none;
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(14px) scale(0.98); }
+  50% { transform: translateY(-16px) scale(1.03); }
 }
 .logo-3d-ring {
   position: absolute;
-  width: 280px; height: 280px;
+  width: 340px; height: 340px;
   border: 2px solid rgba(0,113,227,0.18);
   border-radius: 50%;
   animation: ringPulse 3s ease-out infinite;
 }
-.logo-3d-ring:nth-child(2) { animation-delay: 0.5s; width: 340px; height: 340px; }
-.logo-3d-ring:nth-child(3) { animation-delay: 1s; width: 400px; height: 400px; }
+.logo-3d-ring:nth-child(2) { animation-delay: 0.5s; width: 400px; height: 400px; }
+.logo-3d-ring:nth-child(3) { animation-delay: 1s; width: 460px; height: 460px; }
 @keyframes ringPulse {
   0% { transform: scale(0.8); opacity: 0.6; }
   100% { transform: scale(1.4); opacity: 0; }
@@ -186,7 +265,7 @@ img, video { max-width: 100%; display: block; }
 /* VIDEO */
 .video-box { border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(12,14,17,0.55); }
 .video-box video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--bg-elevated); }
-.video-info { padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.video-info { padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: var(--bg-elevated); }
 .video-info h4 { font-size: 16px; font-weight: 600; color: var(--text); }
 .video-info p { font-size: 14px; color: var(--text-secondary); }
 .video-meta { font-size: 13px; color: var(--text-muted); }
@@ -359,6 +438,8 @@ elevenlabs-convai { z-index: 60; }
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero { padding-top: 120px; }
+  .orb { width: 240px; height: 240px; }
+  .orb-logo { width: 110px; }
   .sos-grid { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
   .voice-grid { grid-template-columns: 1fr; }
@@ -428,7 +509,7 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO (dunkel) -->
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero-grid">
@@ -441,18 +522,21 @@ elevenlabs-convai { z-index: 60; }
           <a href="#live" class="btn btn-secondary btn-lg">Live-Dashboard öffnen</a>
         </div>
       </div>
-      <div class="logo-3d-wrap">
+      <div class="orb-wrap">
         <div class="logo-3d-ring"></div>
         <div class="logo-3d-ring"></div>
         <div class="logo-3d-ring"></div>
-        <img src="assets/zeynah-z-logo.png" alt="Zeynah" class="logo-3d">
+        <div class="orb">
+          <img src="assets/zeynah-z-logo.png" alt="Zeynah" class="orb-logo">
+          <div class="orb-shine"></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HERO VIDEO -->
-<section class="section" style="padding-top:0;">
+<!-- HERO VIDEO (hell) -->
+<section class="section section-light" style="padding-top:80px;">
   <div class="container">
     <div class="video-box">
       <video autoplay muted loop playsinline>
@@ -462,7 +546,7 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- SOS ALERTS -->
+<!-- SOS ALERTS (dunkel) -->
 <section class="section" id="problem">
   <div class="container">
     <div class="section-head">
@@ -506,8 +590,8 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- STEPS -->
-<section class="section" id="ablauf">
+<!-- STEPS (hell) -->
+<section class="section section-light" id="ablauf">
   <div class="container">
     <div class="section-head">
       <h2>Drei Schritte. Keine Entscheidung ohne Mensch.</h2>
@@ -533,7 +617,7 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- ORDER FLOW -->
+<!-- ORDER FLOW (dunkel) -->
 <section class="section">
   <div class="container">
     <div class="section-head">
@@ -573,8 +657,8 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- VOICE DEMOS -->
-<section class="section" id="stimme">
+<!-- VOICE DEMOS (hell) -->
+<section class="section section-light" id="stimme">
   <div class="container">
     <div class="section-head">
       <h2>Hören Sie selbst — die Stimme von Zeynah</h2>
@@ -588,16 +672,16 @@ elevenlabs-convai { z-index: 60; }
         <audio controls preload="none" src="assets/audio/hoerbeispiel-grosshandel-de.mp3"></audio>
       </div>
       <div class="voice-card glass">
-        <div class="voice-label">📞 B2B &amp; Vertrieb</div>
-        <h3>Lead-Qualifizierung am Telefon</h3>
-        <p>Eingehende Leads automatisch qualifizieren und ans Sales-Team weiterleiten.</p>
-        <audio controls preload="none" src="assets/audio/voice-demo-b2b.mp3"></audio>
+        <div class="voice-label">🍽️ Gastro</div>
+        <h3>Bestellung am Telefon</h3>
+        <p>Bestellung, Reservierung, Fragen — Zeynah nimmt entgegen und bestätigt.</p>
+        <audio controls preload="none" src="assets/audio/voice-demo-gastro.mp3"></audio>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LIVE-DASHBOARD — Vorschau des echten Cockpits -->
+<!-- LIVE-DASHBOARD (dunkel) — Vorschau des echten Cockpits -->
 <section class="section" id="live">
   <div class="container">
     <div class="section-head">
@@ -660,8 +744,8 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- BEREICHE VIDEO -->
-<section class="section">
+<!-- BEREICHE VIDEO (hell) -->
+<section class="section section-light">
   <div class="container">
     <div class="video-box">
       <video controls>
@@ -680,7 +764,7 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- PRICING -->
+<!-- PRICING (dunkel) -->
 <section class="section" id="preise">
   <div class="container">
     <div class="section-head">
@@ -741,8 +825,8 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- FORM -->
-<section class="form-section" id="pilot-form">
+<!-- FORM (hell) -->
+<section class="form-section section-light" id="pilot-form">
   <div class="container">
     <div class="form-card glass">
       <h3>🚀 Pilotplatz anfragen</h3>
@@ -800,7 +884,7 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- FAQ (dunkel) -->
 <section class="section" id="faq">
   <div class="container">
     <div class="section-head">
@@ -852,8 +936,8 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- KONTAKT / FOOTER CTA -->
-<section class="footer-cta" id="kontakt">
+<!-- KONTAKT / FOOTER CTA (hell) -->
+<section class="footer-cta section-light" id="kontakt">
   <div class="container">
     <h2>Bereit, nie wieder eine Anfrage zu verpassen?</h2>
     <p>Sprechen Sie mit uns — über den Kanal, der zu Ihnen passt.</p>
@@ -886,7 +970,7 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- IMPRESSUM -->
+<!-- IMPRESSUM (dunkel) -->
 <section class="impressum-section" id="impressum">
   <div class="container">
     <div class="impressum-grid">
