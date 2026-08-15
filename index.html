@@ -136,6 +136,14 @@ img, video { max-width: 100%; display: block; }
 .section-light .voice-card audio::-webkit-media-controls-panel { background: #ffffff; }
 .section-light .roi-icon { background: rgba(0,113,227,0.12); }
 
+/* RTL (Arabisch) */
+html[dir="rtl"] body { text-align: right; }
+html[dir="rtl"] .order-item { flex-direction: row-reverse; }
+html[dir="rtl"] .order-time { text-align: left; }
+html[dir="rtl"] .price-features li { flex-direction: row-reverse; }
+html[dir="rtl"] .sos-card { flex-direction: row-reverse; }
+html[dir="rtl"] .roi-box { flex-direction: row-reverse; }
+
 /* SCHWEBENDE KACHELN */
 @keyframes cardFloat {
   0%, 100% { transform: translateY(0); }
@@ -360,7 +368,7 @@ img, video { max-width: 100%; display: block; }
 .faq-item-inner { padding: 0 32px; }
 .faq-q { padding: 24px 0; font-size: 17px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s; user-select: none; color: var(--text); }
 .faq-q:hover { color: var(--accent-light); }
-.faq-q::after { content: '+'; font-size: 24px; color: var(--accent); font-weight: 300; }
+.faq-q::after { content: '+'; font-size: 24px; color: var(--accent); font-weight: 300; flex-shrink: 0; margin-left: 16px; }
 .faq-item.open .faq-q::after { content: '−'; }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
 .faq-item.open .faq-a { max-height: 400px; padding-bottom: 24px; }
@@ -470,8 +478,8 @@ elevenlabs-convai { z-index: 60; }
 
 <!-- COOKIE BANNER -->
 <div class="cookie-banner glass" id="cookieBanner">
-  <p>🍪 Wir verwenden nur technisch notwendige Cookies.</p>
-  <button class="cookie-btn" onclick="hideCookie()">Verstanden</button>
+  <p data-i18n="cookie.text">🍪 Wir verwenden nur technisch notwendige Cookies.</p>
+  <button class="cookie-btn" onclick="hideCookie()" data-i18n="cookie.btn">Verstanden</button>
 </div>
 
 <!-- WHATSAPP FLOAT -->
@@ -481,8 +489,8 @@ elevenlabs-convai { z-index: 60; }
 
 <!-- ELEVENLABS GATE — erst nach Zustimmung wird geladen (DSGVO) -->
 <div id="voiceGate" class="voice-gate glass">
-  <button class="voice-gate-btn" onclick="startVoice()">🎙️ Sprachberatung starten</button>
-  <p>Dabei wird ein Dienst von ElevenLabs (USA) geladen. <a href="#impressum">Datenschutz</a></p>
+  <button class="voice-gate-btn" onclick="startVoice()" data-i18n="gate.btn">🎙️ Sprachberatung starten</button>
+  <p><span data-i18n="gate.note">Dabei wird ein Dienst von ElevenLabs (USA) geladen.</span> <a href="#impressum" data-i18n="gate.privacy">Datenschutz</a></p>
 </div>
 
 <!-- NAVIGATION -->
@@ -490,20 +498,20 @@ elevenlabs-convai { z-index: 60; }
   <div class="container">
     <a href="#" class="nav-logo"><img src="assets/zeynah-z-logo.png" alt="Zeynah Logo" class="nav-logo-img">Zeynah</a>
     <div class="nav-links" id="navLinks">
-      <a href="#problem">Das Problem</a>
-      <a href="#stimme">Stimme</a>
-      <a href="#ablauf">Ablauf</a>
-      <a href="#live">Live-Dashboard</a>
-      <a href="#preise">Preise</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="#problem" data-i18n="nav.problem">Das Problem</a>
+      <a href="#stimme" data-i18n="nav.stimme">Stimme</a>
+      <a href="#ablauf" data-i18n="nav.ablauf">Ablauf</a>
+      <a href="#live" data-i18n="nav.live">Live-Dashboard</a>
+      <a href="#preise" data-i18n="nav.preise">Preise</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="#kontakt" data-i18n="nav.kontakt">Kontakt</a>
       <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLang('de')">DE</button>
-        <button class="lang-btn" onclick="setLang('tr')">TR</button>
-        <button class="lang-btn" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('ar')">AR</button>
+        <button class="lang-btn active" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="tr">TR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
       </div>
-      <a href="#pilot-form" class="nav-cta">Pilot anfragen</a>
+      <a href="#pilot-form" class="nav-cta" data-i18n="nav.cta">Pilot anfragen</a>
     </div>
     <button class="nav-toggle" onclick="toggleNav()">☰</button>
   </div>
@@ -514,12 +522,12 @@ elevenlabs-convai { z-index: 60; }
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="hero-badge">🚀 Pilotprogramm — 3 Plätze verfügbar</div>
-        <h1>Ihr Telefon geht <span class="accent">immer</span> ran. Auch um 22 Uhr.</h1>
-        <p class="hero-lead">Zeynah liest Nachrichten, prüft Tippfehler und fragt bei Unklarheiten nach — bevor ein Fehler teuer wird. Rund um die Uhr. In 20+ Sprachen.</p>
+        <div class="hero-badge" data-i18n="hero.badge">🚀 Pilotprogramm — 3 Plätze verfügbar</div>
+        <h1 data-i18n="hero.h1">Ihr Telefon geht <span class="accent">immer</span> ran. Auch um 22 Uhr.</h1>
+        <p class="hero-lead" data-i18n="hero.lead">Zeynah liest Nachrichten, prüft Tippfehler und fragt bei Unklarheiten nach — bevor ein Fehler teuer wird. Rund um die Uhr. In 20+ Sprachen.</p>
         <div class="hero-ctas">
-          <a href="#pilot-form" class="btn btn-primary btn-lg">Pilot anfragen →</a>
-          <a href="#live" class="btn btn-secondary btn-lg">Live-Dashboard öffnen</a>
+          <a href="#pilot-form" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Pilot anfragen →</a>
+          <a href="#live" class="btn btn-secondary btn-lg" data-i18n="hero.cta2">Live-Dashboard öffnen</a>
         </div>
       </div>
       <div class="orb-wrap">
@@ -550,40 +558,40 @@ elevenlabs-convai { z-index: 60; }
 <section class="section" id="problem">
   <div class="container">
     <div class="section-head">
-      <h2>Was Zeynah an einem einzigen Morgen findet</h2>
-      <p>Diese vier Warnungen kommen aus echten Betrieben. Nicht erfunden.</p>
+      <h2 data-i18n="sos.h2">Was Zeynah an einem einzigen Morgen findet</h2>
+      <p data-i18n="sos.p">Diese vier Warnungen kommen aus echten Betrieben. Nicht erfunden.</p>
     </div>
     <div class="sos-grid">
       <div class="sos-card glass">
         <div class="sos-icon">🚨</div>
         <div class="sos-content">
-          <h4>SOS · Tippfehler</h4>
-          <div class="sos-big">2.000 statt 200</div>
-          <p>Ein Null zu viel in der Anfrage. Wahrscheinlich ein Tippfehler.</p>
+          <h4 data-i18n="sos1.h4">SOS · Tippfehler</h4>
+          <div class="sos-big" data-i18n="sos1.big">2.000 statt 200</div>
+          <p data-i18n="sos1.p">Ein Null zu viel in der Anfrage. Wahrscheinlich ein Tippfehler.</p>
         </div>
       </div>
       <div class="sos-card glass">
         <div class="sos-icon">⚠️</div>
         <div class="sos-content">
-          <h4>SOS · Offene Posten</h4>
-          <div class="sos-big">42.295 €</div>
-          <p>21 Tage überfällig. Ganz oben — nicht versteckt.</p>
+          <h4 data-i18n="sos2.h4">SOS · Offene Posten</h4>
+          <div class="sos-big" data-i18n="sos2.big">42.295 €</div>
+          <p data-i18n="sos2.p">21 Tage überfällig. Ganz oben — nicht versteckt.</p>
         </div>
       </div>
       <div class="sos-card glass">
         <div class="sos-icon">🌡️</div>
         <div class="sos-content">
-          <h4>SOS · Kühlkette</h4>
-          <div class="sos-big">7,9 °C</div>
-          <p>Vor drei Tagen gemessen. Die Korrektur fehlt noch.</p>
+          <h4 data-i18n="sos3.h4">SOS · Kühlkette</h4>
+          <div class="sos-big" data-i18n="sos3.big">7,9 °C</div>
+          <p data-i18n="sos3.p">Vor drei Tagen gemessen. Die Korrektur fehlt noch.</p>
         </div>
       </div>
       <div class="sos-card glass">
         <div class="sos-icon">📦</div>
         <div class="sos-content">
-          <h4>SOS · Charge</h4>
-          <div class="sos-big">3 Tage</div>
-          <p>Über das Datum — und noch nicht gesperrt.</p>
+          <h4 data-i18n="sos4.h4">SOS · Charge</h4>
+          <div class="sos-big" data-i18n="sos4.big">3 Tage</div>
+          <p data-i18n="sos4.p">Über das Datum — und noch nicht gesperrt.</p>
         </div>
       </div>
     </div>
@@ -594,24 +602,24 @@ elevenlabs-convai { z-index: 60; }
 <section class="section section-light" id="ablauf">
   <div class="container">
     <div class="section-head">
-      <h2>Drei Schritte. Keine Entscheidung ohne Mensch.</h2>
-      <p>Zeynah liest, prüft, fragt — aber sie entscheidet nie allein.</p>
+      <h2 data-i18n="steps.h2">Drei Schritte. Keine Entscheidung ohne Mensch.</h2>
+      <p data-i18n="steps.p">Zeynah liest, prüft, fragt — aber sie entscheidet nie allein.</p>
     </div>
     <div class="steps-grid">
       <div class="step-card glass">
         <div class="step-num">1</div>
-        <h3>Lesen</h3>
-        <p>WhatsApp, Sprachnachricht, E-Mail, Telefon, PDF. Zeynah erkennt alles — und wandelt es in einen sauberen Auftrag.</p>
+        <h3 data-i18n="step1.h3">Lesen</h3>
+        <p data-i18n="step1.p">WhatsApp, Sprachnachricht, E-Mail, Telefon, PDF. Zeynah erkennt alles — und wandelt es in einen sauberen Auftrag.</p>
       </div>
       <div class="step-card glass">
         <div class="step-num">2</div>
-        <h3>Prüfen</h3>
-        <p>Unbekannter Absender, ungewöhnliche Menge, möglicher Fehler: Zeynah markiert es rot und schlägt vor.</p>
+        <h3 data-i18n="step2.h3">Prüfen</h3>
+        <p data-i18n="step2.p">Unbekannter Absender, ungewöhnliche Menge, möglicher Fehler: Zeynah markiert es rot und schlägt vor.</p>
       </div>
       <div class="step-card glass">
         <div class="step-num">3</div>
-        <h3>Freigeben</h3>
-        <p>Erst wenn ein Mensch bestätigt, existiert der Auftrag. Zeynah handelt nie eigenmächtig.</p>
+        <h3 data-i18n="step3.h3">Freigeben</h3>
+        <p data-i18n="step3.p">Erst wenn ein Mensch bestätigt, existiert der Auftrag. Zeynah handelt nie eigenmächtig.</p>
       </div>
     </div>
   </div>
@@ -621,36 +629,36 @@ elevenlabs-convai { z-index: 60; }
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <h2>So läuft eine Anfrage</h2>
-      <p>Der Kunde schreibt, wie er immer schreibt — kurz, nebenbei, kein Formular.</p>
+      <h2 data-i18n="order.h2">So läuft eine Anfrage</h2>
+      <p data-i18n="order.p">Der Kunde schreibt, wie er immer schreibt — kurz, nebenbei, kein Formular.</p>
     </div>
     <div class="order-flow">
       <div class="order-item">
         <div class="order-time">22:14</div>
         <div class="order-content">
-          <div class="order-label">Kunde schreibt</div>
-          <div class="order-bubble glass">Morgen. Für morgen: 400 Kalb 20er und 200 Pute 15er.</div>
+          <div class="order-label" data-i18n="o1.label">Kunde schreibt</div>
+          <div class="order-bubble glass" data-i18n="o1.bubble">Morgen. Für morgen: 400 Kalb 20er und 200 Pute 15er.</div>
         </div>
       </div>
       <div class="order-item">
         <div class="order-time">22:14</div>
         <div class="order-content">
-          <div class="order-label">Zeynah erkennt</div>
-          <div class="order-bubble glass highlight">Musterbetrieb Nord, Lieferung Donnerstag.<br><strong>400 kg Kalb-Döner 20 kg<br>200 kg Puten-Döner 15 kg<br>5.340 € netto.</strong> Freigeben?</div>
+          <div class="order-label" data-i18n="o2.label">Zeynah erkennt</div>
+          <div class="order-bubble glass highlight" data-i18n="o2.bubble">Musterbetrieb Nord, Lieferung Donnerstag.<br><strong>400 kg Kalb-Döner 20 kg<br>200 kg Puten-Döner 15 kg<br>5.340 € netto.</strong> Freigeben?</div>
         </div>
       </div>
       <div class="order-item">
         <div class="order-time">22:14</div>
         <div class="order-content">
-          <div class="order-label">Freigabe</div>
-          <div class="order-bubble glass" style="border-color:rgba(48,209,88,0.3);background:rgba(48,209,88,0.06);">Ja</div>
+          <div class="order-label" data-i18n="o3.label">Freigabe</div>
+          <div class="order-bubble glass" style="border-color:rgba(48,209,88,0.3);background:rgba(48,209,88,0.06);" data-i18n="o3.bubble">Ja</div>
         </div>
       </div>
       <div class="order-item">
         <div class="order-time">21:47</div>
         <div class="order-content">
-          <div class="order-label">Der Null-Fehler</div>
-          <div class="order-bubble glass" style="border-color:rgba(255,69,58,0.3);background:rgba(255,69,58,0.06);"><strong>Vorsicht: 2.000 kg.</strong><br>Wahrscheinlich ein Null zu viel — nachfragen?</div>
+          <div class="order-label" data-i18n="o4.label">Der Null-Fehler</div>
+          <div class="order-bubble glass" style="border-color:rgba(255,69,58,0.3);background:rgba(255,69,58,0.06);" data-i18n="o4.bubble"><strong>Vorsicht: 2.000 kg.</strong><br>Wahrscheinlich ein Null zu viel — nachfragen?</div>
         </div>
       </div>
     </div>
@@ -661,20 +669,20 @@ elevenlabs-convai { z-index: 60; }
 <section class="section section-light" id="stimme">
   <div class="container">
     <div class="section-head">
-      <h2>Hören Sie selbst — die Stimme von Zeynah</h2>
-      <p>Klingt wie ein Mensch. Arbeitet wie ein Team. Echte Gespräche, keine Studioaufnahmen.</p>
+      <h2 data-i18n="voice.h2">Hören Sie selbst — die Stimme von Zeynah</h2>
+      <p data-i18n="voice.p">Klingt wie ein Mensch. Arbeitet wie ein Team. Echte Gespräche, keine Studioaufnahmen.</p>
     </div>
     <div class="voice-grid">
       <div class="voice-card glass">
-        <div class="voice-label">🥙 Großhandel</div>
-        <h3>Bestellung per Sprachnachricht</h3>
-        <p>Der Kunde spricht, wie er immer spricht — Zeynah erfasst, prüft und bestätigt.</p>
+        <div class="voice-label" data-i18n="v1.label">🥙 Großhandel</div>
+        <h3 data-i18n="v1.h3">Bestellung per Sprachnachricht</h3>
+        <p data-i18n="v1.p">Der Kunde spricht, wie er immer spricht — Zeynah erfasst, prüft und bestätigt.</p>
         <audio controls preload="none" src="assets/audio/hoerbeispiel-grosshandel-de.mp3"></audio>
       </div>
       <div class="voice-card glass">
-        <div class="voice-label">🍽️ Gastro</div>
-        <h3>Bestellung am Telefon</h3>
-        <p>Bestellung, Reservierung, Fragen — Zeynah nimmt entgegen und bestätigt.</p>
+        <div class="voice-label" data-i18n="v2.label">🍽️ Gastro</div>
+        <h3 data-i18n="v2.h3">Bestellung am Telefon</h3>
+        <p data-i18n="v2.p">Bestellung, Reservierung, Fragen — Zeynah nimmt entgegen und bestätigt.</p>
         <audio controls preload="none" src="assets/audio/voice-demo-gastro.mp3"></audio>
       </div>
     </div>
@@ -685,62 +693,62 @@ elevenlabs-convai { z-index: 60; }
 <section class="section" id="live">
   <div class="container">
     <div class="section-head">
-      <h2>Das Live-System — Ihr Cockpit</h2>
-      <p>Wareneingang bis bezahlte Rechnung. Alles auf einem Schirm.</p>
+      <h2 data-i18n="dash.h2">Das Live-System — Ihr Cockpit</h2>
+      <p data-i18n="dash.p">Wareneingang bis bezahlte Rechnung. Alles auf einem Schirm.</p>
     </div>
     <div class="dash glass">
       <div class="dash-head">
-        <div class="dash-title"><span class="dash-dot"></span>ZEYNAH Cockpit <span class="dash-sub">Demo-Ansicht</span></div>
-        <div class="dash-updated">● Aktualisiert alle 30 Sekunden</div>
+        <div class="dash-title"><span class="dash-dot"></span>ZEYNAH Cockpit <span class="dash-sub" data-i18n="dash.sub">Demo-Ansicht</span></div>
+        <div class="dash-updated" data-i18n="dash.upd">● Aktualisiert alle 30 Sekunden</div>
       </div>
       <div class="dash-grid">
         <div class="dash-tile">
-          <h5>Verdienen wir Geld?</h5>
-          <div class="dash-big">12.480 €</div>
-          <p>Umsatz heute · Marge 23 %</p>
+          <h5 data-i18n="d1.h5">Verdienen wir Geld?</h5>
+          <div class="dash-big" data-i18n="d1.big">12.480 €</div>
+          <p data-i18n="d1.p">Umsatz heute · Marge 23 %</p>
         </div>
         <div class="dash-tile">
-          <h5>Geld &amp; Aufträge</h5>
-          <div class="dash-big">18</div>
-          <p>Aufträge heute · 15 freigegeben</p>
+          <h5 data-i18n="d2.h5">Geld &amp; Aufträge</h5>
+          <div class="dash-big" data-i18n="d2.big">18</div>
+          <p data-i18n="d2.p">Aufträge heute · 15 freigegeben</p>
         </div>
         <div class="dash-tile warn">
-          <h5>Offene Posten</h5>
-          <div class="dash-big">42.295 €</div>
-          <p>21 Tage überfällig · Mahnlauf bereit</p>
+          <h5 data-i18n="d3.h5">Offene Posten</h5>
+          <div class="dash-big" data-i18n="d3.big">42.295 €</div>
+          <p data-i18n="d3.p">21 Tage überfällig · Mahnlauf bereit</p>
         </div>
         <div class="dash-tile">
-          <h5>Wen anrufen</h5>
-          <div class="dash-big">3</div>
-          <p>Rückrufe fällig · mit Gesprächseinstieg</p>
+          <h5 data-i18n="d4.h5">Wen anrufen</h5>
+          <div class="dash-big" data-i18n="d4.big">3</div>
+          <p data-i18n="d4.p">Rückrufe fällig · mit Gesprächseinstieg</p>
         </div>
         <div class="dash-tile ok">
-          <h5>Kühlkette</h5>
-          <div class="dash-big">4,2 °C</div>
-          <p>Alle Messpunkte im Plan</p>
+          <h5 data-i18n="d5.h5">Kühlkette</h5>
+          <div class="dash-big" data-i18n="d5.big">4,2 °C</div>
+          <p data-i18n="d5.p">Alle Messpunkte im Plan</p>
         </div>
         <div class="dash-tile">
-          <h5>Unterwegs — Stand jetzt</h5>
-          <div class="dash-big">6</div>
-          <p>Touren aktiv · 2 vor 12 Uhr fertig</p>
+          <h5 data-i18n="d6.h5">Unterwegs — Stand jetzt</h5>
+          <div class="dash-big" data-i18n="d6.big">6</div>
+          <p data-i18n="d6.p">Touren aktiv · 2 vor 12 Uhr fertig</p>
         </div>
         <div class="dash-tile">
-          <h5>Buchhaltung</h5>
+          <h5 data-i18n="d7.h5">Buchhaltung</h5>
           <div class="dash-big">DATEV</div>
-          <p>Export geprüft · bereit</p>
+          <p data-i18n="d7.p">Export geprüft · bereit</p>
         </div>
         <div class="dash-tile">
-          <h5>Datenschutz</h5>
-          <div class="dash-big">DSGVO</div>
-          <p>Auskunft &amp; Löschung prüfbar</p>
+          <h5 data-i18n="d8.h5">Datenschutz</h5>
+          <div class="dash-big" data-i18n="d8.big">DSGVO</div>
+          <p data-i18n="d8.p">Auskunft &amp; Löschung prüfbar</p>
         </div>
       </div>
       <div class="dash-cta">
-        <a href="https://core.zeynah.cloud/cockpit#k=zeynah_demo_87868bb406070db4791bd8df6d40" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Echtes Live-Dashboard öffnen →</a>
-        <p>Das Original läuft auf core.zeynah.cloud — öffnet in einem neuen Tab. Nur lesender Demo-Zugang.</p>
+        <a href="https://core.zeynah.cloud/cockpit#k=zeynah_demo_87868bb406070db4791bd8df6d40" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-i18n="dash.cta">Echtes Live-Dashboard öffnen →</a>
+        <p data-i18n="dash.note">Das Original läuft auf core.zeynah.cloud — öffnet in einem neuen Tab. Nur lesender Demo-Zugang.</p>
       </div>
     </div>
-    <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--text-muted);">11 Bereiche: Cockpit, Telefon, WhatsApp, Aufträge, Kunden, Preise, Produktion, Kühlhaus, Touren, Rechnungen, Reklamationen</p>
+    <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--text-muted);" data-i18n="dash.bereiche">11 Bereiche: Cockpit, Telefon, WhatsApp, Aufträge, Kunden, Preise, Produktion, Kühlhaus, Touren, Rechnungen, Reklamationen</p>
   </div>
 </section>
 
@@ -748,15 +756,13 @@ elevenlabs-convai { z-index: 60; }
 <section class="section section-light">
   <div class="container">
     <div class="video-box">
-      <video controls>
+      <video controls id="bereicheVideo">
         <source src="https://zeynah.cloud/videos/grosshandel/bereiche_de.mp4" type="video/mp4">
-        <source src="https://zeynah.cloud/videos/grosshandel/bereiche_en.mp4" type="video/mp4">
-        <source src="https://zeynah.cloud/videos/grosshandel/bereiche_tr.mp4" type="video/mp4">
       </video>
       <div class="video-info">
         <div>
-          <h4>📹 Jeder Bereich einzeln</h4>
-          <p>Zuerst das Problem. Dann die Lösung. Bereich für Bereich.</p>
+          <h4 data-i18n="vid.h4">📹 Jeder Bereich einzeln</h4>
+          <p data-i18n="vid.p">Zuerst das Problem. Dann die Lösung. Bereich für Bereich.</p>
         </div>
         <div class="video-meta">5:52 · HD</div>
       </div>
@@ -768,59 +774,59 @@ elevenlabs-convai { z-index: 60; }
 <section class="section" id="preise">
   <div class="container">
     <div class="section-head">
-      <h2>Preise, die sich rechnen</h2>
-      <p>Monatlich kündbar zum Monatsende. Keine Mindestlaufzeit.</p>
+      <h2 data-i18n="price.h2">Preise, die sich rechnen</h2>
+      <p data-i18n="price.p">Monatlich kündbar zum Monatsende. Keine Mindestlaufzeit.</p>
     </div>
     <div class="roi-box glass">
       <div class="roi-icon">💡</div>
       <div class="roi-content">
-        <h3>Eine einzige Fehlentscheidung verhindert = mehr als ein Jahr Zeynah Pro</h3>
-        <p>2.000 statt 200. 19.000 € Ware, die keiner bestellt hat. <span class="roi-highlight">Zeynah erkennt Abweichungen sofort und fragt nach.</span></p>
+        <h3 data-i18n="roi.h3">Eine einzige Fehlentscheidung verhindert = mehr als ein Jahr Zeynah Pro</h3>
+        <p data-i18n="roi.p">2.000 statt 200. 19.000 € Ware, die keiner bestellt hat. <span class="roi-highlight">Zeynah erkennt Abweichungen sofort und fragt nach.</span></p>
       </div>
     </div>
     <div class="pricing-grid">
       <div class="price-card glass">
         <h3>Start</h3>
-        <div class="price-amount">690 <span>€/Monat</span></div>
-        <div class="price-note">Ein Standort, bis ca. 300 Anfragen/Monat</div>
+        <div class="price-amount">690 <span data-i18n="permonth">€/Monat</span></div>
+        <div class="price-note" data-i18n="p1.note">Ein Standort, bis ca. 300 Anfragen/Monat</div>
         <ul class="price-features">
-          <li>Anfragenannahme per WhatsApp & E-Mail</li>
-          <li>Tippfehler- & Doppelprüfung</li>
-          <li>Artikel, Kunden, Preisstaffeln</li>
-          <li>Unbegrenzte Mitarbeiter</li>
+          <li data-i18n="p1.f1">Anfragenannahme per WhatsApp & E-Mail</li>
+          <li data-i18n="p1.f2">Tippfehler- & Doppelprüfung</li>
+          <li data-i18n="p1.f3">Artikel, Kunden, Preisstaffeln</li>
+          <li data-i18n="p1.f4">Unbegrenzte Mitarbeiter</li>
         </ul>
-        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;">Pilot anfragen</a>
+        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;" data-i18n="nav.cta">Pilot anfragen</a>
       </div>
       <div class="price-card glass popular" style="position:relative;">
-        <div class="popular-badge">AM BELIEBTESTEN</div>
+        <div class="popular-badge" data-i18n="popular">AM BELIEBTESTEN</div>
         <h3>Pro</h3>
-        <div class="price-amount">1.290 <span>€/Monat</span></div>
-        <div class="price-note">Der Standard für ein laufendes Unternehmen</div>
+        <div class="price-amount">1.290 <span data-i18n="permonth">€/Monat</span></div>
+        <div class="price-note" data-i18n="p2.note">Der Standard für ein laufendes Unternehmen</div>
         <ul class="price-features">
-          <li>Alles aus Start</li>
-          <li>Sprachnachrichten werden vorgelesen</li>
-          <li>Chargen, Rückverfolgbarkeit</li>
-          <li>Kühlkette & Messplan</li>
-          <li>Offene Posten & Mahnwesen</li>
-          <li>Vier Sprachen in der Oberfläche</li>
+          <li data-i18n="p2.f1">Alles aus Start</li>
+          <li data-i18n="p2.f2">Sprachnachrichten werden vorgelesen</li>
+          <li data-i18n="p2.f3">Chargen, Rückverfolgbarkeit</li>
+          <li data-i18n="p2.f4">Kühlkette & Messplan</li>
+          <li data-i18n="p2.f5">Offene Posten & Mahnwesen</li>
+          <li data-i18n="p2.f6">Vier Sprachen in der Oberfläche</li>
         </ul>
-        <a href="#pilot-form" class="btn btn-primary" style="width:100%;">Pilot anfragen</a>
+        <a href="#pilot-form" class="btn btn-primary" style="width:100%;" data-i18n="nav.cta">Pilot anfragen</a>
       </div>
       <div class="price-card glass">
         <h3>Premium</h3>
-        <div class="price-amount">1.990 <span>€/Monat</span></div>
-        <div class="price-note">Mehrere Standorte oder Niederlassungen</div>
+        <div class="price-amount">1.990 <span data-i18n="permonth">€/Monat</span></div>
+        <div class="price-note" data-i18n="p3.note">Mehrere Standorte oder Niederlassungen</div>
         <ul class="price-features">
-          <li>Alles aus Pro</li>
-          <li>Mehrere Standorte & Lager</li>
-          <li>Individuelle Anbindungen an bestehende Systeme</li>
-          <li>Fester persönlicher Ansprechpartner</li>
+          <li data-i18n="p3.f1">Alles aus Pro</li>
+          <li data-i18n="p3.f2">Mehrere Standorte & Lager</li>
+          <li data-i18n="p3.f3">Individuelle Anbindungen an bestehende Systeme</li>
+          <li data-i18n="p3.f4">Fester persönlicher Ansprechpartner</li>
         </ul>
-        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;">Pilot anfragen</a>
+        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;" data-i18n="nav.cta">Pilot anfragen</a>
       </div>
     </div>
     <div class="setup-info glass" style="margin-top:40px;padding:32px;text-align:center;">
-      <p><strong>Setup wird einmalig berechnet: 3.900 – 9.900 €</strong> — je nach Artikeln, Kunden und Prozessen. Wir übernehmen die Migration aus Excel, altem System oder Listen. <strong style="color:var(--accent-light);">Bei 12 Monaten Laufzeit verrechnen wir die Hälfte mit den Monatsraten.</strong> Alle Preise netto. Von Go-Live bis zur ersten geprüften Anfrage: ca. 10 Arbeitstage.</p>
+      <p data-i18n="setup"><strong>Setup wird einmalig berechnet: 3.900 – 9.900 €</strong> — je nach Artikeln, Kunden und Prozessen. Wir übernehmen die Migration aus Excel, altem System oder Listen. <strong style="color:var(--accent-light);">Bei 12 Monaten Laufzeit verrechnen wir die Hälfte mit den Monatsraten.</strong> Alle Preise netto. Von Go-Live bis zur ersten geprüften Anfrage: ca. 10 Arbeitstage.</p>
     </div>
   </div>
 </section>
@@ -829,43 +835,43 @@ elevenlabs-convai { z-index: 60; }
 <section class="form-section section-light" id="pilot-form">
   <div class="container">
     <div class="form-card glass">
-      <h3>🚀 Pilotplatz anfragen</h3>
-      <p>Nur 3 Plätze verfügbar. Wir melden uns innerhalb von 24 Stunden.</p>
+      <h3 data-i18n="form.h3">🚀 Pilotplatz anfragen</h3>
+      <p data-i18n="form.p">Nur 3 Plätze verfügbar. Wir melden uns innerhalb von 24 Stunden.</p>
       <form onsubmit="handleSubmit(event)">
         <div class="form-group">
-          <label>Firmenname *</label>
-          <input type="text" placeholder="z. B. Musterfirma GmbH" required>
+          <label data-i18n="f.firma">Firmenname *</label>
+          <input type="text" data-i18n-ph="ph.firma" placeholder="z. B. Musterfirma GmbH" required>
         </div>
         <div class="form-group">
-          <label>Ihr Name *</label>
-          <input type="text" placeholder="Vor- und Nachname" required>
+          <label data-i18n="f.name">Ihr Name *</label>
+          <input type="text" data-i18n-ph="ph.name" placeholder="Vor- und Nachname" required>
         </div>
         <div class="form-group">
-          <label>Telefon *</label>
+          <label data-i18n="f.tel">Telefon *</label>
           <input type="tel" placeholder="+49 170 12345678" required>
         </div>
         <div class="form-group">
-          <label>E-Mail *</label>
+          <label data-i18n="f.mail">E-Mail *</label>
           <input type="email" placeholder="info@ihrefirma.de" required>
         </div>
         <div class="form-group">
-          <label>Branche *</label>
+          <label data-i18n="f.branche">Branche *</label>
           <select required>
-            <option value="">Bitte wählen</option>
-            <option>Großhandel</option>
-            <option>Hotel & Gastronomie</option>
-            <option>Kanzlei & Recht</option>
-            <option>Immobilien</option>
-            <option>Gesundheit & Pflege</option>
-            <option>Versicherung</option>
-            <option>B2B & Vertrieb</option>
-            <option>Sonstiges</option>
+            <option value="" data-i18n="sel.waehlen">Bitte wählen</option>
+            <option data-i18n="opt.gross">Großhandel</option>
+            <option data-i18n="opt.hotel">Hotel & Gastronomie</option>
+            <option data-i18n="opt.kanzlei">Kanzlei & Recht</option>
+            <option data-i18n="opt.immo">Immobilien</option>
+            <option data-i18n="opt.gesund">Gesundheit & Pflege</option>
+            <option data-i18n="opt.versi">Versicherung</option>
+            <option data-i18n="opt.b2b">B2B & Vertrieb</option>
+            <option data-i18n="opt.sonst">Sonstiges</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Ca. Anfragen pro Woche</label>
+          <label data-i18n="f.woche">Ca. Anfragen pro Woche</label>
           <select>
-            <option value="">Bitte wählen</option>
+            <option value="" data-i18n="sel.waehlen">Bitte wählen</option>
             <option>&lt; 50</option>
             <option>50 – 150</option>
             <option>150 – 300</option>
@@ -874,11 +880,11 @@ elevenlabs-convai { z-index: 60; }
           </select>
         </div>
         <div class="form-group">
-          <label>Was ist Ihr größtes Problem bei der Anfragenannahme?</label>
-          <textarea placeholder="z. B. Nachtanfragen per WhatsApp, die morgens niemand findet..."></textarea>
+          <label data-i18n="f.problem">Was ist Ihr größtes Problem bei der Anfragenannahme?</label>
+          <textarea data-i18n-ph="ph.problem" placeholder="z. B. Nachtanfragen per WhatsApp, die morgens niemand findet..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg form-submit">Anfrage senden →</button>
-        <p class="form-note">🔒 Ihre Daten werden DSGVO-konform verarbeitet. Kein Spam, keine Weitergabe.</p>
+        <button type="submit" class="btn btn-primary btn-lg form-submit" data-i18n="form.btn">Anfrage senden →</button>
+        <p class="form-note" data-i18n="form.note">🔒 Ihre Daten werden DSGVO-konform verarbeitet. Kein Spam, keine Weitergabe.</p>
       </form>
     </div>
   </div>
@@ -888,49 +894,49 @@ elevenlabs-convai { z-index: 60; }
 <section class="section" id="faq">
   <div class="container">
     <div class="section-head">
-      <h2>Was Entscheider wirklich fragen</h2>
-      <p>Alles, was Unternehmer vor dem Start wissen wollen.</p>
+      <h2 data-i18n="faq.h2">Was Entscheider wirklich fragen</h2>
+      <p data-i18n="faq.p">Alles, was Unternehmer vor dem Start wissen wollen.</p>
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
-        <div class="faq-q">Kann Zeynah mit meinem bestehenden System verbinden?</div>
-        <div class="faq-a"><p>Ja. Zeynah spricht mit den gängigen Systemen — von Excel über Lexware bis hin zu individuellen ERP-Lösungen. Im Premium-Tarif bauen wir auch maßgeschneiderte Schnittstellen.</p></div>
+        <div class="faq-q" data-i18n="q1">Kann Zeynah mit meinem bestehenden System verbinden?</div>
+        <div class="faq-a"><p data-i18n="a1">Ja. Zeynah spricht mit den gängigen Systemen — von Excel über Lexware bis hin zu individuellen ERP-Lösungen. Im Premium-Tarif bauen wir auch maßgeschneiderte Schnittstellen.</p></div>
       </div>
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
-        <div class="faq-q">Was passiert, wenn das Internet ausfällt?</div>
-        <div class="faq-a"><p>Zeynah läuft in der Cloud mit redundanter Infrastruktur. Anfragen werden automatisch nachgeholt. Für den Notfall können Sie jederzeit auf Ihre lokale Software zurückgreifen.</p></div>
+        <div class="faq-q" data-i18n="q2">Was passiert, wenn das Internet ausfällt?</div>
+        <div class="faq-a"><p data-i18n="a2">Zeynah läuft in der Cloud mit redundanter Infrastruktur. Anfragen werden automatisch nachgeholt. Für den Notfall können Sie jederzeit auf Ihre lokale Software zurückgreifen.</p></div>
       </div>
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
-        <div class="faq-q">Wer trainiert meine Leute?</div>
-        <div class="faq-a"><p>Wir übernehmen das komplett. Ein 2-stündiges Training vor Ort oder per Video. Die ersten 4 Wochen sind wir täglich erreichbar.</p></div>
+        <div class="faq-q" data-i18n="q3">Wer trainiert meine Leute?</div>
+        <div class="faq-a"><p data-i18n="a3">Wir übernehmen das komplett. Ein 2-stündiges Training vor Ort oder per Video. Die ersten 4 Wochen sind wir täglich erreichbar.</p></div>
       </div>
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
-        <div class="faq-q">Wie läuft der Pilot ab?</div>
-        <div class="faq-a"><p>Wir richten Zeynah mit Ihren echten Daten, Kunden und Prozessen ein. Sie testen mit echten Anfragen aus Ihrem Alltag. Am Ende entscheiden Sie in Ruhe — ohne Drama.</p></div>
+        <div class="faq-q" data-i18n="q4">Wie läuft der Pilot ab?</div>
+        <div class="faq-a"><p data-i18n="a4">Wir richten Zeynah mit Ihren echten Daten, Kunden und Prozessen ein. Sie testen mit echten Anfragen aus Ihrem Alltag. Am Ende entscheiden Sie in Ruhe — ohne Drama.</p></div>
       </div>
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
-        <div class="faq-q">Funktioniert das auch auf Türkisch?</div>
-        <div class="faq-a"><p>Ja. Zeynah versteht und antwortet auf Deutsch, Türkisch, Englisch und Arabisch. Die Oberfläche ist in allen vier Sprachen verfügbar.</p></div>
+        <div class="faq-q" data-i18n="q5">Funktioniert das auch auf Türkisch?</div>
+        <div class="faq-a"><p data-i18n="a5">Ja. Zeynah versteht und antwortet auf Deutsch, Türkisch, Englisch und Arabisch. Die Oberfläche ist in allen vier Sprachen verfügbar.</p></div>
       </div>
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
-        <div class="faq-q">Was ist mit Datenschutz?</div>
-        <div class="faq-a"><p>DSGVO-konform, Server in der EU, alle Daten verschlüsselt. Wir haben das von Anfang an eingebaut — nicht nachträglich.</p></div>
+        <div class="faq-q" data-i18n="q6">Was ist mit Datenschutz?</div>
+        <div class="faq-a"><p data-i18n="a6">DSGVO-konform, Server in der EU, alle Daten verschlüsselt. Wir haben das von Anfang an eingebaut — nicht nachträglich.</p></div>
       </div>
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
-        <div class="faq-q">Was passiert, wenn Zeynah eine Frage nicht beantworten kann?</div>
-        <div class="faq-a"><p>Zeynah erkennt das, vereinbart einen Rückruf oder leitet das Gespräch an Ihren menschlichen Mitarbeiter weiter — automatisch und ohne Pause für den Anrufer.</p></div>
+        <div class="faq-q" data-i18n="q7">Was passiert, wenn Zeynah eine Frage nicht beantworten kann?</div>
+        <div class="faq-a"><p data-i18n="a7">Zeynah erkennt das, vereinbart einen Rückruf oder leitet das Gespräch an Ihren menschlichen Mitarbeiter weiter — automatisch und ohne Pause für den Anrufer.</p></div>
       </div>
     </div>
   </div>
@@ -939,29 +945,29 @@ elevenlabs-convai { z-index: 60; }
 <!-- KONTAKT / FOOTER CTA (hell) -->
 <section class="footer-cta section-light" id="kontakt">
   <div class="container">
-    <h2>Bereit, nie wieder eine Anfrage zu verpassen?</h2>
-    <p>Sprechen Sie mit uns — über den Kanal, der zu Ihnen passt.</p>
-    <a href="#pilot-form" class="btn btn-primary btn-lg">Pilotplatz anfragen →</a>
+    <h2 data-i18n="kontakt.h2">Bereit, nie wieder eine Anfrage zu verpassen?</h2>
+    <p data-i18n="kontakt.p">Sprechen Sie mit uns — über den Kanal, der zu Ihnen passt.</p>
+    <a href="#pilot-form" class="btn btn-primary btn-lg" data-i18n="kontakt.btn">Pilotplatz anfragen →</a>
     <div class="contact-grid">
       <a class="contact-card glass" href="https://wa.me/491637794150?text=Hallo%20Zeynah%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eure%20Sprach-KI." target="_blank" rel="noopener">
         <div class="contact-icon">💬</div>
         <h4>WhatsApp</h4>
-        <p>Schreiben Sie uns direkt — Antwort in Minuten</p>
+        <p data-i18n="k1.p">Schreiben Sie uns direkt — Antwort in Minuten</p>
       </a>
       <a class="contact-card glass" href="tel:+491776480485">
         <div class="contact-icon">📞</div>
-        <h4>Telefon</h4>
+        <h4 data-i18n="k2.h4">Telefon</h4>
         <p>0177 6480485</p>
       </a>
       <a class="contact-card glass" href="https://calendly.com/nazandalkic/zeynah" target="_blank" rel="noopener">
         <div class="contact-icon">📅</div>
-        <h4>Demo buchen</h4>
-        <p>15 Minuten — live, in Ihrer Branche</p>
+        <h4 data-i18n="k3.h4">Demo buchen</h4>
+        <p data-i18n="k3.p">15 Minuten — live, in Ihrer Branche</p>
       </a>
       <a class="contact-card glass" href="mailto:info@zeynah.cloud">
         <div class="contact-icon">✉️</div>
         <h4>E-Mail</h4>
-        <p>info@zeynah.cloud — Antwort in 24 h</p>
+        <p data-i18n="k4.p">info@zeynah.cloud — Antwort in 24 h</p>
       </a>
     </div>
     <div class="footer-contact">
@@ -1011,13 +1017,232 @@ elevenlabs-convai { z-index: 60; }
 <!-- SITE FOOTER -->
 <footer class="site-footer">
   <div class="container">
-    <p>© 2026 Zeynah — Hamburg · 20+ Sprachen · DSGVO-konform · 24/7 erreichbar</p>
+    <p data-i18n="footer.l1">© 2026 Zeynah — Hamburg · 20+ Sprachen · DSGVO-konform · 24/7 erreichbar</p>
     <p><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a> · <a href="#agb">AGB</a></p>
   </div>
 </footer>
 
 <!-- JAVASCRIPT -->
 <script>
+/* ═══ ÜBERSETZUNGEN — DE (Original im HTML), TR, EN, AR ═══ */
+const I18N = {
+tr: {
+'cookie.text':'🍪 Yalnızca teknik olarak gerekli çerezleri kullanıyoruz.','cookie.btn':'Anladım',
+'gate.btn':'🎙️ Sesli danışmanlığı başlat','gate.note':'Bu sırada ElevenLabs (ABD) hizmeti yüklenir.','gate.privacy':'Gizlilik',
+'nav.problem':'Sorun','nav.stimme':'Ses','nav.ablauf':'Süreç','nav.live':'Canlı Panel','nav.preise':'Fiyatlar','nav.faq':'SSS','nav.kontakt':'İletişim','nav.cta':'Pilot talep et',
+'hero.badge':'🚀 Pilot programı — 3 yer mevcut','hero.h1':'Telefonunuz <span class="accent">her zaman</span> açılır. Saat 22.00’de bile.','hero.lead':'Zeynah mesajları okur, yazım hatalarını kontrol eder ve belirsizliklerde sorar — bir hata pahalıya mal olmadan önce. Gece gündüz. 20+ dilde.','hero.cta1':'Pilot talep et →','hero.cta2':'Canlı paneli aç',
+'sos.h2':'Zeynah’ın tek bir sabah buldukları','sos.p':'Bu dört uyarı gerçek işletmelerden. Uydurma değil.',
+'sos1.h4':'SOS · Yazım hatası','sos1.big':'2.000 yerine 200','sos1.p':'Siparişte bir sıfır fazla. Muhtemelen yazım hatası.',
+'sos2.h4':'SOS · Açık hesaplar','sos2.big':'42.295 €','sos2.p':'21 gün gecikmiş. En üstte — gizli değil.',
+'sos3.h4':'SOS · Soğuk zincir','sos3.big':'7,9 °C','sos3.p':'Üç gün önce ölçülmüş. Düzeltme hâlâ eksik.',
+'sos4.h4':'SOS · Parti','sos4.big':'3 gün','sos4.p':'Tarihi geçmiş — ve hâlâ bloke edilmemiş.',
+'steps.h2':'Üç adım. İnsansız karar yok.','steps.p':'Zeynah okur, kontrol eder, sorar — ama asla tek başına karar vermez.',
+'step1.h3':'Okur','step1.p':'WhatsApp, sesli mesaj, e-posta, telefon, PDF. Zeynah hepsini tanır — ve temiz bir siparişe dönüştürür.',
+'step2.h3':'Kontrol eder','step2.p':'Bilinmeyen gönderen, olağandışı miktar, olası hata: Zeynah kırmızıyla işaretler ve önerir.',
+'step3.h3':'Onay','step3.p':'Sipariş ancak bir insan onayladığında var olur. Zeynah asla kendi başına hareket etmez.',
+'order.h2':'Bir sipariş böyle işler','order.p':'Müşteri her zamanki gibi yazar — kısa, gelişigüzel, formsuz.',
+'o1.label':'Müşteri yazıyor','o1.bubble':'Günaydın. Yarın için: 400 dana 20’lik ve 200 hindi 15’lik.',
+'o2.label':'Zeynah tanıyor','o2.bubble':'Örnek İşletme Kuzey, teslimat Perşembe.<br><strong>400 kg dana döner 20 kg<br>200 kg hindi döner 15 kg<br>5.340 € net.</strong> Onay?',
+'o3.label':'Onay','o3.bubble':'Evet',
+'o4.label':'Sıfır hatası','o4.bubble':'<strong>Dikkat: 2.000 kg.</strong><br>Muhtemelen bir sıfır fazla — sorulsun mu?',
+'voice.h2':'Kendiniz dinleyin — Zeynah’ın sesi','voice.p':'İnsan gibi konuşur. Ekip gibi çalışır. Gerçek konuşmalar, stüdyo kaydı değil.',
+'v1.label':'🥙 Toptan satış','v1.h3':'Sesli mesajla sipariş','v1.p':'Müşteri her zamanki gibi konuşur — Zeynah kaydeder, kontrol eder ve onaylar.',
+'v2.label':'🍽️ Gastro','v2.h3':'Telefonda sipariş','v2.p':'Sipariş, rezervasyon, sorular — Zeynah alır ve onaylar.',
+'dash.h2':'Canlı sistem — Paneliniz','dash.p':'Mal girişinden ödenen faturaya. Hepsi tek ekranda.',
+'dash.sub':'Demo görünümü','dash.upd':'● Her 30 saniyede güncellenir',
+'d1.h5':'Para kazanıyor muyuz?','d1.big':'12.480 €','d1.p':'Bugünkü ciro · Marj %23',
+'d2.h5':'Para & Siparişler','d2.big':'18','d2.p':'Bugünkü siparişler · 15 onaylı',
+'d3.h5':'Açık hesaplar','d3.big':'42.295 €','d3.p':'21 gün gecikmiş · Hatırlatma hazır',
+'d4.h5':'Kimi aramalı','d4.big':'3','d4.p':'Geri aramalar · konuşma başlangıcıyla',
+'d5.h5':'Soğuk zincir','d5.big':'4,2 °C','d5.p':'Tüm ölçüm noktaları planda',
+'d6.h5':'Yolda — şu an','d6.big':'6','d6.p':'Aktif turlar · 2’si 12’den önce biter',
+'d7.h5':'Muhasebe','d7.p':'Dışa aktarım kontrol edildi · hazır',
+'d8.h5':'Veri koruma','d8.big':'KVKK','d8.p':'Bilgi & silme denetlenebilir',
+'dash.cta':'Gerçek canlı paneli aç →','dash.note':'Orijinal core.zeynah.cloud üzerinde çalışır — yeni sekmede açılır. Salt okunur demo erişimi.',
+'dash.bereiche':'11 alan: Panel, Telefon, WhatsApp, Siparişler, Müşteriler, Fiyatlar, Üretim, Soğuk oda, Turlar, Faturalar, Şikâyetler',
+'vid.h4':'📹 Her alan tek tek','vid.p':'Önce sorun. Sonra çözüm. Alan alan.',
+'price.h2':'Kendini amorti eden fiyatlar','price.p':'Ay sonunda aylık iptal. Asgari süre yok.',
+'roi.h3':'Önlenen tek bir hatalı karar = bir yıldan fazla Zeynah Pro','roi.p':'2.000 yerine 200. Kimsenin sipariş etmediği 19.000 € mal. <span class="roi-highlight">Zeynah sapmaları anında fark eder ve sorar.</span>',
+'permonth':'€/ay','popular':'EN POPÜLER',
+'p1.note':'Tek lokasyon, ayda ~300 talebe kadar','p1.f1':'WhatsApp ve e-posta ile talep alımı','p1.f2':'Yazım hatası & çift kontrol','p1.f3':'Ürünler, müşteriler, fiyat kademeleri','p1.f4':'Sınırsız çalışan',
+'p2.note':'İşleyen bir şirket için standart','p2.f1':'Start’taki her şey','p2.f2':'Sesli mesajlar okunur','p2.f3':'Partiler, izlenebilirlik','p2.f4':'Soğuk zincir & ölçüm planı','p2.f5':'Açık hesaplar & hatırlatmalar','p2.f6':'Arayüzde dört dil',
+'p3.note':'Birden fazla lokasyon veya şube','p3.f1':'Pro’daki her şey','p3.f2':'Birden fazla lokasyon & depo','p3.f3':'Mevcut sistemlere özel bağlantılar','p3.f4':'Sabit kişisel danışman',
+'setup':'<strong>Kurulum bir kerelik ücretlendirilir: 3.900 – 9.900 €</strong> — ürün, müşteri ve süreçlere göre. Excel, eski sistem veya listelerden taşımayı biz üstleniyoruz. <strong style="color:var(--accent-deep);">12 aylık sürede yarısını aylık taksitlerle mahsup ediyoruz.</strong> Tüm fiyatlar net. Canlı geçişten ilk kontrol edilmiş talebe: yaklaşık 10 iş günü.',
+'form.h3':'🚀 Pilot yeri talep et','form.p':'Sadece 3 yer mevcut. 24 saat içinde dönüş yapıyoruz.',
+'f.firma':'Şirket adı *','f.name':'Adınız *','f.tel':'Telefon *','f.mail':'E-posta *','f.branche':'Sektör *','f.woche':'Haftada yaklaşık talep','f.problem':'Talep alımındaki en büyük sorununuz nedir?',
+'form.btn':'Talep gönder →','form.note':'🔒 Verileriniz KVKK/GDPR uyumlu işlenir. Spam yok, paylaşım yok.',
+'ph.firma':'örn. Örnek Şirket Ltd.','ph.name':'Ad ve soyad','ph.problem':'örn. gece gelen WhatsApp talepleri, sabah kimse bulamıyor...',
+'sel.waehlen':'Lütfen seçin','opt.gross':'Toptan satış','opt.hotel':'Otel & Gastro','opt.kanzlei':'Hukuk bürosu','opt.immo':'Gayrimenkul','opt.gesund':'Sağlık & Bakım','opt.versi':'Sigorta','opt.b2b':'B2B & Satış','opt.sonst':'Diğer',
+'faq.h2':'Karar vericilerin gerçekten sordukları','faq.p':'Girişimcilerin başlamadan önce bilmek istediği her şey.',
+'q1':'Zeynah mevcut sistemime bağlanabilir mi?','a1':'Evet. Zeynah yaygın sistemlerle konuşur — Excel’den Lexware’e, özel ERP çözümlerine kadar. Premium tarifede özel arayüzler de kuruyoruz.',
+'q2':'İnternet kesilirse ne olur?','a2':'Zeynah yedekli altyapıyla bulutta çalışır. Talepler otomatik olarak telafi edilir. Acil durumda yerel yazılımınıza dönebilirsiniz.',
+'q3':'Ekibimi kim eğitecek?','a3':'Tamamen biz üstleniyoruz. Yerinde veya video ile 2 saatlik eğitim. İlk 4 hafta her gün ulaşılabiliriz.',
+'q4':'Pilot nasıl işliyor?','a4':'Zeynah’ı gerçek verileriniz, müşterileriniz ve süreçlerinizle kuruyoruz. Günlük hayatınızdan gerçek taleplerle test ediyorsunuz. Sonunda sakin karar verirsiniz — drama yok.',
+'q5':'Türkçe de çalışıyor mu?','a5':'Evet. Zeynah Almanca, Türkçe, İngilizce ve Arapça anlar ve yanıtlar. Arayüz dört dilde de mevcut.',
+'q6':'Peki veri koruma?','a6':'GDPR uyumlu, sunucular AB’de, tüm veriler şifreli. Bunu baştan inşa ettik — sonradan değil.',
+'q7':'Zeynah bir soruyu yanıtlayamazsa ne olur?','a7':'Zeynah bunu fark eder, geri arama ayarlar veya görüşmeyi çalışanınıza aktarır — otomatik ve arayan için kesintisiz.',
+'kontakt.h2':'Bir daha hiçbir talebi kaçırmamaya hazır mısınız?','kontakt.p':'Bizimle konuşun — size uyan kanaldan.','kontakt.btn':'Pilot yeri talep et →',
+'k1.p':'Bize doğrudan yazın — dakikalar içinde yanıt','k2.h4':'Telefon','k3.h4':'Demo ayırt','k3.p':'15 dakika — canlı, sizin sektörünüzde','k4.p':'info@zeynah.cloud — 24 saatte yanıt',
+'footer.l1':'© 2026 Zeynah — Hamburg · 20+ dil · GDPR uyumlu · 7/24 ulaşılabilir',
+'alert':'Talebiniz için teşekkürler! 24 saat içinde dönüş yapacağız.'
+},
+en: {
+'cookie.text':'🍪 We only use technically necessary cookies.','cookie.btn':'Got it',
+'gate.btn':'🎙️ Start voice assistant','gate.note':'This loads a service from ElevenLabs (USA).','gate.privacy':'Privacy',
+'nav.problem':'The Problem','nav.stimme':'Voice','nav.ablauf':'How it works','nav.live':'Live Dashboard','nav.preise':'Pricing','nav.faq':'FAQ','nav.kontakt':'Contact','nav.cta':'Request pilot',
+'hero.badge':'🚀 Pilot program — 3 spots available','hero.h1':'Your phone <span class="accent">always</span> answers. Even at 10 pm.','hero.lead':'Zeynah reads messages, checks for typos and asks when things are unclear — before a mistake gets expensive. Around the clock. In 20+ languages.','hero.cta1':'Request pilot →','hero.cta2':'Open live dashboard',
+'sos.h2':'What Zeynah finds in a single morning','sos.p':'These four warnings come from real businesses. Not made up.',
+'sos1.h4':'SOS · Typo','sos1.big':'2,000 instead of 200','sos1.p':'One zero too many in the request. Probably a typo.',
+'sos2.h4':'SOS · Open invoices','sos2.big':'€42,295','sos2.p':'21 days overdue. Right at the top — not hidden.',
+'sos3.h4':'SOS · Cold chain','sos3.big':'7.9 °C','sos3.p':'Measured three days ago. The correction is still missing.',
+'sos4.h4':'SOS · Batch','sos4.big':'3 days','sos4.p':'Past the date — and not blocked yet.',
+'steps.h2':'Three steps. No decision without a human.','steps.p':'Zeynah reads, checks, asks — but never decides alone.',
+'step1.h3':'Read','step1.p':'WhatsApp, voice message, email, phone, PDF. Zeynah recognizes everything — and turns it into a clean order.',
+'step2.h3':'Check','step2.p':'Unknown sender, unusual quantity, possible mistake: Zeynah flags it in red and suggests.',
+'step3.h3':'Approve','step3.p':'Only when a human confirms does the order exist. Zeynah never acts on its own.',
+'order.h2':'How a request works','order.p':'The customer writes as they always do — short, casual, no form.',
+'o1.label':'Customer writes','o1.bubble':'Morning. For tomorrow: 400 veal 20s and 200 turkey 15s.',
+'o2.label':'Zeynah recognizes','o2.bubble':'Sample Business North, delivery Thursday.<br><strong>400 kg veal kebab 20 kg<br>200 kg turkey kebab 15 kg<br>€5,340 net.</strong> Approve?',
+'o3.label':'Approval','o3.bubble':'Yes',
+'o4.label':'The zero mistake','o4.bubble':'<strong>Caution: 2,000 kg.</strong><br>Probably one zero too many — ask again?',
+'voice.h2':'Listen for yourself — the voice of Zeynah','voice.p':'Sounds like a human. Works like a team. Real conversations, no studio recordings.',
+'v1.label':'🥙 Wholesale','v1.h3':'Order by voice message','v1.p':'The customer speaks as they always do — Zeynah captures, checks and confirms.',
+'v2.label':'🍽️ Restaurant','v2.h3':'Order by phone','v2.p':'Orders, reservations, questions — Zeynah takes them and confirms.',
+'dash.h2':'The live system — your cockpit','dash.p':'From goods received to paid invoice. All on one screen.',
+'dash.sub':'Demo view','dash.upd':'● Updated every 30 seconds',
+'d1.h5':'Are we making money?','d1.big':'€12,480','d1.p':'Revenue today · 23% margin',
+'d2.h5':'Money & orders','d2.big':'18','d2.p':'Orders today · 15 approved',
+'d3.h5':'Open invoices','d3.big':'€42,295','d3.p':'21 days overdue · Dunning ready',
+'d4.h5':'Who to call','d4.big':'3','d4.p':'Callbacks due · with talking points',
+'d5.h5':'Cold chain','d5.big':'4.2 °C','d5.p':'All measuring points on track',
+'d6.h5':'On the road — right now','d6.big':'6','d6.p':'Routes active · 2 done before noon',
+'d7.h5':'Accounting','d7.p':'Export checked · ready',
+'d8.h5':'Data protection','d8.big':'GDPR','d8.p':'Access & deletion auditable',
+'dash.cta':'Open the real live dashboard →','dash.note':'The original runs on core.zeynah.cloud — opens in a new tab. Read-only demo access.',
+'dash.bereiche':'11 areas: Cockpit, Phone, WhatsApp, Orders, Customers, Prices, Production, Cold storage, Routes, Invoices, Complaints',
+'vid.h4':'📹 Every area, one by one','vid.p':'First the problem. Then the solution. Area by area.',
+'price.h2':'Pricing that pays off','price.p':'Cancel monthly at month’s end. No minimum term.',
+'roi.h3':'One wrong decision prevented = more than a year of Zeynah Pro','roi.p':'2,000 instead of 200. €19,000 of goods nobody ordered. <span class="roi-highlight">Zeynah spots deviations instantly and asks.</span>',
+'permonth':'€/month','popular':'MOST POPULAR',
+'p1.note':'One location, up to ~300 requests/month','p1.f1':'Request intake via WhatsApp & email','p1.f2':'Typo & duplicate check','p1.f3':'Items, customers, price tiers','p1.f4':'Unlimited staff',
+'p2.note':'The standard for a running business','p2.f1':'Everything in Start','p2.f2':'Voice messages read aloud','p2.f3':'Batches, traceability','p2.f4':'Cold chain & measuring plan','p2.f5':'Open invoices & dunning','p2.f6':'Four languages in the interface',
+'p3.note':'Multiple locations or branches','p3.f1':'Everything in Pro','p3.f2':'Multiple locations & warehouses','p3.f3':'Custom integrations with existing systems','p3.f4':'Dedicated personal contact',
+'setup':'<strong>Setup is charged once: €3,900 – €9,900</strong> — depending on items, customers and processes. We handle migration from Excel, legacy systems or lists. <strong style="color:var(--accent-deep);">With a 12-month term we credit half against the monthly rates.</strong> All prices net. From go-live to the first checked request: approx. 10 working days.',
+'form.h3':'🚀 Request a pilot spot','form.p':'Only 3 spots available. We reply within 24 hours.',
+'f.firma':'Company name *','f.name':'Your name *','f.tel':'Phone *','f.mail':'Email *','f.branche':'Industry *','f.woche':'Approx. requests per week','f.problem':'What is your biggest problem with request intake?',
+'form.btn':'Send request →','form.note':'🔒 Your data is processed GDPR-compliant. No spam, no sharing.',
+'ph.firma':'e.g. Sample Company Ltd.','ph.name':'First and last name','ph.problem':'e.g. WhatsApp requests at night that nobody finds in the morning...',
+'sel.waehlen':'Please select','opt.gross':'Wholesale','opt.hotel':'Hotel & Hospitality','opt.kanzlei':'Law firm','opt.immo':'Real estate','opt.gesund':'Health & Care','opt.versi':'Insurance','opt.b2b':'B2B & Sales','opt.sonst':'Other',
+'faq.h2':'What decision-makers really ask','faq.p':'Everything owners want to know before starting.',
+'q1':'Can Zeynah connect to my existing system?','a1':'Yes. Zeynah works with common systems — from Excel and Lexware to custom ERP solutions. In the Premium plan we also build custom interfaces.',
+'q2':'What happens if the internet goes down?','a2':'Zeynah runs in the cloud with redundant infrastructure. Requests are caught up automatically. In an emergency you can always fall back to your local software.',
+'q3':'Who trains my team?','a3':'We handle it completely. A 2-hour training on site or via video. We’re reachable daily for the first 4 weeks.',
+'q4':'How does the pilot work?','a4':'We set up Zeynah with your real data, customers and processes. You test with real requests from your daily business. At the end you decide at your leisure — no drama.',
+'q5':'Does it work in Turkish too?','a5':'Yes. Zeynah understands and replies in German, Turkish, English and Arabic. The interface is available in all four languages.',
+'q6':'What about data protection?','a6':'GDPR-compliant, servers in the EU, all data encrypted. We built it in from the start — not retrofitted.',
+'q7':'What happens if Zeynah can’t answer a question?','a7':'Zeynah recognizes that, arranges a callback or hands the call to your human colleague — automatically and seamlessly for the caller.',
+'kontakt.h2':'Ready to never miss a request again?','kontakt.p':'Talk to us — via the channel that suits you.','kontakt.btn':'Request pilot spot →',
+'k1.p':'Message us directly — reply in minutes','k2.h4':'Phone','k3.h4':'Book a demo','k3.p':'15 minutes — live, in your industry','k4.p':'info@zeynah.cloud — reply within 24 h',
+'footer.l1':'© 2026 Zeynah — Hamburg · 20+ languages · GDPR-compliant · reachable 24/7',
+'alert':'Thanks for your request! We’ll get back to you within 24 hours.'
+},
+ar: {
+'cookie.text':'🍪 نستخدم فقط ملفات تعريف الارتباط الضرورية تقنياً.','cookie.btn':'فهمت',
+'gate.btn':'🎙️ ابدأ المساعد الصوتي','gate.note':'سيتم تحميل خدمة من ElevenLabs (الولايات المتحدة).','gate.privacy':'الخصوصية',
+'nav.problem':'المشكلة','nav.stimme':'الصوت','nav.ablauf':'كيف يعمل','nav.live':'لوحة مباشرة','nav.preise':'الأسعار','nav.faq':'الأسئلة','nav.kontakt':'اتصل بنا','nav.cta':'اطلب التجربة',
+'hero.badge':'🚀 البرنامج التجريبي — 3 أماكن متاحة','hero.h1':'هاتفك يرد <span class="accent">دائماً</span>. حتى في الساعة 10 مساءً.','hero.lead':'زينة تقرأ الرسائل، وتتحقق من الأخطاء المطبعية، وتسأل عند وجود غموض — قبل أن يصبح الخطأ مكلفاً. على مدار الساعة. بأكثر من 20 لغة.','hero.cta1':'اطلب التجربة ←','hero.cta2':'افتح اللوحة المباشرة',
+'sos.h2':'ما تجده زينة في صباح واحد','sos.p':'هذه التحذيرات الأربعة من شركات حقيقية. غير مختلقة.',
+'sos1.h4':'SOS · خطأ مطبعي','sos1.big':'2.000 بدلاً من 200','sos1.p':'صفر زائد في الطلب. على الأرجح خطأ مطبعي.',
+'sos2.h4':'SOS · فواتير مفتوحة','sos2.big':'42.295 €','sos2.p':'متأخرة 21 يوماً. في الأعلى — غير مخفية.',
+'sos3.h4':'SOS · سلسلة التبريد','sos3.big':'7,9 °C','sos3.p':'قِيست قبل ثلاثة أيام. التصحيح ما زال مفقوداً.',
+'sos4.h4':'SOS · تشغيلة','sos4.big':'3 أيام','sos4.p':'تجاوزت التاريخ — ولم يتم حظرها بعد.',
+'steps.h2':'ثلاث خطوات. لا قرار دون إنسان.','steps.p':'زينة تقرأ وتتحقق وتسأل — لكنها لا تقرر وحدها أبداً.',
+'step1.h3':'القراءة','step1.p':'واتساب، رسالة صوتية، بريد إلكتروني، هاتف، PDF. زينة تتعرف على كل شيء — وتحوّله إلى طلب منظم.',
+'step2.h3':'التحقق','step2.p':'مرسل مجهول، كمية غير معتادة، خطأ محتمل: زينة تعلّمه بالأحمر وتقترح.',
+'step3.h3':'الموافقة','step3.p':'الطلب لا يوجد إلا عندما يؤكده إنسان. زينة لا تتصرف من تلقاء نفسها أبداً.',
+'order.h2':'هكذا يتم الطلب','order.p':'العميل يكتب كما يكتب دائماً — باختصار، بشكل عابر، بدون نموذج.',
+'o1.label':'العميل يكتب','o1.bubble':'صباح الخير. للغد: 400 عجل 20 و200 ديك رومي 15.',
+'o2.label':'زينة تتعرف','o2.bubble':'المعمل النموذجي الشمال، التسليم الخميس.<br><strong>400 كغ دونر عجل 20 كغ<br>200 كغ دونر ديك رومي 15 كغ<br>5.340 € صافي.</strong> موافقة؟',
+'o3.label':'الموافقة','o3.bubble':'نعم',
+'o4.label':'خطأ الصفر','o4.bubble':'<strong>تنبيه: 2.000 كغ.</strong><br>على الأرجح صفر زائد — هل نسأل؟',
+'voice.h2':'اسمع بنفسك — صوت زينة','voice.p':'تبدو كإنسان. تعمل كفريق. محادثات حقيقية، وليست تسجيلات استوديو.',
+'v1.label':'🥙 تجارة الجملة','v1.h3':'الطلب برسالة صوتية','v1.p':'العميل يتحدث كما يتحدث دائماً — زينة تسجل وتتحقق وتؤكد.',
+'v2.label':'🍽️ المطاعم','v2.h3':'الطلب عبر الهاتف','v2.p':'الطلبات والحجوزات والأسئلة — زينة تستقبلها وتؤكدها.',
+'dash.h2':'النظام المباشر — لوحة قيادتك','dash.p':'من استلام البضاعة إلى الفاتورة المدفوعة. كل شيء على شاشة واحدة.',
+'dash.sub':'عرض تجريبي','dash.upd':'● يُحدَّث كل 30 ثانية',
+'d1.h5':'هل نربح المال؟','d1.big':'12.480 €','d1.p':'إيرادات اليوم · هامش 23%',
+'d2.h5':'المال والطلبات','d2.big':'18','d2.p':'طلبات اليوم · 15 معتمدة',
+'d3.h5':'فواتير مفتوحة','d3.big':'42.295 €','d3.p':'متأخرة 21 يوماً · التذكير جاهز',
+'d4.h5':'من نتصل به','d4.big':'3','d4.p':'مكالمات مستحقة · مع نقاط البداية',
+'d5.h5':'سلسلة التبريد','d5.big':'4,2 °C','d5.p':'جميع نقاط القياس ضمن الخطة',
+'d6.h5':'في الطريق — الآن','d6.big':'6','d6.p':'جولات نشطة · 2 تنتهي قبل الظهر',
+'d7.h5':'المحاسبة','d7.p':'تم التحقق من التصدير · جاهز',
+'d8.h5':'حماية البيانات','d8.big':'GDPR','d8.p':'الاطلاع والحذف قابلان للتدقيق',
+'dash.cta':'افتح اللوحة الحقيقية ←','dash.note':'الأصل يعمل على core.zeynah.cloud — يفتح في علامة تبويب جديدة. وصول تجريبي للقراءة فقط.',
+'dash.bereiche':'11 مجالاً: لوحة القيادة، الهاتف، واتساب، الطلبات، العملاء، الأسعار، الإنتاج، غرفة التبريد، الجولات، الفواتير، الشكاوى',
+'vid.h4':'📹 كل مجال على حدة','vid.p':'أولاً المشكلة. ثم الحل. مجالاً بمجال.',
+'price.h2':'أسعار تستحق','price.p':'إلغاء شهري في نهاية الشهر. لا حد أدنى للمدة.',
+'roi.h3':'منع قرار خاطئ واحد = أكثر من سنة من Zeynah Pro','roi.p':'2.000 بدلاً من 200. بضاعة بقيمة 19.000 € لم يطلبها أحد. <span class="roi-highlight">زينة تكتشف الانحرافات فوراً وتسأل.</span>',
+'permonth':'€/شهر','popular':'الأكثر شعبية',
+'p1.note':'موقع واحد، حتى ~300 طلب شهرياً','p1.f1':'استقبال الطلبات عبر واتساب والبريد','p1.f2':'فحص الأخطاء المطبعية والتكرار','p1.f3':'الأصناف، العملاء، شرائح الأسعار','p1.f4':'موظفون غير محدودين',
+'p2.note':'المعيار لشركة عاملة','p2.f1':'كل ما في البداية','p2.f2':'قراءة الرسائل الصوتية','p2.f3':'التشغيلات، التتبع','p2.f4':'سلسلة التبريد وخطة القياس','p2.f5':'الفواتير المفتوحة والتذكير','p2.f6':'أربع لغات في الواجهة',
+'p3.note':'عدة مواقع أو فروع','p3.f1':'كل ما في Pro','p3.f2':'مواقع ومستودعات متعددة','p3.f3':'تكاملات مخصصة مع الأنظمة القائمة','p3.f4':'جهة اتصال شخصية ثابتة',
+'setup':'<strong>يُحتسب الإعداد مرة واحدة: 3.900 – 9.900 €</strong> — حسب الأصناف والعملاء والعمليات. نتولى الترحيل من Excel أو النظام القديم أو القوائم. <strong style="color:var(--accent-deep);">مع مدة 12 شهراً نخصم النصف من الأقساط الشهرية.</strong> جميع الأسعار صافية. من الانطلاق إلى أول طلب مُتحقق منه: حوالي 10 أيام عمل.',
+'form.h3':'🚀 اطلب مكاناً تجريبياً','form.p':'3 أماكن فقط متاحة. نرد خلال 24 ساعة.',
+'f.firma':'اسم الشركة *','f.name':'اسمك *','f.tel':'الهاتف *','f.mail':'البريد الإلكتروني *','f.branche':'القطاع *','f.woche':'عدد الطلبات أسبوعياً تقريباً','f.problem':'ما أكبر مشكلة لديك في استقبال الطلبات؟',
+'form.btn':'أرسل الطلب ←','form.note':'🔒 تُعالج بياناتك وفق GDPR. لا رسائل مزعجة، لا مشاركة.',
+'ph.firma':'مثال: شركة النموذج','ph.name':'الاسم الأول والأخير','ph.problem':'مثال: طلبات واتساب الليلية التي لا يجدها أحد صباحاً...',
+'sel.waehlen':'يرجى الاختيار','opt.gross':'تجارة الجملة','opt.hotel':'الفنادق والمطاعم','opt.kanzlei':'مكتب محاماة','opt.immo':'العقارات','opt.gesund':'الصحة والرعاية','opt.versi':'التأمين','opt.b2b':'المبيعات B2B','opt.sonst':'أخرى',
+'faq.h2':'ما يسأله صنّاع القرار حقاً','faq.p':'كل ما يريد أصحاب الشركات معرفته قبل البدء.',
+'q1':'هل يمكن لزينة الاتصال بنظامي الحالي؟','a1':'نعم. زينة تتكامل مع الأنظمة الشائعة — من Excel إلى Lexware وحتى حلول ERP المخصصة. في باقة Premium نبني أيضاً واجهات مخصصة.',
+'q2':'ماذا يحدث إذا انقطع الإنترنت؟','a2':'تعمل زينة في السحابة ببنية تحتية احتياطية. تُستكمل الطلبات تلقائياً. وفي الطوارئ يمكنك دائماً الرجوع إلى برنامجك المحلي.',
+'q3':'من يدرّب فريقي؟','a3':'نتولى ذلك بالكامل. تدريب لمدة ساعتين في الموقع أو عبر الفيديو. نحن متاحون يومياً في الأسابيع الأربعة الأولى.',
+'q4':'كيف تتم التجربة؟','a4':'نُعدّ زينة ببياناتك وعملائك وعملياتك الحقيقية. تختبرها بطلبات حقيقية من يومك. وفي النهاية تقرر بهدوء — بدون دراما.',
+'q5':'هل تعمل بالتركية أيضاً؟','a5':'نعم. زينة تفهم وترد بالألمانية والتركية والإنجليزية والعربية. الواجهة متاحة باللغات الأربع.',
+'q6':'ماذا عن حماية البيانات؟','a6':'متوافق مع GDPR، خوادم في الاتحاد الأوروبي، جميع البيانات مشفرة. بنيناها منذ البداية — وليست إضافة لاحقة.',
+'q7':'ماذا يحدث إذا لم تستطع زينة الإجابة عن سؤال؟','a7':'تدرك زينة ذلك، فترتب معاودة اتصال أو تحوّل المكالمة إلى موظفك — تلقائياً ودون انقطاع للمتصل.',
+'kontakt.h2':'مستعد لألا تفوتك أي طلبية بعد الآن؟','kontakt.p':'تحدث معنا — عبر القناة التي تناسبك.','kontakt.btn':'اطلب مكاناً تجريبياً ←',
+'k1.p':'راسلنا مباشرة — الرد خلال دقائق','k2.h4':'الهاتف','k3.h4':'احجز عرضاً','k3.p':'15 دقيقة — مباشرة، في مجالك','k4.p':'info@zeynah.cloud — الرد خلال 24 ساعة',
+'footer.l1':'© 2026 زينة — هامبورغ · أكثر من 20 لغة · متوافق مع GDPR · متاح 24/7',
+'alert':'شكراً لطلبك! سنعود إليك خلال 24 ساعة.'
+}
+};
+
+/* Deutsche Originale beim Laden sichern */
+document.querySelectorAll('[data-i18n]').forEach(el => { el.dataset.de = el.innerHTML; });
+document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.dataset.dePh = el.placeholder; });
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  localStorage.setItem('zlang', lang);
+  const dict = I18N[lang] || {};
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (lang === 'de') el.innerHTML = el.dataset.de;
+    else if (dict[k] !== undefined) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const k = el.dataset.i18nPh;
+    if (lang === 'de') el.placeholder = el.dataset.dePh;
+    else if (dict[k] !== undefined) el.placeholder = dict[k];
+  });
+  /* Bereiche-Video in der passenden Sprache laden (AR → EN) */
+  const v = document.getElementById('bereicheVideo');
+  if (v) {
+    const vl = lang === 'de' ? 'de' : lang === 'tr' ? 'tr' : 'en';
+    const src = 'https://zeynah.cloud/videos/grosshandel/bereiche_' + vl + '.mp4';
+    if (!v.currentSrc.includes('bereiche_' + vl)) { v.src = src; v.load(); }
+  }
+}
+/* Deutsche Originaltexte sichern, damit der Rückwechsel nach DE funktioniert */
+document.querySelectorAll('[data-i18n]').forEach(el => { el.dataset.de = el.innerHTML; });
+document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.dataset.dePh = el.placeholder; });
+document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+if (localStorage.getItem('zlang') && localStorage.getItem('zlang') !== 'de') setLang(localStorage.getItem('zlang'));
+
+/* FAQ Akkordeon */
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.closest('.faq-item');
@@ -1026,6 +1251,7 @@ document.querySelectorAll('.faq-q').forEach(q => {
     if (!isOpen) item.classList.add('open');
   });
 });
+/* Sanftes Scrollen */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', function(e) {
     e.preventDefault();
@@ -1033,18 +1259,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
-function handleSubmit(e) { e.preventDefault(); alert('Danke für Ihre Anfrage! Wir melden uns innerhalb von 24 Stunden.'); }
-function setLang(lang) { document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); }
+function handleSubmit(e) {
+  e.preventDefault();
+  const lang = document.documentElement.lang;
+  alert((I18N[lang] && I18N[lang]['alert']) || 'Danke für Ihre Anfrage! Wir melden uns innerhalb von 24 Stunden.');
+}
 function toggleNav() { const links = document.getElementById('navLinks'); links.style.display = links.style.display === 'flex' ? 'none' : 'flex'; links.style.position = 'absolute'; links.style.top = '60px'; links.style.left = '0'; links.style.right = '0'; links.style.flexDirection = 'column'; links.style.background = 'rgba(28,31,36,0.97)'; links.style.padding = '20px'; links.style.gap = '16px'; }
 
-/* ElevenLabs Sprachberatung — Zwei-Klick-Lösung (DSGVO):
-   Erst nach ausdrücklicher Zustimmung wird das Skript nachgeladen
-   und eine Verbindung zu ElevenLabs aufgebaut. */
+/* ElevenLabs Sprachberatung — Zwei-Klick-Lösung (DSGVO) */
 function startVoice() {
   document.getElementById('voiceGate').style.display = 'none';
   var w = document.createElement('elevenlabs-convai');
   w.setAttribute('agent-id', 'agent_3201khxdc18wfrabzjjpqtes42jz');
-  w.setAttribute('override-language', 'de');
+  w.setAttribute('override-language', document.documentElement.lang || 'de');
   w.setAttribute('action-text', 'Zeynah fragen');
   w.setAttribute('start-call-text', 'Gespräch starten');
   w.setAttribute('end-call-text', 'Gespräch beenden');
