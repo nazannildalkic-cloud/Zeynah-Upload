@@ -9,6 +9,7 @@
 /* ═══════════════════════════════════════════════════════════════
    ZEYNAH — DESIGN-SYSTEM
    Anthrazit statt Schwarz. Creme statt Weiss. Ein Blau.
+   Glasige Kacheln, schwebend.
    Palette: --bg #1c1f24 · Creme #ece7dd · Blau #0071e3/#0057ad
    ═══════════════════════════════════════════════════════════════ */
 
@@ -16,9 +17,9 @@
   /* Anthrazit — KEIN reines Schwarz */
   --bg: #1c1f24;
   --bg-elevated: #24272d;
-  --glass: rgba(40, 44, 51, 0.72);
-  --glass-border: rgba(236, 231, 221, 0.10);
-  --glass-border-hover: rgba(236, 231, 221, 0.18);
+  --glass: linear-gradient(160deg, rgba(58, 63, 72, 0.55), rgba(36, 40, 47, 0.55));
+  --glass-border: rgba(236, 231, 221, 0.12);
+  --glass-border-hover: rgba(236, 231, 221, 0.22);
 
   /* Creme / Off-White — KEIN reines Weiss */
   --text: #ece7dd;
@@ -41,8 +42,8 @@
   --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px;
   --space-3xl: 64px; --space-4xl: 100px;
   --r-sm: 12px; --r-md: 16px; --r-lg: 20px; --r-xl: 24px;
-  --shadow-glass: 0 8px 32px rgba(12,14,17,0.5), inset 0 1px 0 rgba(236,231,221,0.05);
-  --shadow-hover: 0 20px 60px rgba(12,14,17,0.65), inset 0 1px 0 rgba(236,231,221,0.08);
+  --shadow-glass: 0 18px 50px rgba(10,12,15,0.55), inset 0 1px 0 rgba(236,231,221,0.09);
+  --shadow-hover: 0 34px 80px rgba(10,12,15,0.7), inset 0 1px 0 rgba(236,231,221,0.12);
   --t: 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
@@ -57,11 +58,11 @@ body {
 .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
 img, video { max-width: 100%; display: block; }
 
-/* GLASS */
+/* GLASS — glasig, durchscheinend, schwebend */
 .glass {
   background: var(--glass);
-  backdrop-filter: blur(40px) saturate(1.8);
-  -webkit-backdrop-filter: blur(40px) saturate(1.8);
+  backdrop-filter: blur(50px) saturate(2);
+  -webkit-backdrop-filter: blur(50px) saturate(2);
   border: 1px solid var(--glass-border);
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-glass);
@@ -69,8 +70,33 @@ img, video { max-width: 100%; display: block; }
 }
 .glass:hover {
   border-color: var(--glass-border-hover);
-  transform: translateY(-6px);
+  transform: translateY(-10px);
   box-shadow: var(--shadow-hover);
+}
+
+/* SCHWEBENDE KACHELN */
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+.sos-card, .step-card, .voice-card, .price-card, .contact-card, .dash-tile {
+  animation: cardFloat 7s ease-in-out infinite;
+}
+.sos-card:nth-child(2), .step-card:nth-child(2), .voice-card:nth-child(2),
+.price-card:nth-child(2), .contact-card:nth-child(2), .dash-tile:nth-child(2) { animation-delay: -1.2s; }
+.sos-card:nth-child(3), .step-card:nth-child(3), .contact-card:nth-child(3), .dash-tile:nth-child(3) { animation-delay: -2.4s; }
+.sos-card:nth-child(4), .contact-card:nth-child(4), .dash-tile:nth-child(4) { animation-delay: -3.6s; }
+.dash-tile:nth-child(5) { animation-delay: -4.2s; }
+.dash-tile:nth-child(6) { animation-delay: -5s; }
+.dash-tile:nth-child(7) { animation-delay: -5.8s; }
+.dash-tile:nth-child(8) { animation-delay: -6.4s; }
+.sos-card:hover, .step-card:hover, .voice-card:hover,
+.price-card:hover, .contact-card:hover, .dash-tile:hover {
+  animation: none;
+  transform: translateY(-10px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sos-card, .step-card, .voice-card, .price-card, .contact-card, .dash-tile { animation: none; }
 }
 
 /* NAV */
@@ -191,6 +217,29 @@ img, video { max-width: 100%; display: block; }
 .voice-card audio { width: 100%; height: 44px; border-radius: 999px; outline: none; }
 .voice-card audio::-webkit-media-controls-panel { background: var(--bg-elevated); }
 
+/* DASHBOARD — Vorschau des echten Cockpits */
+.dash { padding: 40px; border-radius: var(--r-xl); }
+.dash-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+.dash-title { font-size: 18px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 10px; }
+.dash-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); flex-shrink: 0; }
+.dash-sub { font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.dash-updated { font-size: 12px; color: var(--green); font-weight: 600; }
+.dash-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.dash-tile {
+  background: rgba(236,231,221,0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px; padding: 22px;
+  transition: all var(--t);
+}
+.dash-tile:hover { border-color: var(--glass-border-hover); box-shadow: var(--shadow-hover); }
+.dash-tile h5 { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 10px; }
+.dash-big { font-size: 28px; font-weight: 700; line-height: 1; margin-bottom: 8px; color: var(--text); }
+.dash-tile p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
+.dash-tile.warn .dash-big { color: var(--yellow); }
+.dash-tile.ok .dash-big { color: var(--green); }
+.dash-cta { text-align: center; margin-top: 36px; }
+.dash-cta p { margin-top: 14px; font-size: 13px; color: var(--text-muted); }
+
 /* PRICING */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
 .price-card { padding: 48px 32px; text-align: center; }
@@ -271,12 +320,6 @@ img, video { max-width: 100%; display: block; }
 .cookie-banner p { font-size: 13px; color: var(--text-secondary); }
 .cookie-btn { padding: 8px 20px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; background: var(--accent); color: var(--creme-auf-blau); }
 
-/* LIVE SYSTEM */
-.live-box { border-radius: 24px; overflow: hidden; position: relative; }
-.live-box iframe { width: 100%; height: 500px; border: none; background: var(--bg-elevated); }
-.live-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(20, 23, 28, 0.82); backdrop-filter: blur(8px); cursor: pointer; transition: opacity 0.3s; }
-.live-overlay:hover { background: rgba(20, 23, 28, 0.68); }
-
 /* WHATSAPP FLOAT */
 .wa-float {
   position: fixed; bottom: 28px; left: 28px; z-index: 9000;
@@ -319,6 +362,7 @@ elevenlabs-convai { z-index: 60; }
   .sos-grid { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
   .voice-grid { grid-template-columns: 1fr; }
+  .dash-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid { grid-template-columns: 1fr; }
   .price-card.popular { transform: none; }
   .roi-box { flex-direction: column; text-align: center; }
@@ -330,6 +374,8 @@ elevenlabs-convai { z-index: 60; }
 @media (max-width: 640px) {
   .hero h1 { font-size: 36px; }
   .section { padding: 64px 0; }
+  .dash { padding: 24px; }
+  .dash-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .order-item { flex-direction: column; gap: 8px; }
   .order-time { text-align: left; }
@@ -460,24 +506,6 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- ERKLÄRVIDEO -->
-<section class="section">
-  <div class="container">
-    <div class="video-box">
-      <video controls poster="https://zeynah.cloud/videos/standbilder/grosstag.jpg">
-        <source src="https://zeynah.cloud/videos/grosshandel/erklaer_de.mp4" type="video/mp4">
-      </video>
-      <div class="video-info">
-        <div>
-          <h4>📹 Ein Tag mit Zeynah</h4>
-          <p>Von der Anfrage um 22 Uhr bis zur Zahl am nächsten Morgen.</p>
-        </div>
-        <div class="video-meta">3:06 Min · HD</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- STEPS -->
 <section class="section" id="ablauf">
   <div class="container">
@@ -569,21 +597,63 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
-<!-- LIVE SYSTEM / DASHBOARD -->
+<!-- LIVE-DASHBOARD — Vorschau des echten Cockpits -->
 <section class="section" id="live">
   <div class="container">
     <div class="section-head">
-      <h2>Das Live-System — Ihr Dashboard</h2>
-      <p>Keine Mockups. Das ist die echte Oberfläche. Klicken Sie rein.</p>
+      <h2>Das Live-System — Ihr Cockpit</h2>
+      <p>Wareneingang bis bezahlte Rechnung. Alles auf einem Schirm.</p>
     </div>
-    <div class="live-box glass">
-      <iframe src="about:blank" id="liveIframe" title="Zeynah Live-Dashboard"></iframe>
-      <div class="live-overlay" id="liveOverlay" onclick="loadLive()">
-        <div style="text-align:center;">
-          <div style="font-size:56px;margin-bottom:20px;">🔵</div>
-          <p style="font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;">Live-Dashboard starten</p>
-          <p style="color:var(--text-secondary);">Echtes System · Demo-Zugang · nur lesend</p>
+    <div class="dash glass">
+      <div class="dash-head">
+        <div class="dash-title"><span class="dash-dot"></span>ZEYNAH Cockpit <span class="dash-sub">Demo-Ansicht</span></div>
+        <div class="dash-updated">● Aktualisiert alle 30 Sekunden</div>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-tile">
+          <h5>Verdienen wir Geld?</h5>
+          <div class="dash-big">12.480 €</div>
+          <p>Umsatz heute · Marge 23 %</p>
         </div>
+        <div class="dash-tile">
+          <h5>Geld &amp; Aufträge</h5>
+          <div class="dash-big">18</div>
+          <p>Aufträge heute · 15 freigegeben</p>
+        </div>
+        <div class="dash-tile warn">
+          <h5>Offene Posten</h5>
+          <div class="dash-big">42.295 €</div>
+          <p>21 Tage überfällig · Mahnlauf bereit</p>
+        </div>
+        <div class="dash-tile">
+          <h5>Wen anrufen</h5>
+          <div class="dash-big">3</div>
+          <p>Rückrufe fällig · mit Gesprächseinstieg</p>
+        </div>
+        <div class="dash-tile ok">
+          <h5>Kühlkette</h5>
+          <div class="dash-big">4,2 °C</div>
+          <p>Alle Messpunkte im Plan</p>
+        </div>
+        <div class="dash-tile">
+          <h5>Unterwegs — Stand jetzt</h5>
+          <div class="dash-big">6</div>
+          <p>Touren aktiv · 2 vor 12 Uhr fertig</p>
+        </div>
+        <div class="dash-tile">
+          <h5>Buchhaltung</h5>
+          <div class="dash-big">DATEV</div>
+          <p>Export geprüft · bereit</p>
+        </div>
+        <div class="dash-tile">
+          <h5>Datenschutz</h5>
+          <div class="dash-big">DSGVO</div>
+          <p>Auskunft &amp; Löschung prüfbar</p>
+        </div>
+      </div>
+      <div class="dash-cta">
+        <a href="https://core.zeynah.cloud/cockpit#k=zeynah_demo_87868bb406070db4791bd8df6d40" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Echtes Live-Dashboard öffnen →</a>
+        <p>Das Original läuft auf core.zeynah.cloud — öffnet in einem neuen Tab. Nur lesender Demo-Zugang.</p>
       </div>
     </div>
     <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--text-muted);">11 Bereiche: Cockpit, Telefon, WhatsApp, Aufträge, Kunden, Preise, Produktion, Kühlhaus, Touren, Rechnungen, Reklamationen</p>
@@ -882,9 +952,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 function handleSubmit(e) { e.preventDefault(); alert('Danke für Ihre Anfrage! Wir melden uns innerhalb von 24 Stunden.'); }
 function setLang(lang) { document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); }
 function toggleNav() { const links = document.getElementById('navLinks'); links.style.display = links.style.display === 'flex' ? 'none' : 'flex'; links.style.position = 'absolute'; links.style.top = '60px'; links.style.left = '0'; links.style.right = '0'; links.style.flexDirection = 'column'; links.style.background = 'rgba(28,31,36,0.97)'; links.style.padding = '20px'; links.style.gap = '16px'; }
-
-/* Live-Dashboard: echtes System, Demo-Zugang (nur lesend) */
-function loadLive() { document.getElementById('liveIframe').src = 'https://core.zeynah.cloud/cockpit#k=zeynah_demo_87868bb406070db4791bd8df6d40'; document.getElementById('liveOverlay').style.display = 'none'; }
 
 /* ElevenLabs Sprachberatung — Zwei-Klick-Lösung (DSGVO):
    Erst nach ausdrücklicher Zustimmung wird das Skript nachgeladen
