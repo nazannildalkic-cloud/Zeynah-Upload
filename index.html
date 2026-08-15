@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zeynah — Ihre KI-Assistentin für Unternehmen. 24/7. In 20+ Sprachen.</title>
+<meta name="description" content="Zeynah liest Nachrichten, prüft Tippfehler und fragt nach — bevor ein Fehler teuer wird. 6 Wochen Pilotprogramm kostenlos.">
+<style>
+/* ════════════════════════════════════════════════════════
+   ZEYNAH CORPORATE — ALLGEMEINE PILOT-LANDINGPAGE
+   Kein Branchen-Fokus. Für alle Unternehmen.
+   ════════════════════════════════════════════════════════ */
+
+:root {
+  --z-bg: #0a0a0f;
+  --z-bg-elevated: #0f0f17;
+  --z-surface: #13131f;
+  --z-surface-hover: #1a1a2e;
+  --z-border: #1e1e32;
+  --z-border-hover: #2a2a45;
+  --z-text: #f0f0f5;
+  --z-text-secondary: #9ca3af;
+  --z-text-muted: #6b7280;
+  --z-accent: #6366f1;
+  --z-accent-light: #818cf8;
+  --z-accent-glow: rgba(99, 102, 241, 0.12);
+  --z-accent-glow-strong: rgba(99, 102, 241, 0.25);
+  --z-green: #10b981;
+  --z-green-bg: rgba(16, 185, 129, 0.1);
+  --z-yellow: #f59e0b;
+  --z-yellow-bg: rgba(245, 158, 11, 0.1);
+  --z-red: #ef4444;
+  --z-red-bg: rgba(239, 68, 68, 0.1);
+  --space-xs: 4px; --space-sm: 8px; --space-md: 16px;
+  --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px;
+  --space-3xl: 64px; --space-4xl: 80px;
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px; --r-full: 999px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+  --shadow-accent: 0 4px 24px rgba(99,102,241,0.2);
+  --t-fast: 0.15s ease; --t-normal: 0.25s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--z-bg); color: var(--z-text);
+  line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1140px; margin: 0 auto; padding: 0 var(--space-lg); }
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* ═══ NAVIGATION ═══ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,15,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--z-border);
+}
+.nav .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.nav-logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--z-text); text-decoration: none; }
+.nav-logo span { color: var(--z-accent); }
+.nav-links { display: flex; align-items: center; gap: var(--space-xl); }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--z-text-secondary); text-decoration: none; transition: color var(--t-fast); }
+.nav-links a:hover { color: var(--z-text); }
+.lang-switch { display: flex; gap: 2px; background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-sm); padding: 3px; }
+.lang-btn { background: transparent; border: none; color: var(--z-text-muted); font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 4px; cursor: pointer; transition: all var(--t-fast); text-transform: uppercase; }
+.lang-btn:hover { color: var(--z-text-secondary); }
+.lang-btn.active { background: var(--z-accent); color: #fff; }
+.nav-cta { background: var(--z-accent); color: #fff; padding: 10px 20px; border-radius: var(--r-sm); font-size: 14px; font-weight: 700; text-decoration: none; transition: all var(--t-fast); border: none; cursor: pointer; box-shadow: var(--shadow-accent); }
+.nav-cta:hover { background: var(--z-accent-light); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(99,102,241,0.35); }
+.nav-toggle { display: none; background: none; border: none; color: var(--z-text); font-size: 24px; cursor: pointer; }
+
+/* ═══ BUTTONS ═══ */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: var(--r-sm); font-size: 15px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: all var(--t-fast); }
+.btn-primary { background: var(--z-accent); color: #fff; box-shadow: var(--shadow-accent); }
+.btn-primary:hover { background: var(--z-accent-light); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(99,102,241,0.35); }
+.btn-secondary { background: transparent; color: var(--z-text); border: 1.5px solid var(--z-border); }
+.btn-secondary:hover { border-color: var(--z-accent); color: var(--z-accent-light); }
+.btn-light { background: #fff; color: var(--z-accent); font-weight: 700; }
+.btn-light:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+.btn-lg { padding: 18px 36px; font-size: 16px; }
+
+/* ═══ HERO ═══ */
+.hero { padding: 140px 0 var(--space-4xl); position: relative; overflow: hidden; background: linear-gradient(180deg, var(--z-bg) 0%, var(--z-bg-elevated) 100%); }
+.hero::before { content: ''; position: absolute; top: -30%; right: -15%; width: 700px; height: 700px; background: radial-gradient(circle, var(--z-accent-glow) 0%, transparent 60%); pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: -20%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(99,102,241,0.04) 0%, transparent 60%); pointer-events: none; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; position: relative; z-index: 1; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--z-accent-glow); border: 1px solid rgba(99,102,241,0.25); color: var(--z-accent-light); padding: 8px 16px; border-radius: var(--r-full); font-size: 13px; font-weight: 700; margin-bottom: var(--space-xl); animation: pulse-badge 3s ease-in-out infinite; }
+@keyframes pulse-badge { 0%,100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.2); } 50% { box-shadow: 0 0 0 8px rgba(99,102,241,0); } }
+.hero h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1.08; letter-spacing: -1.5px; margin-bottom: var(--space-lg); }
+.hero h1 .accent { color: var(--z-accent); }
+.hero-lead { font-size: 18px; color: var(--z-text-secondary); max-width: 480px; margin-bottom: var(--space-xl); line-height: 1.7; }
+.hero-ctas { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+
+/* Hero Video — Zeynah Animation */
+.hero-video-wrap { position: relative; background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+.hero-video-wrap video { width: 100%; aspect-ratio: 16/10; object-fit: cover; background: #000; }
+.hero-video-caption { padding: var(--space-md) var(--space-lg); font-size: 13px; color: var(--z-text-muted); border-top: 1px solid var(--z-border); display: flex; align-items: center; gap: 8px; }
+
+/* ═══ PILOT BANNER ═══ */
+.pilot-banner { background: linear-gradient(135deg, var(--z-accent) 0%, #7c3aed 100%); padding: var(--space-3xl) 0; position: relative; overflow: hidden; }
+.pilot-banner::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+.pilot-banner .container { position: relative; z-index: 1; text-align: center; }
+.pilot-banner h2 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; margin-bottom: var(--space-md); color: #fff; }
+.pilot-banner p { font-size: 17px; color: rgba(255,255,255,0.9); max-width: 640px; margin: 0 auto var(--space-xl); line-height: 1.6; }
+.pilot-stats { display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap; margin-top: var(--space-xl); }
+.pilot-stat { background: rgba(0,0,0,0.2); padding: var(--space-lg) var(--space-xl); border-radius: var(--r-md); min-width: 100px; backdrop-filter: blur(4px); }
+.pilot-stat .num { font-size: 36px; font-weight: 800; color: #fff; line-height: 1; display: block; }
+.pilot-stat .lbl { font-size: 11px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+
+/* ═══ SECTIONS ═══ */
+.section { padding: var(--space-4xl) 0; }
+.section-alt { background: var(--z-bg-elevated); }
+.section-head { text-align: center; max-width: 640px; margin: 0 auto var(--space-3xl); }
+.section-head h2 { font-size: clamp(26px, 3.5vw, 36px); font-weight: 800; margin-bottom: var(--space-md); letter-spacing: -0.5px; line-height: 1.15; }
+.section-head p { font-size: 17px; color: var(--z-text-secondary); line-height: 1.6; }
+
+/* ═══ SOS ALERTS ═══ */
+.sos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); max-width: 800px; margin: 0 auto; }
+.sos-card { background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-lg); padding: var(--space-xl); display: flex; align-items: flex-start; gap: var(--space-md); transition: all var(--t-normal); }
+.sos-card:hover { border-color: var(--z-border-hover); transform: translateY(-2px); }
+.sos-icon { width: 44px; height: 44px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.sos-card:nth-child(1) .sos-icon { background: var(--z-red-bg); }
+.sos-card:nth-child(2) .sos-icon { background: var(--z-yellow-bg); }
+.sos-card:nth-child(3) .sos-icon { background: var(--z-red-bg); }
+.sos-card:nth-child(4) .sos-icon { background: var(--z-yellow-bg); }
+.sos-content h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--z-text-muted); margin-bottom: 4px; }
+.sos-content .sos-big { font-size: 28px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+.sos-card:nth-child(1) .sos-big, .sos-card:nth-child(3) .sos-big { color: var(--z-red); }
+.sos-card:nth-child(2) .sos-big, .sos-card:nth-child(4) .sos-big { color: var(--z-yellow); }
+.sos-content p { font-size: 14px; color: var(--z-text-secondary); }
+
+/* ═══ VIDEO SECTIONS ═══ */
+.video-section { margin-top: var(--space-3xl); }
+.video-box { background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+.video-box video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+.video-info { padding: var(--space-lg) var(--space-xl); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md); }
+.video-info h4 { font-size: 16px; font-weight: 700; }
+.video-info p { font-size: 14px; color: var(--z-text-secondary); }
+.video-meta { display: flex; align-items: center; gap: var(--space-sm); font-size: 13px; color: var(--z-text-muted); }
+.video-meta .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--z-red); animation: pulse-live 2s infinite; }
+@keyframes pulse-live { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+/* ═══ ORDER FLOW ═══ */
+.order-flow { max-width: 600px; margin: 0 auto; }
+.order-item { display: flex; gap: var(--space-md); margin-bottom: var(--space-xl); }
+.order-time { font-size: 12px; color: var(--z-text-muted); font-weight: 600; min-width: 50px; text-align: right; padding-top: 4px; }
+.order-content { flex: 1; }
+.order-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--z-text-muted); margin-bottom: 4px; }
+.order-bubble { background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-md); padding: var(--space-md) var(--space-lg); font-size: 15px; line-height: 1.6; }
+.order-bubble.highlight { border-color: var(--z-accent); background: var(--z-accent-glow); }
+.order-bubble strong { color: var(--z-accent-light); }
+
+/* ═══ STEPS ═══ */
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); counter-reset: step; }
+.step-card { background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-lg); padding: var(--space-xl); position: relative; counter-increment: step; }
+.step-card::before { content: counter(step); position: absolute; top: -18px; left: var(--space-xl); width: 40px; height: 40px; background: var(--z-accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 800; box-shadow: 0 4px 16px rgba(99,102,241,0.3); }
+.step-card h3 { font-size: 18px; font-weight: 700; margin: var(--space-md) 0 var(--space-sm); }
+.step-card p { font-size: 15px; color: var(--z-text-secondary); line-height: 1.65; }
+
+/* ═══ PRICING ═══ */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); align-items: start; }
+.price-card { background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-lg); padding: var(--space-2xl) var(--space-xl); text-align: center; transition: all var(--t-normal); }
+.price-card:hover { border-color: var(--z-border-hover); }
+.price-card.popular { border-color: var(--z-accent); position: relative; transform: scale(1.03); box-shadow: 0 0 0 1px var(--z-accent), var(--shadow-md); }
+.popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--z-accent); color: #fff; font-size: 11px; font-weight: 700; padding: 6px 18px; border-radius: var(--r-full); letter-spacing: 0.5px; white-space: nowrap; }
+.price-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.price-amount { font-size: 42px; font-weight: 800; margin: var(--space-md) 0 4px; line-height: 1; }
+.price-amount span { font-size: 16px; font-weight: 400; color: var(--z-text-secondary); }
+.price-note { font-size: 13px; color: var(--z-text-muted); margin-bottom: var(--space-xl); }
+.price-features { list-style: none; text-align: left; margin-bottom: var(--space-xl); }
+.price-features li { padding: 10px 0; font-size: 14px; color: var(--z-text-secondary); border-bottom: 1px solid var(--z-border); display: flex; align-items: flex-start; gap: 10px; }
+.price-features li:last-child { border-bottom: none; }
+.price-features li::before { content: '✓'; color: var(--z-green); font-weight: 700; flex-shrink: 0; }
+
+/* ROI Box */
+.roi-box { background: linear-gradient(135deg, var(--z-accent-glow) 0%, rgba(99,102,241,0.03) 100%); border: 1px solid rgba(99,102,241,0.2); border-radius: var(--r-lg); padding: var(--space-xl) var(--space-2xl); margin-bottom: var(--space-3xl); display: flex; align-items: center; gap: var(--space-xl); }
+.roi-icon { width: 56px; height: 56px; min-width: 56px; background: var(--z-accent-glow-strong); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-size: 26px; }
+.roi-content h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.roi-content p { font-size: 15px; color: var(--z-text-secondary); line-height: 1.6; }
+.roi-highlight { color: var(--z-accent-light); font-weight: 700; }
+
+/* Setup info */
+.setup-info { text-align: center; margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--z-surface); border-radius: var(--r-lg); border: 1px solid var(--z-border); }
+.setup-info p { font-size: 15px; color: var(--z-text-secondary); line-height: 1.7; }
+.setup-info strong { color: var(--z-text); }
+
+/* ═══ FORM ═══ */
+.form-section { padding: var(--space-4xl) 0; }
+.form-card { background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-lg); padding: var(--space-3xl); max-width: 560px; margin: 0 auto; }
+.form-card h3 { font-size: 24px; font-weight: 700; margin-bottom: 4px; text-align: center; }
+.form-card > p { text-align: center; color: var(--z-text-secondary); margin-bottom: var(--space-xl); font-size: 15px; }
+.form-group { margin-bottom: var(--space-lg); }
+.form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--z-text); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; background: var(--z-bg-elevated); border: 1px solid var(--z-border); border-radius: var(--r-sm); color: var(--z-text); font-size: 15px; transition: all var(--t-fast); font-family: inherit; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--z-accent); box-shadow: 0 0 0 3px var(--z-accent-glow); }
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--z-text-muted); }
+.form-group textarea { min-height: 100px; resize: vertical; }
+.form-submit { width: 100%; margin-top: 8px; }
+.form-note { text-align: center; margin-top: var(--space-md); font-size: 12px; color: var(--z-text-muted); }
+
+/* ═══ FAQ ═══ */
+.faq-item { border-bottom: 1px solid var(--z-border); }
+.faq-q { padding: var(--space-lg) 0; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: color var(--t-fast); user-select: none; }
+.faq-q:hover { color: var(--z-accent-light); }
+.faq-q::after { content: '+'; font-size: 22px; color: var(--z-accent); font-weight: 300; transition: transform var(--t-fast); }
+.faq-item.open .faq-q::after { content: '−'; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+.faq-item.open .faq-a { max-height: 400px; padding-bottom: var(--space-lg); }
+.faq-a p { font-size: 15px; color: var(--z-text-secondary); line-height: 1.7; }
+
+/* ═══ FOOTER CTA ═══ */
+.footer-cta { background: linear-gradient(180deg, var(--z-bg-elevated) 0%, var(--z-bg) 100%); padding: var(--space-4xl) 0; text-align: center; border-top: 1px solid var(--z-border); }
+.footer-cta h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: var(--space-md); }
+.footer-cta p { font-size: 18px; color: var(--z-text-secondary); margin-bottom: var(--space-xl); }
+.footer-contact { margin-top: var(--space-xl); font-size: 14px; color: var(--z-text-muted); }
+.footer-contact a { color: var(--z-accent-light); text-decoration: none; }
+.footer-contact a:hover { text-decoration: underline; }
+.site-footer { padding: var(--space-2xl) 0; text-align: center; border-top: 1px solid var(--z-border); font-size: 13px; color: var(--z-text-muted); }
+
+/* ═══ WANTED STRIP ═══ */
+.wanted-box { background: var(--z-surface); border: 1.5px dashed var(--z-accent); border-radius: var(--r-lg); padding: var(--space-xl) var(--space-2xl); display: flex; align-items: center; gap: var(--space-lg); }
+.wanted-icon { width: 56px; height: 56px; min-width: 56px; background: var(--z-accent-glow); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-size: 26px; }
+.wanted-content h4 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.wanted-content p { font-size: 15px; color: var(--z-text-secondary); line-height: 1.5; }
+
+/* ═══ LIVE SYSTEM ═══ */
+.live-embed { background: var(--z-surface); border: 1px solid var(--z-border); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-lg); position: relative; }
+.live-embed iframe { width: 100%; height: 500px; border: none; background: var(--z-bg); }
+.live-embed-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(10,10,15,0.85); backdrop-filter: blur(4px); cursor: pointer; transition: opacity var(--t-normal); }
+.live-embed-overlay:hover { background: rgba(10,10,15,0.75); }
+.live-embed-overlay.hidden { opacity: 0; pointer-events: none; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 100px; }
+  .sos-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card.popular { transform: none; }
+  .roi-box { flex-direction: column; text-align: center; }
+  .wanted-box { flex-direction: column; text-align: center; }
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+}
+@media (max-width: 640px) {
+  .hero h1 { font-size: 32px; }
+  .section { padding: var(--space-3xl) 0; }
+  .pilot-stats { gap: var(--space-md); }
+  .pilot-stat { padding: var(--space-md); min-width: 80px; }
+  .pilot-stat .num { font-size: 28px; }
+  .order-item { flex-direction: column; gap: var(--space-sm); }
+  .order-time { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--z-bg); }
+::-webkit-scrollbar-thumb { background: var(--z-border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--z-border-hover); }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">Zeynah<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#problem">Das Problem</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#live">Live-System</a>
+      <a href="#preise">Preise</a>
+      <a href="#faq">FAQ</a>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="de" onclick="setLang('de')">DE</button>
+        <button class="lang-btn" data-lang="tr" onclick="setLang('tr')">TR</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">AR</button>
+      </div>
+      <a href="#pilot-form" class="nav-cta">Pilot starten</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════
+     HERO — mit Zeynah KlingAI-Animation
+     ════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">🚀 Pilotprogramm — 3 Plätze verfügbar</div>
+        <h1>Ihr Telefon geht <span class="accent">immer</span> ran. Auch um 22 Uhr.</h1>
+        <p class="hero-lead">Zeynah liest Nachrichten, prüft Tippfehler und fragt bei Unklarheiten nach — bevor ein Fehler teuer wird. Rund um die Uhr. In 20+ Sprachen. Für jedes Unternehmen.</p>
+        <div class="hero-ctas">
+          <a href="#pilot-form" class="btn btn-primary btn-lg">6 Wochen kostenlos testen →</a>
+          <a href="#live" class="btn btn-secondary btn-lg">Live-System öffnen</a>
+        </div>
+      </div>
+      <div class="hero-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="zeynah-hero-kling.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-caption">
+          <span style="color:var(--z-green);font-weight:700;">●</span>
+          Zeynah — Ihre KI-Assistentin, die nie schläft
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     PILOT BANNER
+     ════════════════════════════════════════════════════════ -->
+<section class="pilot-banner" id="pilot">
+  <div class="container">
+    <h2>🎯 Pilotprogramm: 6 Wochen. 0 €. 0 Risiko.</h2>
+    <p>Wir richten Zeynah mit Ihren echten Daten, Kunden und Prozessen ein. Sie testen mit echten Anfragen. Keine Kosten. Keine Bindung. Nur Ergebnisse.</p>
+    <a href="#pilot-form" class="btn btn-light btn-lg">Jetzt Pilotplatz beantragen</a>
+    <div class="pilot-stats">
+      <div class="pilot-stat"><span class="num">3</span><span class="lbl">Plätze</span></div>
+      <div class="pilot-stat"><span class="num">6</span><span class="lbl">Wochen</span></div>
+      <div class="pilot-stat"><span class="num">0</span><span class="lbl">€ Kosten</span></div>
+      <div class="pilot-stat"><span class="num">10</span><span class="lbl">Tage Setup</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     SOS ALERTS
+     ════════════════════════════════════════════════════════ -->
+<section class="section" id="problem">
+  <div class="container">
+    <div class="section-head">
+      <h2>Was Zeynah an einem einzigen Morgen findet</h2>
+      <p>Diese vier Warnungen kommen aus echten Betrieben. Nicht erfunden.</p>
+    </div>
+    <div class="sos-grid">
+      <div class="sos-card">
+        <div class="sos-icon">🚨</div>
+        <div class="sos-content">
+          <h4>SOS · Tippfehler</h4>
+          <div class="sos-big">2.000 statt 200</div>
+          <p>Ein Null zu viel in der Bestellung. Wahrscheinlich ein Tippfehler.</p>
+        </div>
+      </div>
+      <div class="sos-card">
+        <div class="sos-icon">⚠️</div>
+        <div class="sos-content">
+          <h4>SOS · Offene Posten</h4>
+          <div class="sos-big">42.295 €</div>
+          <p>21 Tage überfällig. Ganz oben — nicht versteckt.</p>
+        </div>
+      </div>
+      <div class="sos-card">
+        <div class="sos-icon">🌡️</div>
+        <div class="sos-content">
+          <h4>SOS · Kühlkette</h4>
+          <div class="sos-big">7,9 °C</div>
+          <p>Vor drei Tagen gemessen. Die Korrektur fehlt noch.</p>
+        </div>
+      </div>
+      <div class="sos-card">
+        <div class="sos-icon">📦</div>
+        <div class="sos-content">
+          <h4>SOS · Charge</h4>
+          <div class="sos-big">3 Tage</div>
+          <p>Über das Datum — und noch nicht gesperrt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     THREE STEPS
+     ════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="ablauf">
+  <div class="container">
+    <div class="section-head">
+      <h2>Drei Schritte. Keine Entscheidung ohne Mensch.</h2>
+      <p>Zeynah liest, prüft, fragt — aber sie entscheidet nie allein. Der Mensch gibt immer das letzte Okay.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <h3>Lesen</h3>
+        <p>WhatsApp, Sprachnachricht, E-Mail, Telefon, PDF. Zeynah erkennt Absender, Inhalt, Menge, Termin — und wandelt alles in einen sauberen Auftrag.</p>
+      </div>
+      <div class="step-card">
+        <h3>Prüfen</h3>
+        <p>Unbekannter Absender, ungewöhnliche Menge, möglicher Fehler, unklare Angaben: Zeynah markiert es rot und schlägt die wahrscheinlich gemeinte Lösung vor.</p>
+      </div>
+      <div class="step-card">
+        <h3>Freigeben</h3>
+        <p>Erst wenn ein Mensch bestätigt, existiert der Auftrag. Zeynah handelt nie eigenmächtig, storniert nicht und ändert keine Preise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     ORDER FLOW
+     ════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>So läuft eine Anfrage</h2>
+      <p>Echte Abläufe aus dem Betrieb. Der Kunde schreibt, wie er immer schreibt — kurz, nebenbei, kein Formular.</p>
+    </div>
+    <div class="order-flow">
+      <div class="order-item">
+        <div class="order-time">22:14</div>
+        <div class="order-content">
+          <div class="order-label">Kunde schreibt</div>
+          <div class="order-bubble">Morgen. Für morgen: 400 Kalb 20er und 200 Pute 15er.</div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="order-time">22:14</div>
+        <div class="order-content">
+          <div class="order-label">Zeynah erkennt</div>
+          <div class="order-bubble highlight">Musterbetrieb Nord, Lieferung Donnerstag.<br><strong>400 kg Kalb-Döner 20 kg<br>200 kg Puten-Döner 15 kg<br>5.340 € netto.</strong> Freigeben?</div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="order-time">22:14</div>
+        <div class="order-content">
+          <div class="order-label">Freigabe</div>
+          <div class="order-bubble" style="border-color:var(--z-green); background: var(--z-green-bg);">Ja</div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="order-time">06:31</div>
+        <div class="order-content">
+          <div class="order-label">Ergebnis</div>
+          <div class="order-bubble">Auftrag erstellt. Der Lieferschein ist beim Fahrer, der Kunde hat die Bestätigung.</div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="order-time">21:47</div>
+        <div class="order-content">
+          <div class="order-label">Der Null-Fehler</div>
+          <div class="order-bubble" style="border-color:var(--z-red); background: var(--z-red-bg);"><strong>Vorsicht: 2.000 kg.</strong><br>Dieser Betrieb bestellt normalerweise ~200 kg. Wahrscheinlich ein Null zu viel — nachfragen?</div>
+        </div>
+      </div>
+      <div class="order-item">
+        <div class="order-time">21:52</div>
+        <div class="order-content">
+          <div class="order-label">Korrektur</div>
+          <div class="order-bubble" style="border-color:var(--z-green); background: var(--z-green-bg);">Kunde antwortete: „Sorry, 200!"<br>Korrigiert auf 200 kg. <strong>19.000 € Ware bleiben im Lager.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     WANTED VIDEO
+     ════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="wanted-box">
+      <div class="wanted-icon">📢</div>
+      <div class="wanted-content">
+        <h4>WANTED: Jemand, der immer rangeht</h4>
+        <p>Sie suchen seit Monaten Verstärkung für die Anfragenannahme? Zeynah ist die Antwort — sie geht ran, liest vor, prüft nach und macht nie Feierabend.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="video-box">
+      <video controls>
+        <source src="zeynah-wanted.mp4" type="video/mp4">
+      </video>
+      <div class="video-info">
+        <div>
+          <h4>📹 WANTED: Jemand, der immer rangeht</h4>
+          <p>15 Sekunden, die das Problem auf den Punkt bringen.</p>
+        </div>
+        <div class="video-meta"><span class="dot"></span><span>0:12</span><span style="color:var(--z-border)">|</span><span>HD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     LIVE SYSTEM
+     ════════════════════════════════════════════════════════ -->
+<section class="section" id="live">
+  <div class="container">
+    <div class="section-head">
+      <h2>Das Live-System — kein Screenshot, es läuft</h2>
+      <p>Keine Mockups, keine Entwürfe: Das ist die echte Oberfläche. Klicken Sie rein, nichts kann kaputt gehen.</p>
+    </div>
+    <div class="live-embed">
+      <iframe src="about:blank" title="Zeynah Live-System" id="liveIframe"></iframe>
+      <div class="live-embed-overlay" id="liveOverlay" onclick="loadLiveSystem()">
+        <div style="text-align:center;">
+          <div style="font-size:48px;margin-bottom:16px;">🔴</div>
+          <p style="font-size:18px;font-weight:700;color:var(--z-text);margin-bottom:8px;">Live-System starten</p>
+          <p style="color:var(--z-text-secondary);">Klicken zum Laden — nur lesender Zugriff</p>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:var(--space-md);font-size:13px;color:var(--z-text-muted);">11 Bereiche mit Musterdaten: Cockpit, Telefon, WhatsApp, Aufträge, Kunden, Preise, Produktion, Kühlhaus, Touren, Rechnungen, Reklamationen</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     PRICING
+     ════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="preise">
+  <div class="container">
+    <div class="section-head">
+      <h2>Preise, die sich rechnen</h2>
+      <p>Monatlich kündbar. Die ersten 30 Tage kostenlos — mit Ihren echten Daten und Kunden, nicht Musterdaten.</p>
+    </div>
+
+    <div class="roi-box">
+      <div class="roi-icon">💡</div>
+      <div class="roi-content">
+        <h3>Eine einzige Fehlentscheidung verhindert = mehr als ein Jahr Zeynah Pro</h3>
+        <p>2.000 statt 200. 19.000 € Ware, die keiner bestellt hat. <span class="roi-highlight">Zeynah erkennt Abweichungen sofort und fragt nach.</span> Die Prüfung einer einzigen Nachtanfrage amortisiert sich über das ganze Jahr.</p>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Start</h3>
+        <div class="price-amount">690 <span>€/Monat</span></div>
+        <div class="price-note">Ein Standort, bis ca. 300 Anfragen/Monat</div>
+        <ul class="price-features">
+          <li>Anfragenannahme per WhatsApp & E-Mail</li>
+          <li>Tippfehler- & Doppelprüfung</li>
+          <li>Artikel, Kunden, Preisstaffeln</li>
+          <li>Unbegrenzte Mitarbeiter</li>
+        </ul>
+        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;">Pilot starten</a>
+      </div>
+      <div class="price-card popular">
+        <div class="popular-badge">AM BELIEBTESTEN</div>
+        <h3>Pro</h3>
+        <div class="price-amount">1.290 <span>€/Monat</span></div>
+        <div class="price-note">Der Standard für ein laufendes Unternehmen</div>
+        <ul class="price-features">
+          <li>Alles aus Start</li>
+          <li>Sprachnachrichten werden vorgelesen</li>
+          <li>Chargen, Rückverfolgbarkeit</li>
+          <li>Kühlkette & Messplan</li>
+          <li>Offene Posten & Mahnwesen</li>
+          <li>Vier Sprachen in der Oberfläche</li>
+        </ul>
+        <a href="#pilot-form" class="btn btn-primary" style="width:100%;">Pilot starten</a>
+      </div>
+      <div class="price-card">
+        <h3>Premium</h3>
+        <div class="price-amount">1.990 <span>€/Monat</span></div>
+        <div class="price-note">Mehrere Standorte oder Lager</div>
+        <ul class="price-features">
+          <li>Alles aus Pro</li>
+          <li>Mehrere Standorte & Lager</li>
+          <li>Individuelle Anbindungen an bestehende Systeme</li>
+          <li>Fester persönlicher Ansprechpartner</li>
+        </ul>
+        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;">Pilot starten</a>
+      </div>
+    </div>
+
+    <div class="setup-info">
+      <p><strong>Setup wird einmalig berechnet: 3.900 – 9.900 €</strong> — je nach Artikeln, Kunden und Prozessen. Wir übernehmen die Migration aus Excel, altem System oder Listen. <strong style="color:var(--z-accent-light);">Bei 12 Monaten Laufzeit verrechnen wir die Hälfte mit den Monatsraten.</strong> Alle Preise netto. Von Go-Live bis zur ersten geprüften Anfrage: ca. 10 Arbeitstage. Sie brauchen niemanden im Haus, der Software versteht.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     PILOT FORM
+     ════════════════════════════════════════════════════════ -->
+<section class="form-section" id="pilot-form">
+  <div class="container">
+    <div class="form-card">
+      <h3>🚀 Pilotplatz beantragen</h3>
+      <p>Nur 3 Plätze verfügbar. Wir melden uns innerhalb von 24 Stunden.</p>
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>Firmenname *</label>
+          <input type="text" placeholder="z. B. Musterfirma GmbH" required>
+        </div>
+        <div class="form-group">
+          <label>Ihr Name *</label>
+          <input type="text" placeholder="Vor- und Nachname" required>
+        </div>
+        <div class="form-group">
+          <label>Telefon *</label>
+          <input type="tel" placeholder="+49 170 12345678" required>
+        </div>
+        <div class="form-group">
+          <label>E-Mail *</label>
+          <input type="email" placeholder="info@ihrefirma.de" required>
+        </div>
+        <div class="form-group">
+          <label>Branche *</label>
+          <select required>
+            <option value="">Bitte wählen</option>
+            <option>Großhandel</option>
+            <option>Hotel & Gastronomie</option>
+            <option>Kanzlei & Recht</option>
+            <option>Immobilien</option>
+            <option>Gesundheit & Pflege</option>
+            <option>Versicherung</option>
+            <option>B2B & Vertrieb</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ca. Anfragen pro Woche</label>
+          <select>
+            <option value="">Bitte wählen</option>
+            <option>&lt; 50</option>
+            <option>50 – 150</option>
+            <option>150 – 300</option>
+            <option>300 – 500</option>
+            <option>&gt; 500</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Was ist Ihr größtes Problem bei der Anfragenannahme?</label>
+          <textarea placeholder="z. B. Nachtanfragen per WhatsApp, die morgens niemand findet..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg form-submit">Pilotplatz sichern →</button>
+        <p class="form-note">🔒 Ihre Daten werden DSGVO-konform verarbeitet. Kein Spam, keine Weitergabe.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     FAQ
+     ════════════════════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <h2>Was Entscheider wirklich fragen</h2>
+      <p>Alles, was Unternehmer vor dem Start wissen wollen.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Kann Zeynah mit meinem bestehenden System verbinden?</div>
+      <div class="faq-a"><p>Ja. Zeynah spricht mit den gängigen Systemen — von Excel über Lexware bis hin zu individuellen ERP-Lösungen. Im Premium-Tarif bauen wir auch maßgeschneiderte Schnittstellen. Die meisten Kunden starten mit einem einfachen Excel-Export und erweitern später.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was passiert, wenn das Internet ausfällt?</div>
+      <div class="faq-a"><p>Zeynah läuft in der Cloud mit redundanter Infrastruktur. Anfragen, die während einer kurzen Unterbrechung eingehen, werden automatisch nachgeholt. Für den Notfall können Sie jederzeit auf Ihre lokale Software zurückgreifen — Zeynah ersetzt sie nicht, sie ergänzt sie.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Wer trainiert meine Leute?</div>
+      <div class="faq-a"><p>Wir übernehmen das komplett. Ein 2-stündiges Training vor Ort oder per Video — Ihre Mitarbeiter lernen, wie sie Anfragen freigeben, Warnmeldungen lesen und den Kühlkette-Logbuch führen. Die ersten 4 Wochen sind wir täglich erreichbar.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Kann ich Anfragen auch auf Papier ausdrucken?</div>
+      <div class="faq-a"><p>Natürlich. Jede Anfrage kann als Lieferschein, Pickliste oder Übersicht gedruckt werden. Für das Lager, den Fahrer oder die Buchhaltung. Digital ist der Standard — Papier bleibt die Option.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Wie lange dauert der Pilot?</div>
+      <div class="faq-a"><p>6 Wochen. In der ersten Woche richten wir Zeynah mit Ihren echten Daten ein. In den folgenden 5 Wochen testen Sie mit echten Anfragen. Am Ende entscheiden Sie: bleiben Sie, passen Sie den Tarif an, oder trennen Sie sich — ohne Kosten, ohne Drama.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Funktioniert das auch auf Türkisch?</div>
+      <div class="faq-a"><p>Ja. Zeynah versteht und antwortet auf Deutsch, Türkisch, Englisch und Arabisch. Die Oberfläche ist in allen vier Sprachen verfügbar. Das ist besonders wichtig für Teams mit türkischsprachigem Personal oder Kunden, die lieber auf Türkisch kommunizieren.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was ist mit Datenschutz?</div>
+      <div class="faq-a"><p>DSGVO-konform, Server in der EU, alle Daten verschlüsselt. Wir haben das von Anfang an eingebaut — nicht nachträglich.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was passiert, wenn Zeynah eine Frage nicht beantworten kann?</div>
+      <div class="faq-a"><p>Zeynah erkennt das, vereinbart einen Rückruf oder leitet das Gespräch an Ihren menschlichen Mitarbeiter weiter — automatisch und ohne Pause für den Anrufer. Niemand bleibt allein.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER CTA
+     ════════════════════════════════════════════════════════ -->
+<section class="footer-cta">
+  <div class="container">
+    <h2>Bereit, nie wieder eine Anfrage zu verpassen?</h2>
+    <p>3 Pilotplätze. 6 Wochen kostenlos. Ihre Entscheidung danach.</p>
+    <a href="#pilot-form" class="btn btn-primary btn-lg">Jetzt Pilotplatz sichern →</a>
+    <div class="footer-contact">
+      Lieber anrufen? <a href="tel:+491776480485">0177 6480485</a> · <a href="mailto:info@zeynah.cloud">info@zeynah.cloud</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Zeynah — Hamburg · 20+ Sprachen · DSGVO-konform · 24/7 erreichbar</p>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════════════════ -->
+<script>
+// FAQ Accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// Form handler
+function handleSubmit(e) {
+  e.preventDefault();
+  alert('Danke für Ihre Anfrage! Wir melden uns innerhalb von 24 Stunden bei Ihnen.');
+}
+
+// Language switcher
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.lang-btn[data-lang="' + lang + '"]').classList.add('active');
+}
+
+// Mobile nav
+function toggleNav() {
+  const links = document.getElementById('navLinks');
+  if (links.style.display === 'flex') {
+    links.style.display = '';
+    links.style = '';
+  } else {
+    links.style.display = 'flex';
+    links.style.position = 'absolute';
+    links.style.top = '64px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.flexDirection = 'column';
+    links.style.background = 'var(--z-bg)';
+    links.style.padding = '20px';
+    links.style.borderBottom = '1px solid var(--z-border)';
+    links.style.gap = '16px';
+  }
+}
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  nav.style.background = window.scrollY > 50 ? 'rgba(10,10,15,0.98)' : 'rgba(10,10,15,0.92)';
+});
+
+// Live system loader
+function loadLiveSystem() {
+  const iframe = document.getElementById('liveIframe');
+  const overlay = document.getElementById('liveOverlay');
+  iframe.src = 'https://app.zeynah.cloud';
+  overlay.classList.add('hidden');
+}
+
+// Lazy load videos
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const video = entry.target;
+      if (video.dataset.src && !video.src) {
+        video.src = video.dataset.src;
+        video.load();
+      }
+      videoObserver.unobserve(video);
+    }
+  });
+}, { rootMargin: '200px' });
+document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
+</script>
+
+</body>
+</html>
