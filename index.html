@@ -7,25 +7,30 @@
 <meta name="description" content="Zeynah liest Nachrichten, prüft Tippfehler und fragt nach — bevor ein Fehler teuer wird.">
 <style>
 /* ═══════════════════════════════════════════════════════════════
-   ZEYNAH — APPLE DARK MODE STYLE
-   Farben: Schwarz. Glas. Blau. Nie wieder vergessen.
+   ZEYNAH — DESIGN-SYSTEM
+   Anthrazit statt Schwarz. Creme statt Weiss. Ein Blau.
+   Palette: --bg #1c1f24 · Creme #ece7dd · Blau #0071e3/#0057ad
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Apple Dark Mode — EXAKT */
-  --bg: #000000;
-  --bg-elevated: #0d0d0d;
-  --glass: rgba(28, 28, 30, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  /* Anthrazit — KEIN reines Schwarz */
+  --bg: #1c1f24;
+  --bg-elevated: #24272d;
+  --glass: rgba(40, 44, 51, 0.72);
+  --glass-border: rgba(236, 231, 221, 0.10);
+  --glass-border-hover: rgba(236, 231, 221, 0.18);
 
-  --text: #f5f5f7;
-  --text-secondary: #a1a1a6;
-  --text-muted: #6e6e73;
+  /* Creme / Off-White — KEIN reines Weiss */
+  --text: #ece7dd;
+  --text-secondary: #a9a69d;
+  --text-muted: #78756d;
+  --creme-auf-blau: #faf7f2;
 
-  --accent: #0a84ff;
-  --accent-light: #409cff;
-  --accent-glow: rgba(10, 132, 255, 0.15);
+  /* EIN Blau */
+  --accent: #0071e3;
+  --accent-deep: #0057ad;
+  --accent-light: #4c9bf0;
+  --accent-glow: rgba(0, 113, 227, 0.15);
 
   --green: #30d158;
   --yellow: #ffd60a;
@@ -36,8 +41,8 @@
   --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px;
   --space-3xl: 64px; --space-4xl: 100px;
   --r-sm: 12px; --r-md: 16px; --r-lg: 20px; --r-xl: 24px;
-  --shadow-glass: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-  --shadow-hover: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+  --shadow-glass: 0 8px 32px rgba(12,14,17,0.5), inset 0 1px 0 rgba(236,231,221,0.05);
+  --shadow-hover: 0 20px 60px rgba(12,14,17,0.65), inset 0 1px 0 rgba(236,231,221,0.08);
   --t: 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
@@ -71,62 +76,57 @@ img, video { max-width: 100%; display: block; }
 /* NAV */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(0,0,0,0.65);
+  background: rgba(28, 31, 36, 0.78);
   backdrop-filter: blur(40px) saturate(1.8);
   border-bottom: 1px solid var(--glass-border);
 }
-.nav .container { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav .container { display: flex; align-items: center; justify-content: space-between; height: 60px; }
 .nav-logo { font-size: 22px; font-weight: 700; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-.nav-logo .z-icon { width: 30px; height: 30px; background: linear-gradient(135deg, var(--accent), #5e5ce6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 16px; }
+.nav-logo-img { height: 38px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a { font-size: 14px; font-weight: 400; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--text); }
-.lang-switch { display: flex; gap: 2px; background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border); border-radius: 8px; padding: 3px; }
+.lang-switch { display: flex; gap: 2px; background: rgba(236,231,221,0.06); border: 1px solid var(--glass-border); border-radius: 8px; padding: 3px; }
 .lang-btn { background: transparent; border: none; color: var(--text-muted); font-size: 11px; font-weight: 600; padding: 5px 10px; border-radius: 6px; cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
-.lang-btn.active { background: rgba(255,255,255,0.12); color: #fff; }
-.nav-cta { background: var(--accent); color: #fff; padding: 8px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+.lang-btn.active { background: rgba(236,231,221,0.12); color: var(--text); }
+.nav-cta { background: var(--accent); color: var(--creme-auf-blau); padding: 8px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
 .nav-cta:hover { background: var(--accent-light); transform: scale(1.03); }
 .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
 
 /* BUTTONS */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; }
-.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary { background: var(--accent); color: var(--creme-auf-blau); }
 .btn-primary:hover { background: var(--accent-light); transform: scale(1.03); }
-.btn-secondary { background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid var(--glass-border); }
-.btn-secondary:hover { background: rgba(255,255,255,0.12); }
+.btn-secondary { background: rgba(236,231,221,0.08); color: var(--text); border: 1px solid var(--glass-border); }
+.btn-secondary:hover { background: rgba(236,231,221,0.12); }
 .btn-lg { padding: 16px 32px; font-size: 16px; }
 
 /* HERO */
 .hero { padding: 160px 0 100px; position: relative; overflow: hidden; background: var(--bg); }
-.hero::before { content: ''; position: absolute; top: -30%; right: -20%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(10,132,255,0.08) 0%, transparent 60%); pointer-events: none; }
+.hero::before { content: ''; position: absolute; top: -30%; right: -20%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,113,227,0.10) 0%, transparent 60%); pointer-events: none; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
-.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(10,132,255,0.1); border: 1px solid rgba(10,132,255,0.2); color: var(--accent-light); padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,113,227,0.10); border: 1px solid rgba(0,113,227,0.22); color: var(--accent-light); padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
 .hero h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 700; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 20px; color: var(--text); }
-.hero h1 .accent { color: var(--accent); }
+.hero h1 .accent { color: var(--accent-light); }
 .hero-lead { font-size: 19px; color: var(--text-secondary); max-width: 480px; margin-bottom: 32px; line-height: 1.6; }
 .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
-/* LOGO 3D ANIMATION */
-.logo-3d-wrap { perspective: 800px; display: flex; align-items: center; justify-content: center; height: 100%; }
+/* LOGO — echtes Zeynah-Logo, schwebend */
+.logo-3d-wrap { perspective: 800px; display: flex; align-items: center; justify-content: center; height: 100%; position: relative; }
 .logo-3d {
-  width: 200px; height: 200px;
-  background: linear-gradient(135deg, var(--accent), #5e5ce6);
-  border-radius: 40px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 100px; font-weight: 800; color: #fff;
-  box-shadow: 0 20px 60px rgba(10,132,255,0.3), 0 0 0 1px rgba(255,255,255,0.1);
-  animation: logoGrow 4s ease-in-out infinite;
-  transform-style: preserve-3d;
+  width: 230px; height: auto;
+  filter: drop-shadow(0 30px 60px rgba(0,113,227,0.35));
+  animation: logoFloat 5s ease-in-out infinite;
+  position: relative; z-index: 1;
 }
-@keyframes logoGrow {
-  0% { transform: scale(0.6) rotateX(15deg) translateZ(-100px); opacity: 0.7; }
-  50% { transform: scale(1.1) rotateX(0deg) translateZ(80px); opacity: 1; box-shadow: 0 40px 100px rgba(10,132,255,0.5); }
-  100% { transform: scale(0.6) rotateX(15deg) translateZ(-100px); opacity: 0.7; }
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(12px) scale(0.97); }
+  50% { transform: translateY(-14px) scale(1.03); }
 }
 .logo-3d-ring {
   position: absolute;
   width: 280px; height: 280px;
-  border: 2px solid rgba(10,132,255,0.15);
+  border: 2px solid rgba(0,113,227,0.18);
   border-radius: 50%;
   animation: ringPulse 3s ease-out infinite;
 }
@@ -136,16 +136,6 @@ img, video { max-width: 100%; display: block; }
   0% { transform: scale(0.8); opacity: 0.6; }
   100% { transform: scale(1.4); opacity: 0; }
 }
-
-/* PILOT BANNER */
-.pilot-section { padding: 80px 0; }
-.pilot-inner { padding: 64px; text-align: center; }
-.pilot-inner h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; margin-bottom: 16px; color: var(--text); }
-.pilot-inner p { font-size: 18px; color: var(--text-secondary); max-width: 560px; margin: 0 auto 32px; line-height: 1.6; }
-.pilot-stats { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-.pilot-stat { padding: 24px 32px; min-width: 100px; text-align: center; }
-.pilot-stat .num { font-size: 40px; font-weight: 700; color: var(--accent); line-height: 1; display: block; }
-.pilot-stat .lbl { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
 
 /* SECTIONS */
 .section { padding: 100px 0; }
@@ -168,8 +158,8 @@ img, video { max-width: 100%; display: block; }
 .sos-content p { font-size: 14px; color: var(--text-secondary); }
 
 /* VIDEO */
-.video-box { border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-.video-box video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+.video-box { border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(12,14,17,0.55); }
+.video-box video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--bg-elevated); }
 .video-info { padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .video-info h4 { font-size: 16px; font-weight: 600; color: var(--text); }
 .video-info p { font-size: 14px; color: var(--text-secondary); }
@@ -178,7 +168,7 @@ img, video { max-width: 100%; display: block; }
 /* STEPS */
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .step-card { padding: 40px 32px; text-align: center; }
-.step-num { width: 56px; height: 56px; background: linear-gradient(135deg, var(--accent), #5e5ce6); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; margin: 0 auto 24px; box-shadow: 0 8px 24px rgba(10,132,255,0.3); }
+.step-num { width: 56px; height: 56px; background: linear-gradient(135deg, var(--accent), var(--accent-deep)); color: var(--creme-auf-blau); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; margin: 0 auto 24px; box-shadow: 0 8px 24px rgba(0,113,227,0.3); }
 .step-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
 .step-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
 
@@ -189,14 +179,23 @@ img, video { max-width: 100%; display: block; }
 .order-content { flex: 1; }
 .order-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 6px; }
 .order-bubble { padding: 20px 24px; font-size: 15px; line-height: 1.6; }
-.order-bubble.highlight { border-color: rgba(10,132,255,0.3); background: rgba(10,132,255,0.06); }
+.order-bubble.highlight { border-color: rgba(0,113,227,0.3); background: rgba(0,113,227,0.06); }
 .order-bubble strong { color: var(--accent-light); }
+
+/* VOICE DEMOS */
+.voice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 860px; margin: 0 auto; }
+.voice-card { padding: 32px; }
+.voice-card .voice-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--accent-light); margin-bottom: 8px; }
+.voice-card h3 { font-size: 19px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+.voice-card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 18px; line-height: 1.6; }
+.voice-card audio { width: 100%; height: 44px; border-radius: 999px; outline: none; }
+.voice-card audio::-webkit-media-controls-panel { background: var(--bg-elevated); }
 
 /* PRICING */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
 .price-card { padding: 48px 32px; text-align: center; }
-.price-card.popular { border-color: rgba(10,132,255,0.3); transform: scale(1.02); background: rgba(10,132,255,0.05); }
-.popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--accent), #5e5ce6); color: #fff; font-size: 11px; font-weight: 600; padding: 6px 18px; border-radius: 999px; letter-spacing: 0.5px; }
+.price-card.popular { border-color: rgba(0,113,227,0.3); transform: scale(1.02); background: rgba(0,113,227,0.05); }
+.popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--accent), var(--accent-deep)); color: var(--creme-auf-blau); font-size: 11px; font-weight: 600; padding: 6px 18px; border-radius: 999px; letter-spacing: 0.5px; }
 .price-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 4px; color: var(--text); }
 .price-amount { font-size: 48px; font-weight: 700; margin: 20px 0 4px; line-height: 1; color: var(--text); }
 .price-amount span { font-size: 16px; font-weight: 400; color: var(--text-secondary); }
@@ -208,7 +207,7 @@ img, video { max-width: 100%; display: block; }
 
 /* ROI */
 .roi-box { padding: 40px 48px; margin-bottom: 64px; display: flex; align-items: center; gap: 32px; }
-.roi-icon { width: 64px; height: 64px; min-width: 64px; background: rgba(10,132,255,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+.roi-icon { width: 64px; height: 64px; min-width: 64px; background: rgba(0,113,227,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
 .roi-content h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
 .roi-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.6; }
 .roi-highlight { color: var(--accent-light); font-weight: 600; }
@@ -220,8 +219,9 @@ img, video { max-width: 100%; display: block; }
 .form-card > p { text-align: center; color: var(--text-secondary); margin-bottom: 32px; font-size: 15px; }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--text-secondary); }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text); font-size: 15px; transition: all 0.2s; font-family: inherit; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); background: rgba(255,255,255,0.06); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; background: rgba(236,231,221,0.04); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text); font-size: 15px; transition: all 0.2s; font-family: inherit; }
+.form-group select option { background: var(--bg-elevated); color: var(--text); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); background: rgba(236,231,221,0.06); }
 .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
 .form-group textarea { min-height: 100px; resize: vertical; }
 .form-submit { width: 100%; margin-top: 8px; }
@@ -238,12 +238,19 @@ img, video { max-width: 100%; display: block; }
 .faq-item.open .faq-a { max-height: 400px; padding-bottom: 24px; }
 .faq-a p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
 
+/* KONTAKT */
+.contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+.contact-card { padding: 28px 20px; text-align: center; text-decoration: none; display: block; }
+.contact-card .contact-icon { font-size: 28px; margin-bottom: 12px; }
+.contact-card h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.contact-card p { font-size: 13px; color: var(--text-secondary); word-break: break-word; }
+
 /* FOOTER CTA */
 .footer-cta { padding: 100px 0; text-align: center; border-top: 1px solid var(--glass-border); }
 .footer-cta h2 { font-size: clamp(36px, 4vw, 52px); font-weight: 700; margin-bottom: 16px; color: var(--text); }
 .footer-cta p { font-size: 19px; color: var(--text-secondary); margin-bottom: 32px; }
 .footer-contact { margin-top: 32px; font-size: 15px; color: var(--text-muted); }
-.footer-contact a { color: var(--accent); text-decoration: none; }
+.footer-contact a { color: var(--accent-light); text-decoration: none; }
 .footer-contact a:hover { text-decoration: underline; }
 
 /* IMPRESSUM */
@@ -251,24 +258,59 @@ img, video { max-width: 100%; display: block; }
 .impressum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .impressum-col h4 { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.8px; }
 .impressum-col p, .impressum-col a { font-size: 14px; color: var(--text-secondary); line-height: 1.8; text-decoration: none; }
-.impressum-col a:hover { color: var(--accent); }
+.impressum-col a:hover { color: var(--accent-light); }
 
 /* SITE FOOTER */
 .site-footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--glass-border); }
 .site-footer p { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
 .site-footer a { color: var(--text-secondary); text-decoration: none; }
-.site-footer a:hover { color: var(--accent); }
+.site-footer a:hover { color: var(--accent-light); }
 
 /* COOKIE */
 .cookie-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); max-width: 480px; width: 90%; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; z-index: 9999; }
 .cookie-banner p { font-size: 13px; color: var(--text-secondary); }
-.cookie-btn { padding: 8px 20px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; background: var(--accent); color: #fff; }
+.cookie-btn { padding: 8px 20px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; background: var(--accent); color: var(--creme-auf-blau); }
 
 /* LIVE SYSTEM */
 .live-box { border-radius: 24px; overflow: hidden; position: relative; }
-.live-box iframe { width: 100%; height: 500px; border: none; background: #000; }
-.live-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); cursor: pointer; transition: opacity 0.3s; }
-.live-overlay:hover { background: rgba(0,0,0,0.6); }
+.live-box iframe { width: 100%; height: 500px; border: none; background: var(--bg-elevated); }
+.live-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(20, 23, 28, 0.82); backdrop-filter: blur(8px); cursor: pointer; transition: opacity 0.3s; }
+.live-overlay:hover { background: rgba(20, 23, 28, 0.68); }
+
+/* WHATSAPP FLOAT */
+.wa-float {
+  position: fixed; bottom: 28px; left: 28px; z-index: 9000;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: var(--creme-auf-blau);
+  border-radius: 50px; padding: 14px 22px; font-size: 15px; font-weight: 700;
+  text-decoration: none; letter-spacing: .3px;
+  box-shadow: 0 6px 28px rgba(0,87,173,.34);
+  display: flex; align-items: center; gap: 9px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.wa-float:hover { transform: translateY(-2px); box-shadow: 0 10px 34px rgba(0,87,173,.42); }
+.wa-float:active { transform: translateY(-4px) scale(.98); }
+.wa-pulse { width: 9px; height: 9px; background: var(--creme-auf-blau); border-radius: 50%; animation: znpulse 2s infinite; flex-shrink: 0; }
+@keyframes znpulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .wa-pulse { animation: none; } .wa-float { transition: none; } }
+
+/* ELEVENLABS GATE (Zwei-Klick, DSGVO) */
+.voice-gate {
+  position: fixed; right: 18px; bottom: 18px; z-index: 9500;
+  max-width: 280px; padding: 16px 18px; border-radius: 14px;
+  border: 2px solid rgba(0, 113, 227, .5);
+}
+.voice-gate-btn {
+  width: 100%; background: var(--accent); color: var(--creme-auf-blau);
+  border: none; border-radius: 10px; padding: 12px 16px;
+  font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: background .15s;
+}
+.voice-gate-btn:hover { background: var(--accent-light); }
+.voice-gate p { font-size: 12px; color: var(--text-muted); margin-top: 10px; line-height: 1.5; }
+.voice-gate p a { color: var(--accent-light); text-decoration: none; }
+.voice-gate p a:hover { text-decoration: underline; }
+elevenlabs-convai { z-index: 60; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -276,9 +318,11 @@ img, video { max-width: 100%; display: block; }
   .hero { padding-top: 120px; }
   .sos-grid { grid-template-columns: 1fr; }
   .steps-grid { grid-template-columns: 1fr; }
+  .voice-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .price-card.popular { transform: none; }
   .roi-box { flex-direction: column; text-align: center; }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
   .impressum-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
@@ -286,12 +330,12 @@ img, video { max-width: 100%; display: block; }
 @media (max-width: 640px) {
   .hero h1 { font-size: 36px; }
   .section { padding: 64px 0; }
-  .pilot-stats { gap: 12px; }
-  .pilot-stat { padding: 20px; min-width: 80px; }
-  .pilot-stat .num { font-size: 32px; }
+  .contact-grid { grid-template-columns: 1fr; }
   .order-item { flex-direction: column; gap: 8px; }
   .order-time { text-align: left; }
   .container { padding: 0 20px; }
+  .wa-float { bottom: 18px; left: 18px; padding: 12px 18px; font-size: 14px; }
+  .voice-gate { right: 12px; bottom: 12px; max-width: 240px; }
 }
 </style>
 </head>
@@ -303,23 +347,36 @@ img, video { max-width: 100%; display: block; }
   <button class="cookie-btn" onclick="hideCookie()">Verstanden</button>
 </div>
 
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/491637794150?text=Hallo%20Zeynah%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eure%20Sprach-KI." target="_blank" rel="noopener" aria-label="Per WhatsApp kontaktieren">
+  <span class="wa-pulse" aria-hidden="true"></span>💬 WhatsApp
+</a>
+
+<!-- ELEVENLABS GATE — erst nach Zustimmung wird geladen (DSGVO) -->
+<div id="voiceGate" class="voice-gate glass">
+  <button class="voice-gate-btn" onclick="startVoice()">🎙️ Sprachberatung starten</button>
+  <p>Dabei wird ein Dienst von ElevenLabs (USA) geladen. <a href="#impressum">Datenschutz</a></p>
+</div>
+
 <!-- NAVIGATION -->
 <nav class="nav" id="nav">
   <div class="container">
-    <a href="#" class="nav-logo"><span class="z-icon">Z</span>Zeynah</a>
+    <a href="#" class="nav-logo"><img src="assets/zeynah-z-logo.png" alt="Zeynah Logo" class="nav-logo-img">Zeynah</a>
     <div class="nav-links" id="navLinks">
       <a href="#problem">Das Problem</a>
+      <a href="#stimme">Stimme</a>
       <a href="#ablauf">Ablauf</a>
-      <a href="#live">Live-System</a>
+      <a href="#live">Live-Dashboard</a>
       <a href="#preise">Preise</a>
       <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
       <div class="lang-switch">
         <button class="lang-btn active" onclick="setLang('de')">DE</button>
         <button class="lang-btn" onclick="setLang('tr')">TR</button>
         <button class="lang-btn" onclick="setLang('en')">EN</button>
         <button class="lang-btn" onclick="setLang('ar')">AR</button>
       </div>
-      <a href="#pilot-form" class="nav-cta">Pilot starten</a>
+      <a href="#pilot-form" class="nav-cta">Pilot anfragen</a>
     </div>
     <button class="nav-toggle" onclick="toggleNav()">☰</button>
   </div>
@@ -334,15 +391,15 @@ img, video { max-width: 100%; display: block; }
         <h1>Ihr Telefon geht <span class="accent">immer</span> ran. Auch um 22 Uhr.</h1>
         <p class="hero-lead">Zeynah liest Nachrichten, prüft Tippfehler und fragt bei Unklarheiten nach — bevor ein Fehler teuer wird. Rund um die Uhr. In 20+ Sprachen.</p>
         <div class="hero-ctas">
-          <a href="#pilot-form" class="btn btn-primary btn-lg">Kostenlos testen →</a>
-          <a href="#live" class="btn btn-secondary btn-lg">Live-System öffnen</a>
+          <a href="#pilot-form" class="btn btn-primary btn-lg">Pilot anfragen →</a>
+          <a href="#live" class="btn btn-secondary btn-lg">Live-Dashboard öffnen</a>
         </div>
       </div>
       <div class="logo-3d-wrap">
         <div class="logo-3d-ring"></div>
         <div class="logo-3d-ring"></div>
         <div class="logo-3d-ring"></div>
-        <div class="logo-3d">Z</div>
+        <img src="assets/zeynah-z-logo.png" alt="Zeynah" class="logo-3d">
       </div>
     </div>
   </div>
@@ -355,23 +412,6 @@ img, video { max-width: 100%; display: block; }
       <video autoplay muted loop playsinline>
         <source src="hero.mp4" type="video/mp4">
       </video>
-    </div>
-  </div>
-</section>
-
-<!-- PILOT BANNER -->
-<section class="pilot-section" id="pilot">
-  <div class="container">
-    <div class="pilot-inner glass">
-      <h2>🎯 Pilotprogramm: 6 Wochen. 0 €. 0 Risiko.</h2>
-      <p>Wir richten Zeynah mit Ihren echten Daten, Kunden und Prozessen ein. Sie testen mit echten Anfragen. Keine Kosten. Keine Bindung. Nur Ergebnisse.</p>
-      <a href="#pilot-form" class="btn btn-primary btn-lg">Jetzt Pilotplatz beantragen</a>
-      <div class="pilot-stats">
-        <div class="pilot-stat glass"><span class="num">3</span><span class="lbl">Plätze</span></div>
-        <div class="pilot-stat glass"><span class="num">6</span><span class="lbl">Wochen</span></div>
-        <div class="pilot-stat glass"><span class="num">0</span><span class="lbl">€ Kosten</span></div>
-        <div class="pilot-stat glass"><span class="num">10</span><span class="lbl">Tage Setup</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -505,20 +545,25 @@ img, video { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- WANTED VIDEO -->
-<section class="section">
+<!-- VOICE DEMOS -->
+<section class="section" id="stimme">
   <div class="container">
-    <div class="video-box">
-      <video controls>
-        <source src="wanted.mp4" type="video/mp4">
-        <source src="https://zeynah.cloud/videos/grosshandel/wanted_de.mp4" type="video/mp4">
-      </video>
-      <div class="video-info">
-        <div>
-          <h4>📹 WANTED: Jemand, der immer rangeht</h4>
-          <p>15 Sekunden, die das Problem auf den Punkt bringen.</p>
-        </div>
-        <div class="video-meta">0:12 · HD</div>
+    <div class="section-head">
+      <h2>Hören Sie selbst — die Stimme von Zeynah</h2>
+      <p>Klingt wie ein Mensch. Arbeitet wie ein Team. Echte Gespräche, keine Studioaufnahmen.</p>
+    </div>
+    <div class="voice-grid">
+      <div class="voice-card glass">
+        <div class="voice-label">🥙 Großhandel</div>
+        <h3>Bestellung per Sprachnachricht</h3>
+        <p>Der Kunde spricht, wie er immer spricht — Zeynah erfasst, prüft und bestätigt.</p>
+        <audio controls preload="none" src="assets/audio/hoerbeispiel-grosshandel-de.mp3"></audio>
+      </div>
+      <div class="voice-card glass">
+        <div class="voice-label">📞 B2B &amp; Vertrieb</div>
+        <h3>Lead-Qualifizierung am Telefon</h3>
+        <p>Eingehende Leads automatisch qualifizieren und ans Sales-Team weiterleiten.</p>
+        <audio controls preload="none" src="assets/audio/voice-demo-b2b.mp3"></audio>
       </div>
     </div>
   </div>
@@ -532,12 +577,12 @@ img, video { max-width: 100%; display: block; }
       <p>Keine Mockups. Das ist die echte Oberfläche. Klicken Sie rein.</p>
     </div>
     <div class="live-box glass">
-      <iframe src="about:blank" id="liveIframe"></iframe>
+      <iframe src="about:blank" id="liveIframe" title="Zeynah Live-Dashboard"></iframe>
       <div class="live-overlay" id="liveOverlay" onclick="loadLive()">
         <div style="text-align:center;">
-          <div style="font-size:56px;margin-bottom:20px;">🔴</div>
-          <p style="font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;">Dashboard starten</p>
-          <p style="color:var(--text-secondary);">Klicken zum Laden — nur lesender Zugriff</p>
+          <div style="font-size:56px;margin-bottom:20px;">🔵</div>
+          <p style="font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;">Live-Dashboard starten</p>
+          <p style="color:var(--text-secondary);">Echtes System · Demo-Zugang · nur lesend</p>
         </div>
       </div>
     </div>
@@ -570,7 +615,7 @@ img, video { max-width: 100%; display: block; }
   <div class="container">
     <div class="section-head">
       <h2>Preise, die sich rechnen</h2>
-      <p>Monatlich kündbar. Die ersten 30 Tage kostenlos.</p>
+      <p>Monatlich kündbar zum Monatsende. Keine Mindestlaufzeit.</p>
     </div>
     <div class="roi-box glass">
       <div class="roi-icon">💡</div>
@@ -590,7 +635,7 @@ img, video { max-width: 100%; display: block; }
           <li>Artikel, Kunden, Preisstaffeln</li>
           <li>Unbegrenzte Mitarbeiter</li>
         </ul>
-        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;">Pilot starten</a>
+        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;">Pilot anfragen</a>
       </div>
       <div class="price-card glass popular" style="position:relative;">
         <div class="popular-badge">AM BELIEBTESTEN</div>
@@ -605,7 +650,7 @@ img, video { max-width: 100%; display: block; }
           <li>Offene Posten & Mahnwesen</li>
           <li>Vier Sprachen in der Oberfläche</li>
         </ul>
-        <a href="#pilot-form" class="btn btn-primary" style="width:100%;">Pilot starten</a>
+        <a href="#pilot-form" class="btn btn-primary" style="width:100%;">Pilot anfragen</a>
       </div>
       <div class="price-card glass">
         <h3>Premium</h3>
@@ -617,7 +662,7 @@ img, video { max-width: 100%; display: block; }
           <li>Individuelle Anbindungen an bestehende Systeme</li>
           <li>Fester persönlicher Ansprechpartner</li>
         </ul>
-        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;">Pilot starten</a>
+        <a href="#pilot-form" class="btn btn-secondary" style="width:100%;">Pilot anfragen</a>
       </div>
     </div>
     <div class="setup-info glass" style="margin-top:40px;padding:32px;text-align:center;">
@@ -630,7 +675,7 @@ img, video { max-width: 100%; display: block; }
 <section class="form-section" id="pilot-form">
   <div class="container">
     <div class="form-card glass">
-      <h3>🚀 Pilotplatz beantragen</h3>
+      <h3>🚀 Pilotplatz anfragen</h3>
       <p>Nur 3 Plätze verfügbar. Wir melden uns innerhalb von 24 Stunden.</p>
       <form onsubmit="handleSubmit(event)">
         <div class="form-group">
@@ -678,7 +723,7 @@ img, video { max-width: 100%; display: block; }
           <label>Was ist Ihr größtes Problem bei der Anfragenannahme?</label>
           <textarea placeholder="z. B. Nachtanfragen per WhatsApp, die morgens niemand findet..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg form-submit">Pilotplatz sichern →</button>
+        <button type="submit" class="btn btn-primary btn-lg form-submit">Anfrage senden →</button>
         <p class="form-note">🔒 Ihre Daten werden DSGVO-konform verarbeitet. Kein Spam, keine Weitergabe.</p>
       </form>
     </div>
@@ -712,8 +757,8 @@ img, video { max-width: 100%; display: block; }
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
-        <div class="faq-q">Wie lange dauert der Pilot?</div>
-        <div class="faq-a"><p>6 Wochen. In der ersten Woche richten wir Zeynah mit Ihren echten Daten ein. Danach testen Sie mit echten Anfragen. Am Ende entscheiden Sie — ohne Kosten, ohne Drama.</p></div>
+        <div class="faq-q">Wie läuft der Pilot ab?</div>
+        <div class="faq-a"><p>Wir richten Zeynah mit Ihren echten Daten, Kunden und Prozessen ein. Sie testen mit echten Anfragen aus Ihrem Alltag. Am Ende entscheiden Sie in Ruhe — ohne Drama.</p></div>
       </div>
     </div>
     <div class="faq-item glass">
@@ -737,12 +782,34 @@ img, video { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- FOOTER CTA -->
-<section class="footer-cta">
+<!-- KONTAKT / FOOTER CTA -->
+<section class="footer-cta" id="kontakt">
   <div class="container">
     <h2>Bereit, nie wieder eine Anfrage zu verpassen?</h2>
-    <p>3 Pilotplätze. 6 Wochen kostenlos. Ihre Entscheidung danach.</p>
-    <a href="#pilot-form" class="btn btn-primary btn-lg">Jetzt Pilotplatz sichern →</a>
+    <p>Sprechen Sie mit uns — über den Kanal, der zu Ihnen passt.</p>
+    <a href="#pilot-form" class="btn btn-primary btn-lg">Pilotplatz anfragen →</a>
+    <div class="contact-grid">
+      <a class="contact-card glass" href="https://wa.me/491637794150?text=Hallo%20Zeynah%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eure%20Sprach-KI." target="_blank" rel="noopener">
+        <div class="contact-icon">💬</div>
+        <h4>WhatsApp</h4>
+        <p>Schreiben Sie uns direkt — Antwort in Minuten</p>
+      </a>
+      <a class="contact-card glass" href="tel:+491776480485">
+        <div class="contact-icon">📞</div>
+        <h4>Telefon</h4>
+        <p>0177 6480485</p>
+      </a>
+      <a class="contact-card glass" href="https://calendly.com/nazandalkic/zeynah" target="_blank" rel="noopener">
+        <div class="contact-icon">📅</div>
+        <h4>Demo buchen</h4>
+        <p>15 Minuten — live, in Ihrer Branche</p>
+      </a>
+      <a class="contact-card glass" href="mailto:info@zeynah.cloud">
+        <div class="contact-icon">✉️</div>
+        <h4>E-Mail</h4>
+        <p>info@zeynah.cloud — Antwort in 24 h</p>
+      </a>
+    </div>
     <div class="footer-contact">
       <a href="tel:+491776480485">0177 6480485</a> · <a href="mailto:info@zeynah.cloud">info@zeynah.cloud</a>
     </div>
@@ -814,8 +881,29 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 function handleSubmit(e) { e.preventDefault(); alert('Danke für Ihre Anfrage! Wir melden uns innerhalb von 24 Stunden.'); }
 function setLang(lang) { document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); }
-function toggleNav() { const links = document.getElementById('navLinks'); links.style.display = links.style.display === 'flex' ? 'none' : 'flex'; links.style.position = 'absolute'; links.style.top = '56px'; links.style.left = '0'; links.style.right = '0'; links.style.flexDirection = 'column'; links.style.background = 'rgba(0,0,0,0.95)'; links.style.padding = '20px'; links.style.gap = '16px'; }
-function loadLive() { document.getElementById('liveIframe').src = 'https://app.zeynah.cloud'; document.getElementById('liveOverlay').style.display = 'none'; }
+function toggleNav() { const links = document.getElementById('navLinks'); links.style.display = links.style.display === 'flex' ? 'none' : 'flex'; links.style.position = 'absolute'; links.style.top = '60px'; links.style.left = '0'; links.style.right = '0'; links.style.flexDirection = 'column'; links.style.background = 'rgba(28,31,36,0.97)'; links.style.padding = '20px'; links.style.gap = '16px'; }
+
+/* Live-Dashboard: echtes System, Demo-Zugang (nur lesend) */
+function loadLive() { document.getElementById('liveIframe').src = 'https://core.zeynah.cloud/cockpit#k=zeynah_demo_87868bb406070db4791bd8df6d40'; document.getElementById('liveOverlay').style.display = 'none'; }
+
+/* ElevenLabs Sprachberatung — Zwei-Klick-Lösung (DSGVO):
+   Erst nach ausdrücklicher Zustimmung wird das Skript nachgeladen
+   und eine Verbindung zu ElevenLabs aufgebaut. */
+function startVoice() {
+  document.getElementById('voiceGate').style.display = 'none';
+  var w = document.createElement('elevenlabs-convai');
+  w.setAttribute('agent-id', 'agent_3201khxdc18wfrabzjjpqtes42jz');
+  w.setAttribute('override-language', 'de');
+  w.setAttribute('action-text', 'Zeynah fragen');
+  w.setAttribute('start-call-text', 'Gespräch starten');
+  w.setAttribute('end-call-text', 'Gespräch beenden');
+  document.body.appendChild(w);
+  var s = document.createElement('script');
+  s.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+  s.async = true;
+  document.body.appendChild(s);
+}
+
 function hideCookie() { document.getElementById('cookieBanner').style.display = 'none'; localStorage.setItem('cookiesAccepted', 'true'); }
 if (localStorage.getItem('cookiesAccepted')) document.getElementById('cookieBanner').style.display = 'none';
 </script>
