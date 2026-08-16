@@ -1047,6 +1047,57 @@ elevenlabs-convai { z-index: 60; }
   </div>
 </section>
 
+<!-- RECHTLICHES (dunkel) -->
+<section class="impressum-section" id="datenschutz">
+  <div class="container">
+    <h3 style="margin-bottom:24px;">🔒 Datenschutzerklärung</h3>
+    <div class="impressum-grid" style="grid-template-columns:1fr;max-width:840px;">
+      <div class="impressum-col">
+        <h4>1. Verantwortlicher</h4>
+        <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist die im Impressum genannte Stelle.</p>
+        <h4>2. Welche Daten wir verarbeiten</h4>
+        <p>Bei Nutzung des Kontaktformulars: Firmenname, Name, Telefonnummer, E-Mail-Adresse und Ihre Nachricht. Bei Gesprächen mit unserer Sprach-KI: Gesprächsinhalte und Metadaten des Anrufs.</p>
+        <h4>3. Zweck und Rechtsgrundlage</h4>
+        <p>Die Verarbeitung erfolgt zur Bearbeitung Ihrer Anfrage und zur Vertragsanbahnung (Art. 6 Abs. 1 lit. b DSGVO), zur Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO) sowie — beim Laden des Sprachassistenten — auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</p>
+        <h4>4. Eingesetzte Dienste</h4>
+        <p>Hosting: Netlify · CDN: Cloudflare · Sprach-KI: ElevenLabs (USA). Der Sprachassistent wird erst nach Ihrer ausdrücklichen Zustimmung geladen (Zwei-Klick-Lösung). Ohne Zustimmung findet keine Datenübertragung an ElevenLabs statt.</p>
+        <h4>5. Speicherdauer und Weitergabe</h4>
+        <p>Wir speichern Ihre Daten nur so lange, wie es für die Bearbeitung erforderlich ist, und geben sie nicht zu Werbezwecken an Dritte weiter.</p>
+        <h4>6. Ihre Rechte</h4>
+        <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde. Wenden Sie sich dazu an info@zeynah.cloud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="impressum-section" id="agb">
+  <div class="container">
+    <h3 style="margin-bottom:24px;">⚖️ Allgemeine Geschäftsbedingungen</h3>
+    <div class="impressum-grid" style="grid-template-columns:1fr;max-width:840px;">
+      <div class="impressum-col">
+        <h4>§ 1 Geltungsbereich</h4>
+        <p>Diese AGB gelten für Leistungen von Zeynah gegenüber Unternehmern (§ 14 BGB).</p>
+        <h4>§ 2 Leistungen</h4>
+        <p>Zeynah stellt eine KI-gestützte Anfragenannahme und Assistenten-Oberfläche bereit. Der Umfang ergibt sich aus dem gewählten Tarif.</p>
+        <h4>§ 3 Pilotphase</h4>
+        <p>Der Einstieg erfolgt über eine Pilotphase mit echten Daten und Prozessen. Ein dauerhafter Vertrag kommt erst nach erfolgreichem Pilot und ausdrücklicher Bestätigung zustande.</p>
+        <h4>§ 4 Preise</h4>
+        <p>Alle Preise verstehen sich netto zzgl. gesetzlicher Umsatzsteuer. Das Setup wird einmalig berechnet; bei 12 Monaten Laufzeit verrechnen wir die Hälfte mit den Monatsraten.</p>
+        <h4>§ 5 Laufzeit und Kündigung</h4>
+        <p>Monatstarife sind zum Monatsende kündbar, sofern nichts Abweichendes vereinbart ist.</p>
+        <h4>§ 6 Haftung</h4>
+        <p>Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit; im Übrigen nur für vorhersehbare, vertragstypische Schäden.</p>
+        <h4 id="widerruf">§ 7 Widerruf</h4>
+        <p>Unsere Leistungen richten sich ausschließlich an Unternehmer. Ein Widerrufsrecht für Verbraucher (§ 355 BGB) ist daher nicht einschlägig.</p>
+        <h4 id="avv">§ 8 Auftragsverarbeitung</h4>
+        <p>Setzen Sie Zeynah mit personenbezogenen Daten Ihrer Anrufer ein, schließen wir vor dem Go-Live eine Auftragsverarbeitungs-Vereinbarung gemäß Art. 28 DSGVO mit Ihnen.</p>
+        <h4>§ 9 Schlussbestimmungen</h4>
+        <p>Es gilt deutsches Recht. Gerichtsstand ist Hamburg, soweit gesetzlich zulässig.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SITE FOOTER -->
 <footer class="site-footer">
   <div class="container">
@@ -1452,7 +1503,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 function handleSubmit(e) {
   e.preventDefault();
   const lang = document.documentElement.lang;
-  alert((I18N[lang] && I18N[lang]['alert']) || 'Danke für Ihre Anfrage! Wir melden uns innerhalb von 24 Stunden.');
+  const ok = (I18N[lang] && I18N[lang]['alert']) || 'Danke für Ihre Anfrage! Wir melden uns innerhalb von 24 Stunden.';
+  const f = e.target;
+  const data = new URLSearchParams(new FormData(f)).toString();
+  fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data })
+    .then(function(){ alert(ok); f.reset(); })
+    .catch(function(){
+      const d = new FormData(f);
+      const msg = 'Pilotanfrage über die Website — Firma: ' + (d.get('firma')||'') + ' · Name: ' + (d.get('name')||'') + ' · Tel: ' + (d.get('telefon')||'') + ' · E-Mail: ' + (d.get('email')||'') + ' · Branche: ' + (d.get('branche')||'') + ' · Anfragen/Woche: ' + (d.get('anfragen')||'') + ' · Problem: ' + (d.get('problem')||'');
+      window.open('https://wa.me/491637794150?text=' + encodeURIComponent(msg), '_blank');
+      alert(ok);
+    });
 }
 function toggleNav() { const links = document.getElementById('navLinks'); links.style.display = links.style.display === 'flex' ? 'none' : 'flex'; links.style.position = 'absolute'; links.style.top = '60px'; links.style.left = '0'; links.style.right = '0'; links.style.flexDirection = 'column'; links.style.background = 'rgba(28,31,36,0.97)'; links.style.padding = '20px'; links.style.gap = '16px'; }
 
