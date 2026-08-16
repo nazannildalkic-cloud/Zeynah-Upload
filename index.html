@@ -1507,15 +1507,12 @@ function handleSubmit(e) {
   const lang = document.documentElement.lang;
   const ok = (I18N[lang] && I18N[lang]['alert']) || 'Danke für Ihre Anfrage! Wir melden uns innerhalb von 24 Stunden.';
   const f = e.target;
-  const data = new URLSearchParams(new FormData(f)).toString();
-  fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data })
-    .then(function(){ alert(ok); f.reset(); })
-    .catch(function(){
-      const d = new FormData(f);
-      const msg = 'Pilotanfrage über die Website — Firma: ' + (d.get('firma')||'') + ' · Name: ' + (d.get('name')||'') + ' · Tel: ' + (d.get('telefon')||'') + ' · E-Mail: ' + (d.get('email')||'') + ' · Branche: ' + (d.get('branche')||'') + ' · Anfragen/Woche: ' + (d.get('anfragen')||'') + ' · Problem: ' + (d.get('problem')||'');
-      window.open('https://wa.me/491637794150?text=' + encodeURIComponent(msg), '_blank');
-      alert(ok);
-    });
+  const d = new FormData(f);
+  const msg = '🚀 Pilotanfrage — Firma: ' + (d.get('firma')||'') + ' · Name: ' + (d.get('name')||'') + ' · Tel: ' + (d.get('telefon')||'') + ' · E-Mail: ' + (d.get('email')||'') + ' · Branche: ' + (d.get('branche')||'') + ' · Anfragen/Woche: ' + (d.get('anfragen')||'') + ' · Problem: ' + (d.get('problem')||'');
+  try { fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(d).toString() }).catch(function(){}); } catch(_) {}
+  window.open('https://wa.me/491637794150?text=' + encodeURIComponent(msg), '_blank');
+  alert(ok);
+  f.reset();
 }
 function toggleNav() { const links = document.getElementById('navLinks'); links.style.display = links.style.display === 'flex' ? 'none' : 'flex'; links.style.position = 'absolute'; links.style.top = '60px'; links.style.left = '0'; links.style.right = '0'; links.style.flexDirection = 'column'; links.style.background = 'rgba(28,31,36,0.97)'; links.style.padding = '20px'; links.style.gap = '16px'; }
 
