@@ -707,13 +707,13 @@ elevenlabs-convai { z-index: 60; }
         <div class="voice-label" data-i18n="v1.label">🥙 Großhandel</div>
         <h3 data-i18n="v1.h3">Bestellung per Sprachnachricht</h3>
         <p data-i18n="v1.p">Der Kunde spricht, wie er immer spricht — Zeynah erfasst, prüft und bestätigt.</p>
-        <audio controls preload="none" id="voice1" src="assets/audio/hoerbeispiel-grosshandel-de.mp3"></audio>
+        <audio controls preload="none" id="voice1" src="assets/audio/hoerbeispiel-grosshandel-de.mp3?v=2"></audio>
       </div>
       <div class="voice-card glass">
-        <div class="voice-label" data-i18n="v2.label">🍽️ Gastro</div>
-        <h3 data-i18n="v2.h3">Bestellung am Telefon</h3>
-        <p data-i18n="v2.p">Bestellung, Reservierung, Fragen — Zeynah nimmt entgegen und bestätigt.</p>
-        <audio controls preload="none" id="voice2" src="assets/audio/voice-demo-gastro.mp3"></audio>
+        <div class="voice-label" data-i18n="v2.label">📦 Großhandel</div>
+        <h3 data-i18n="v2.h3">Bestellung per WhatsApp-Sprachnachricht</h3>
+        <p data-i18n="v2.p">Der Kunde schickt eine Sprachnachricht — Zeynah erkennt Artikel, Mengen und Sonderwünsche und legt die Bestellung zur Freigabe bereit.</p>
+        <audio controls preload="none" id="voice2" src="assets/audio/voice-demo-grosshandel-de.mp3?v=2"></audio>
       </div>
     </div>
   </div>
@@ -844,7 +844,7 @@ elevenlabs-convai { z-index: 60; }
       </div>
       <div class="price-card glass">
         <h3>Premium</h3>
-        <div class="price-amount">1.990 <span data-i18n="permonth">€/Monat</span></div>
+        <div class="price-amount"><span data-i18n="p3.ab">ab </span>1.990 <span data-i18n="permonth">€/Monat</span></div>
         <div class="price-note" data-i18n="p3.note">Mehrere Standorte oder Niederlassungen</div>
         <ul class="price-features">
           <li data-i18n="p3.f1">Alles aus Pro</li>
@@ -962,13 +962,31 @@ elevenlabs-convai { z-index: 60; }
     <div class="faq-item glass">
       <div class="faq-item-inner">
         <div class="faq-q" data-i18n="q6">Was ist mit Datenschutz?</div>
-        <div class="faq-a"><p data-i18n="a6">DSGVO-konform, Server in der EU, alle Daten verschlüsselt. Wir haben das von Anfang an eingebaut — nicht nachträglich.</p></div>
+        <div class="faq-a"><p data-i18n="a6">DSGVO-konform, Server in der EU, alle Daten verschlüsselt. Sie bekommen von uns eine Auftragsverarbeitungs-Vereinbarung (AVV) — und Anrufer werden transparent informiert. Datenschutz war von Anfang an eingebaut, nicht nachträglich.</p></div>
       </div>
     </div>
     <div class="faq-item glass">
       <div class="faq-item-inner">
         <div class="faq-q" data-i18n="q7">Was passiert, wenn Zeynah eine Frage nicht beantworten kann?</div>
         <div class="faq-a"><p data-i18n="a7">Zeynah erkennt das, vereinbart einen Rückruf oder leitet das Gespräch an Ihren menschlichen Mitarbeiter weiter — automatisch und ohne Pause für den Anrufer.</p></div>
+      </div>
+    </div>
+    <div class="faq-item glass">
+      <div class="faq-item-inner">
+        <div class="faq-q" data-i18n="q8">Was passiert, wenn am Montagmorgen alle gleichzeitig bestellen?</div>
+        <div class="faq-a"><p data-i18n="a8">Zeynah führt beliebig viele Gespräche parallel — auch zum Bestellpeak am Montagmorgen. Niemand hört je ein Besetztzeichen, keine Bestellung geht verloren.</p></div>
+      </div>
+    </div>
+    <div class="faq-item glass">
+      <div class="faq-item-inner">
+        <div class="faq-q" data-i18n="q9">Sagt Zeynah den Anrufern, dass sie eine KI ist?</div>
+        <div class="faq-a"><p data-i18n="a9">Ja. Zeynah stellt sich als digitale Assistentin Ihres Unternehmens vor — ehrlich und freundlich. Das schafft Vertrauen und ist rechtlich sauber.</p></div>
+      </div>
+    </div>
+    <div class="faq-item glass">
+      <div class="faq-item-inner">
+        <div class="faq-q" data-i18n="q10">Haben Sie Referenzen?</div>
+        <div class="faq-a"><p data-i18n="a10">Wir starten bewusst mit nur drei Pilotbetrieben — statt Hochglanzversprechen bekommen Sie den Beweis an Ihren eigenen Bestellungen: Erst testen Sie Zeynah im echten Alltag, dann entscheiden Sie. Kein Vertrag ohne erfolgreichen Pilot.</p></div>
       </div>
     </div>
   </div>
@@ -1136,7 +1154,7 @@ tr: {
 'o4.label':'Sıfır hatası','o4.bubble':'<strong>Dikkat: 2.000 kg.</strong><br>Muhtemelen bir sıfır fazla — sorulsun mu?',
 'voice.h2':'Kendiniz dinleyin — Zeynah’ın sesi','voice.p':'İnsan gibi konuşur. Ekip gibi çalışır. Gerçek konuşmalar, stüdyo kaydı değil.',
 'v1.label':'🥙 Toptan satış','v1.h3':'Sesli mesajla sipariş','v1.p':'Müşteri her zamanki gibi konuşur — Zeynah kaydeder, kontrol eder ve onaylar.',
-'v2.label':'🍽️ Gastro','v2.h3':'Telefonda sipariş','v2.p':'Sipariş, rezervasyon, sorular — Zeynah alır ve onaylar.',
+'v2.label':'📦 Toptan','v2.h3':'WhatsApp sesli mesajıyla sipariş','v2.p':'Müşteri sesli mesaj gönderir — Zeynah ürünleri, miktarları ve özel istekleri tanır ve siparişi onaya hazırlar.',
 'dash.h2':'Canlı sistem — Paneliniz','dash.p':'Mal girişinden ödenen faturaya. Hepsi tek ekranda.',
 'dash.sub':'Demo görünümü','dash.upd':'● Her 30 saniyede güncellenir',
 'd1.h5':'Para kazanıyor muyuz?','d1.big':'12.480 €','d1.p':'Bugünkü ciro · Marj %23',
@@ -1168,8 +1186,12 @@ tr: {
 'q3':'Ekibimi kim eğitecek?','a3':'Tamamen biz üstleniyoruz. Yerinde veya video ile 2 saatlik eğitim. İlk 4 hafta her gün ulaşılabiliriz.',
 'q4':'Pilot nasıl işliyor?','a4':'Zeynah’ı gerçek verileriniz, müşterileriniz ve süreçlerinizle kuruyoruz. Günlük hayatınızdan gerçek taleplerle test ediyorsunuz. Sonunda sakin karar verirsiniz — drama yok.',
 'q5':'Türkçe de çalışıyor mu?','a5':'Evet. Zeynah Almanca, Türkçe, İngilizce, Arapça, Yunanca ve Rusça anlar ve yanıtlar. Arayüz altı dilde de mevcut.',
-'q6':'Peki veri koruma?','a6':'GDPR uyumlu, sunucular AB’de, tüm veriler şifreli. Bunu baştan inşa ettik — sonradan değil.',
+'q6':'Peki veri koruma?','a6':'GDPR uyumlu, sunucular AB’de, tüm veriler şifreli. Bizden bir sipariş işleme sözleşmesi (AVV) alırsınız — arayanlar şeffaf şekilde bilgilendirilir. Veri koruması baştan inşa edildi, sonradan değil.',
 'q7':'Zeynah bir soruyu yanıtlayamazsa ne olur?','a7':'Zeynah bunu fark eder, geri arama ayarlar veya görüşmeyi çalışanınıza aktarır — otomatik ve arayan için kesintisiz.',
+'q8':'Pazartesi sabahı herkes aynı anda sipariş verirse ne olur?','a8':'Zeynah istenen sayıda görüşmeyi paralel yürütür — pazartesi sabahı sipariş yoğunluğunda bile. Kimse meşgul tonu duymaz, hiçbir sipariş kaybolmaz.',
+'q9':'Zeynah arayanlara yapay zekâ olduğunu söylüyor mu?','a9':'Evet. Zeynah kendini şirketinizin dijital asistanı olarak tanıtır — dürüst ve samimi. Bu güven oluşturur ve hukuken temizdir.',
+'q10':'Referanslarınız var mı?','a10':'Bilinçli olarak sadece üç pilot işletmeyle başlıyoruz — parlak vaatler yerine kanıtı kendi siparişlerinizde alırsınız: Önce Zeynah’ı gerçek günlük işte test edersiniz, sonra karar verirsiniz. Başarılı pilot olmadan sözleşme yok.',
+'p3.ab':'başlangıç: ',
 'kontakt.h2':'Bir daha hiçbir talebi kaçırmamaya hazır mısınız?','kontakt.p':'Bizimle konuşun — size uyan kanaldan.','kontakt.btn':'Pilot yeri talep et →',
 'k1.p':'Bize doğrudan yazın — dakikalar içinde yanıt','k2.h4':'Telefon','k3.h4':'Demo ayırt','k3.p':'15 dakika — canlı, sizin sektörünüzde','k4.p':'info@zeynah.cloud — 24 saatte yanıt','pitch.btn':'Sunum (PDF)',
 'footer.l1':'© 2026 Zeynah — Hamburg · 20+ dil · GDPR uyumlu · 7/24 ulaşılabilir',
@@ -1200,7 +1222,7 @@ en: {
 'o4.label':'The zero mistake','o4.bubble':'<strong>Caution: 2,000 kg.</strong><br>Probably one zero too many — ask again?',
 'voice.h2':'Listen for yourself — the voice of Zeynah','voice.p':'Sounds like a human. Works like a team. Real conversations, no studio recordings.',
 'v1.label':'🥙 Wholesale','v1.h3':'Order by voice message','v1.p':'The customer speaks as they always do — Zeynah captures, checks and confirms.',
-'v2.label':'🍽️ Restaurant','v2.h3':'Order by phone','v2.p':'Orders, reservations, questions — Zeynah takes them and confirms.',
+'v2.label':'📦 Wholesale','v2.h3':'Order via WhatsApp voice message','v2.p':'The customer sends a voice message — Zeynah recognizes items, quantities and special requests and prepares the order for approval.',
 'dash.h2':'The live system — your cockpit','dash.p':'From goods received to paid invoice. All on one screen.',
 'dash.sub':'Demo view','dash.upd':'● Updated every 30 seconds',
 'd1.h5':'Are we making money?','d1.big':'€12,480','d1.p':'Revenue today · 23% margin',
@@ -1232,8 +1254,12 @@ en: {
 'q3':'Who trains my team?','a3':'We handle it completely. A 2-hour training on site or via video. We’re reachable daily for the first 4 weeks.',
 'q4':'How does the pilot work?','a4':'We set up Zeynah with your real data, customers and processes. You test with real requests from your daily business. At the end you decide at your leisure — no drama.',
 'q5':'Does it work in Turkish too?','a5':'Yes. Zeynah understands and replies in German, Turkish, English, Arabic, Greek and Russian. The interface is available in all six languages.',
-'q6':'What about data protection?','a6':'GDPR-compliant, servers in the EU, all data encrypted. We built it in from the start — not retrofitted.',
+'q6':'What about data protection?','a6':'GDPR-compliant, servers in the EU, all data encrypted. You receive a data processing agreement (DPA) from us — and callers are informed transparently. Data protection was built in from the start, not retrofitted.',
 'q7':'What happens if Zeynah can’t answer a question?','a7':'Zeynah recognizes that, arranges a callback or hands the call to your human colleague — automatically and seamlessly for the caller.',
+'q8':'What happens when everyone orders at the same time on Monday morning?','a8':'Zeynah handles any number of conversations in parallel — even during the Monday-morning order peak. Nobody ever hears a busy signal, no order is lost.',
+'q9':'Does Zeynah tell callers it is an AI?','a9':'Yes. Zeynah introduces itself as the digital assistant of your company — honestly and warmly. That builds trust and is legally clean.',
+'q10':'Do you have references?','a10':'We deliberately start with just three pilot businesses — instead of glossy promises you get proof with your own orders: first you test Zeynah in real daily operations, then you decide. No contract without a successful pilot.',
+'p3.ab':'from ',
 'kontakt.h2':'Ready to never miss a request again?','kontakt.p':'Talk to us — via the channel that suits you.','kontakt.btn':'Request pilot spot →',
 'k1.p':'Message us directly — reply in minutes','k2.h4':'Phone','k3.h4':'Book a demo','k3.p':'15 minutes — live, in your industry','k4.p':'info@zeynah.cloud — reply within 24 h','pitch.btn':'Pitch deck (PDF)',
 'footer.l1':'© 2026 Zeynah — Hamburg · 20+ languages · GDPR-compliant · reachable 24/7',
@@ -1264,7 +1290,7 @@ ar: {
 'o4.label':'خطأ الصفر','o4.bubble':'<strong>تنبيه: 2.000 كغ.</strong><br>على الأرجح صفر زائد — هل نسأل؟',
 'voice.h2':'اسمع بنفسك — صوت زينة','voice.p':'تبدو كإنسان. تعمل كفريق. محادثات حقيقية، وليست تسجيلات استوديو.',
 'v1.label':'🥙 تجارة الجملة','v1.h3':'الطلب برسالة صوتية','v1.p':'العميل يتحدث كما يتحدث دائماً — زينة تسجل وتتحقق وتؤكد.',
-'v2.label':'🍽️ المطاعم','v2.h3':'الطلب عبر الهاتف','v2.p':'الطلبات والحجوزات والأسئلة — زينة تستقبلها وتؤكدها.',
+'v2.label':'📦 الجملة','v2.h3':'الطلب عبر رسالة صوتية في واتساب','v2.p':'يرسل العميل رسالة صوتية — تتعرف زينة على الأصناف والكميات والطلبات الخاصة وتجهّز الطلب للموافقة.',
 'dash.h2':'النظام المباشر — لوحة قيادتك','dash.p':'من استلام البضاعة إلى الفاتورة المدفوعة. كل شيء على شاشة واحدة.',
 'dash.sub':'عرض تجريبي','dash.upd':'● يُحدَّث كل 30 ثانية',
 'd1.h5':'هل نربح المال؟','d1.big':'12.480 €','d1.p':'إيرادات اليوم · هامش 23%',
@@ -1296,8 +1322,12 @@ ar: {
 'q3':'من يدرّب فريقي؟','a3':'نتولى ذلك بالكامل. تدريب لمدة ساعتين في الموقع أو عبر الفيديو. نحن متاحون يومياً في الأسابيع الأربعة الأولى.',
 'q4':'كيف تتم التجربة؟','a4':'نُعدّ زينة ببياناتك وعملائك وعملياتك الحقيقية. تختبرها بطلبات حقيقية من يومك. وفي النهاية تقرر بهدوء — بدون دراما.',
 'q5':'هل تعمل بالتركية أيضاً؟','a5':'نعم. زينة تفهم وترد بالألمانية والتركية والإنجليزية والعربية واليونانية والروسية. الواجهة متاحة باللغات الست.',
-'q6':'ماذا عن حماية البيانات؟','a6':'متوافق مع GDPR، خوادم في الاتحاد الأوروبي، جميع البيانات مشفرة. بنيناها منذ البداية — وليست إضافة لاحقة.',
+'q6':'ماذا عن حماية البيانات؟','a6':'متوافق مع GDPR، خوادم في الاتحاد الأوروبي، جميع البيانات مشفرة. تحصل منا على اتفاقية معالجة البيانات (AVV) — ويتم إبلاغ المتصلين بشفافية. حماية البيانات مدمجة منذ البداية، وليست إضافة لاحقة.',
 'q7':'ماذا يحدث إذا لم تستطع زينة الإجابة عن سؤال؟','a7':'تدرك زينة ذلك، فترتب معاودة اتصال أو تحوّل المكالمة إلى موظفك — تلقائياً ودون انقطاع للمتصل.',
+'q8':'ماذا يحدث عندما يطلب الجميع في وقت واحد صباح الاثنين؟','a8':'تدير زينة أي عدد من المحادثات بالتوازي — حتى في ذروة الطلبات صباح الاثنين. لا يسمع أحد إشارة انشغال أبداً، ولا يضيع أي طلب.',
+'q9':'هل تخبر زينة المتصلين بأنها ذكاء اصطناعي؟','a9':'نعم. تقدّم زينة نفسها كمساعدة رقمية لشركتك — بصدق وود. هذا يبني الثقة وهو سليم قانونياً.',
+'q10':'هل لديكم مراجع؟','a10':'نبدأ عمداً مع ثلاث شركات تجريبية فقط — بدلاً من الوعود اللامعة تحصل على الدليل مع طلباتك الخاصة: تختبر زينة أولاً في العمل اليومي الحقيقي، ثم تقرر. لا عقد بدون تجربة ناجحة.',
+'p3.ab':'ابتداءً من ',
 'kontakt.h2':'مستعد لألا تفوتك أي طلبية بعد الآن؟','kontakt.p':'تحدث معنا — عبر القناة التي تناسبك.','kontakt.btn':'اطلب مكاناً تجريبياً ←',
 'k1.p':'راسلنا مباشرة — الرد خلال دقائق','k2.h4':'الهاتف','k3.h4':'احجز عرضاً','k3.p':'15 دقيقة — مباشرة، في مجالك','k4.p':'info@zeynah.cloud — الرد خلال 24 ساعة','pitch.btn':'العرض التقديمي (PDF)',
 'footer.l1':'© 2026 زينة — هامبورغ · أكثر من 20 لغة · متوافق مع GDPR · متاح 24/7',
@@ -1328,7 +1358,7 @@ el: {
 'o4.label':'Το λάθος με το μηδενικό','o4.bubble':'<strong>Προσοχή: 2.000 κιλά.</strong><br>Μάλλον ένα μηδενικό παραπάνω — να ρωτήσουμε;',
 'voice.h2':'Ακούστε οι ίδιοι — η φωνή της Zeynah','voice.p':'Ακούγεται σαν άνθρωπος. Δουλεύει σαν ομάδα. Πραγματικές συνομιλίες, όχι ηχογραφήσεις στούντιο.',
 'v1.label':'🥙 Χονδρική','v1.h3':'Παραγγελία με φωνητικό μήνυμα','v1.p':'Ο πελάτης μιλά όπως πάντα — η Zeynah καταγράφει, ελέγχει και επιβεβαιώνει.',
-'v2.label':'🍽️ Εστίαση','v2.h3':'Παραγγελία στο τηλέφωνο','v2.p':'Παραγγελίες, κρατήσεις, ερωτήσεις — η Zeynah τις δέχεται και επιβεβαιώνει.',
+'v2.label':'📦 Χονδρική','v2.h3':'Παραγγελία με φωνητικό μήνυμα WhatsApp','v2.p':'Ο πελάτης στέλνει φωνητικό μήνυμα — η Zeynah αναγνωρίζει είδη, ποσότητες και ειδικά αιτήματα και ετοιμάζει την παραγγελία προς έγκριση.',
 'dash.h2':'Το ζωντανό σύστημα — ο πίνακάς σας','dash.p':'Από την είσοδο εμπορευμάτων έως το εξοφλημένο τιμολόγιο. Όλα σε μία οθόνη.',
 'dash.sub':'Προβολή demo','dash.upd':'● Ενημερώνεται κάθε 30 δευτερόλεπτα',
 'd1.h5':'Βγάζουμε κέρδος;','d1.big':'12.480 €','d1.p':'Τζίρος σήμερα · περιθώριο 23 %',
@@ -1360,8 +1390,12 @@ el: {
 'q3':'Ποιος εκπαιδεύει την ομάδα μου;','a3':'Το αναλαμβάνουμε πλήρως εμείς. Εκπαίδευση 2 ωρών επιτόπου ή μέσω βίντεο. Τις πρώτες 4 εβδομάδες είμαστε διαθέσιμοι καθημερινά.',
 'q4':'Πώς λειτουργεί το πιλοτικό;','a4':'Στήνουμε τη Zeynah με τα πραγματικά σας δεδομένα, πελάτες και διαδικασίες. Δοκιμάζετε με πραγματικά αιτήματα από την καθημερινότητά σας. Στο τέλος αποφασίζετε με ηρεμία — χωρίς πίεση.',
 'q5':'Λειτουργεί και στα τουρκικά;','a5':'Ναι. Η Zeynah καταλαβαίνει και απαντά στα γερμανικά, τουρκικά, αγγλικά, αραβικά, ελληνικά και ρωσικά. Η διεπαφή διατίθεται και στις έξι γλώσσες.',
-'q6':'Και η προστασία δεδομένων;','a6':'Σύμφωνη με GDPR, διακομιστές στην ΕΕ, όλα τα δεδομένα κρυπτογραφημένα. Το χτίσαμε από την αρχή — όχι μεταγενέστερα.',
+'q6':'Και η προστασία δεδομένων;','a6':'Σύμφωνη με GDPR, διακομιστές στην ΕΕ, όλα τα δεδομένα κρυπτογραφημένα. Λαμβάνετε από εμάς συμφωνία επεξεργασίας δεδομένων (AVV) — και οι καλούντες ενημερώνονται με διαφάνεια. Η προστασία δεδομένων ενσωματώθηκε από την αρχή, όχι μεταγενέστερα.',
 'q7':'Τι γίνεται αν η Zeynah δεν μπορεί να απαντήσει;','a7':'Η Zeynah το αναγνωρίζει, κανονίζει επανάκληση ή μεταβιβάζει την κλήση στον υπάλληλό σας — αυτόματα και απρόσκοπτα για τον καλούντα.',
+'q8':'Τι γίνεται όταν όλοι παραγγέλλουν ταυτόχρονα το πρωί της Δευτέρας;','a8':'Η Zeynah διεκπεραιώνει οποιονδήποτε αριθμό συνομιλιών παράλληλα — ακόμη και στην αιχμή παραγγελιών το πρωί της Δευτέρας. Κανείς δεν ακούει ποτέ σήμα κατειλημμένου, καμία παραγγελία δεν χάνεται.',
+'q9':'Λέει η Zeynah στους καλούντες ότι είναι AI;','a9':'Ναι. Η Zeynah παρουσιάζεται ως η ψηφιακή βοηθός της εταιρείας σας — ειλικρινά και φιλικά. Αυτό χτίζει εμπιστοσύνη και είναι νομικά καθαρό.',
+'q10':'Έχετε συστάσεις;','a10':'Ξεκινάμε σκόπιμα με μόνο τρεις πιλοτικές επιχειρήσεις — αντί για λαμπερές υποσχέσεις παίρνετε την απόδειξη με τις δικές σας παραγγελίες: πρώτα δοκιμάζετε τη Zeynah στην πραγματική καθημερινότητα, μετά αποφασίζετε. Κανένα συμβόλαιο χωρίς επιτυχημένο πιλοτικό.',
+'p3.ab':'από ',
 'kontakt.h2':'Έτοιμοι να μην χάσετε ξανά κανένα αίτημα;','kontakt.p':'Μιλήστε μαζί μας — μέσω του καναλιού που σας ταιριάζει.','kontakt.btn':'Ζητήστε πιλοτική θέση →',
 'k1.p':'Γράψτε μας απευθείας — απάντηση σε λεπτά','k2.h4':'Τηλέφωνο','k3.h4':'Κλείστε demo','k3.p':'15 λεπτά — ζωντανά, στον κλάδο σας','k4.p':'info@zeynah.cloud — απάντηση εντός 24 ωρών','pitch.btn':'Παρουσίαση (PDF)',
 'footer.l1':'© 2026 Zeynah — Αμβούργο · 20+ γλώσσες · σύμφωνα με GDPR · διαθέσιμοι 24/7',
@@ -1392,7 +1426,7 @@ ru: {
 'o4.label':'Ошибка с нулём','o4.bubble':'<strong>Внимание: 2 000 кг.</strong><br>Вероятно лишний ноль — уточнить?',
 'voice.h2':'Послушайте сами — голос Zeynah','voice.p':'Звучит как человек. Работает как команда. Реальные разговоры, не студийные записи.',
 'v1.label':'🥙 Оптовая торговля','v1.h3':'Заказ голосовым сообщением','v1.p':'Клиент говорит как обычно — Zeynah фиксирует, проверяет и подтверждает.',
-'v2.label':'🍽️ Гастрономия','v2.h3':'Заказ по телефону','v2.p':'Заказы, бронирования, вопросы — Zeynah принимает и подтверждает.',
+'v2.label':'📦 Опт','v2.h3':'Заказ голосовым сообщением в WhatsApp','v2.p':'Клиент отправляет голосовое сообщение — Zeynah распознаёт товары, количество и особые пожелания и готовит заказ к подтверждению.',
 'dash.h2':'Живая система — ваша панель','dash.p':'От приёмки товара до оплаченного счёта. Всё на одном экране.',
 'dash.sub':'Демо-вид','dash.upd':'● Обновляется каждые 30 секунд',
 'd1.h5':'Зарабатываем ли мы?','d1.big':'12 480 €','d1.p':'Оборот сегодня · маржа 23 %',
@@ -1424,8 +1458,12 @@ ru: {
 'q3':'Кто обучит мою команду?','a3':'Мы берём это полностью на себя. Двухчасовое обучение на месте или по видео. Первые 4 недели мы на связи ежедневно.',
 'q4':'Как проходит пилот?','a4':'Мы настраиваем Zeynah на ваших реальных данных, клиентах и процессах. Вы тестируете на реальных заявках из вашей повседневности. В конце вы спокойно решаете — без давления.',
 'q5':'Работает ли это на турецком?','a5':'Да. Zeynah понимает и отвечает на немецком, турецком, английском, арабском, греческом и русском. Интерфейс доступен на всех шести языках.',
-'q6':'А как насчёт защиты данных?','a6':'Соответствие GDPR, серверы в ЕС, все данные зашифрованы. Мы заложили это с самого начала — не добавили потом.',
+'q6':'А как насчёт защиты данных?','a6':'Соответствие GDPR, серверы в ЕС, все данные зашифрованы. Вы получаете от нас договор на обработку данных (AVV) — а звонящие информируются прозрачно. Защита данных заложена с самого начала, а не добавлена потом.',
 'q7':'Что происходит, если Zeynah не может ответить на вопрос?','a7':'Zeynah это распознаёт, назначает перезвон или передаёт звонок вашему сотруднику — автоматически и незаметно для звонящего.',
+'q8':'Что происходит, когда все заказывают одновременно в понедельник утром?','a8':'Zeynah ведёт любое количество разговоров параллельно — даже в пик заказов в понедельник утром. Никто никогда не слышит сигнал «занято», ни один заказ не теряется.',
+'q9':'Говорит ли Zeynah звонящим, что она ИИ?','a9':'Да. Zeynah представляется как цифровой ассистент вашей компании — честно и дружелюбно. Это укрепляет доверие и юридически корректно.',
+'q10':'Есть ли у вас рекомендации?','a10':'Мы сознательно начинаем всего с трёх пилотных предприятий — вместо глянцевых обещаний вы получаете доказательство на собственных заказах: сначала тестируете Zeynah в реальной ежедневной работе, потом решаете. Никакого договора без успешного пилота.',
+'p3.ab':'от ',
 'kontakt.h2':'Готовы больше не упускать ни одной заявки?','kontakt.p':'Поговорите с нами — через удобный вам канал.','kontakt.btn':'Запросить пилотное место →',
 'k1.p':'Напишите нам напрямую — ответ в течение минут','k2.h4':'Телефон','k3.h4':'Забронировать демо','k3.p':'15 минут — вживую, в вашей отрасли','k4.p':'info@zeynah.cloud — ответ в течение 24 часов','pitch.btn':'Презентация (PDF)',
 'footer.l1':'© 2026 Zeynah — Гамбург · 20+ языков · соответствие GDPR · доступны 24/7',
@@ -1468,10 +1506,8 @@ function setLang(lang) {
   const v1 = document.getElementById('voice1');
   const v2 = document.getElementById('voice2');
   if (v1 && v2) {
-    const s1 = lang === 'de' ? 'assets/audio/hoerbeispiel-grosshandel-de.mp3'
-             : 'assets/audio/hoerbeispiel-grosshandel-' + lang + '.mp3';
-    const s2 = lang === 'de' ? 'assets/audio/voice-demo-gastro.mp3'
-             : 'assets/audio/voice-demo-gastro-' + lang + '.mp3';
+    const s1 = 'assets/audio/hoerbeispiel-grosshandel-' + lang + '.mp3?v=2';
+    const s2 = 'assets/audio/voice-demo-grosshandel-' + lang + '.mp3?v=2';
     if (!v1.currentSrc.endsWith(s1)) { v1.src = s1; }
     if (!v2.currentSrc.endsWith(s2)) { v2.src = s2; }
   }
