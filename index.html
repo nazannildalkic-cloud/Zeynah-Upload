@@ -864,26 +864,28 @@ elevenlabs-convai { z-index: 60; }
     <div class="form-card glass">
       <h3 data-i18n="form.h3">🚀 Pilotplatz anfragen</h3>
       <p data-i18n="form.p">Nur 3 Plätze verfügbar. Wir melden uns innerhalb von 24 Stunden.</p>
-      <form onsubmit="handleSubmit(event)">
+      <form name="pilot" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="form-name" value="pilot">
+        <p style="display:none;"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
         <div class="form-group">
           <label data-i18n="f.firma">Firmenname *</label>
-          <input type="text" data-i18n-ph="ph.firma" placeholder="z. B. Musterfirma GmbH" required>
+          <input type="text" name="firma" data-i18n-ph="ph.firma" placeholder="z. B. Musterfirma GmbH" required>
         </div>
         <div class="form-group">
           <label data-i18n="f.name">Ihr Name *</label>
-          <input type="text" data-i18n-ph="ph.name" placeholder="Vor- und Nachname" required>
+          <input type="text" name="name" data-i18n-ph="ph.name" placeholder="Vor- und Nachname" required>
         </div>
         <div class="form-group">
           <label data-i18n="f.tel">Telefon *</label>
-          <input type="tel" placeholder="+49 170 12345678" required>
+          <input type="tel" name="telefon" placeholder="+49 170 12345678" required>
         </div>
         <div class="form-group">
           <label data-i18n="f.mail">E-Mail *</label>
-          <input type="email" placeholder="info@ihrefirma.de" required>
+          <input type="email" name="email" placeholder="info@ihrefirma.de" required>
         </div>
         <div class="form-group">
           <label data-i18n="f.branche">Branche *</label>
-          <select required>
+          <select name="branche" required>
             <option value="" data-i18n="sel.waehlen">Bitte wählen</option>
             <option data-i18n="opt.gross">Großhandel</option>
             <option data-i18n="opt.hotel">Hotel & Gastronomie</option>
@@ -897,7 +899,7 @@ elevenlabs-convai { z-index: 60; }
         </div>
         <div class="form-group">
           <label data-i18n="f.woche">Ca. Anfragen pro Woche</label>
-          <select>
+          <select name="anfragen">
             <option value="" data-i18n="sel.waehlen">Bitte wählen</option>
             <option>&lt; 50</option>
             <option>50 – 150</option>
@@ -908,7 +910,7 @@ elevenlabs-convai { z-index: 60; }
         </div>
         <div class="form-group">
           <label data-i18n="f.problem">Was ist Ihr größtes Problem bei der Anfragenannahme?</label>
-          <textarea data-i18n-ph="ph.problem" placeholder="z. B. Nachtanfragen per WhatsApp, die morgens niemand findet..."></textarea>
+          <textarea name="problem" data-i18n-ph="ph.problem" placeholder="z. B. Nachtanfragen per WhatsApp, die morgens niemand findet..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-lg form-submit" data-i18n="form.btn">Anfrage senden →</button>
         <p class="form-note" data-i18n="form.note">🔒 Ihre Daten werden DSGVO-konform verarbeitet. Kein Spam, keine Weitergabe.</p>
