@@ -222,6 +222,11 @@ html[dir="rtl"] .roi-box { flex-direction: row-reverse; }
 .hero-lead { font-size: 19px; color: var(--text-secondary); max-width: 480px; margin-bottom: 32px; line-height: 1.6; }
 .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
+/* HERO-HINTERGRUNDVIDEO */
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.6; z-index: 0; pointer-events: none; }
+.hero .container { position: relative; z-index: 1; }
+
 /* GLASKUGEL — das Logo in der Kugel, schwebend */
 .orb-wrap { perspective: 900px; display: flex; align-items: center; justify-content: center; height: 100%; position: relative; }
 .orb {
@@ -548,6 +553,7 @@ elevenlabs-convai { z-index: 60; }
 
 <!-- HERO (dunkel) -->
 <section class="hero" id="hero">
+  <video class="hero-bg" autoplay muted loop playsinline src="assets/videos/bg-loop.mp4"></video>
   <div class="container">
     <div class="hero-grid">
       <div>
