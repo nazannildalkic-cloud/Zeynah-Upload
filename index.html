@@ -400,7 +400,7 @@ html[dir="rtl"] .roi-box { flex-direction: row-reverse; }
 .faq-a p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
 
 /* KONTAKT */
-.contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+.contact-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 48px; }
 .contact-card { padding: 28px 20px; text-align: center; text-decoration: none; display: block; }
 .contact-card .contact-icon { font-size: 28px; margin-bottom: 12px; }
 .contact-card h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
@@ -814,7 +814,7 @@ elevenlabs-convai { z-index: 60; }
     <div class="pricing-grid">
       <div class="price-card glass">
         <h3>Start</h3>
-        <div class="price-amount">690 <span data-i18n="permonth">€/Monat</span></div>
+        <div class="price-amount">490 <span data-i18n="permonth">€/Monat</span></div>
         <div class="price-note" data-i18n="p1.note">Ein Standort, bis ca. 300 Anfragen/Monat</div>
         <ul class="price-features">
           <li data-i18n="p1.f1">Anfragenannahme per WhatsApp & E-Mail</li>
@@ -853,7 +853,7 @@ elevenlabs-convai { z-index: 60; }
       </div>
     </div>
     <div class="setup-info glass" style="margin-top:40px;padding:32px;text-align:center;">
-      <p data-i18n="setup"><strong>Setup wird einmalig berechnet: 3.900 – 9.900 €</strong> — je nach Artikeln, Kunden und Prozessen. Wir übernehmen die Migration aus Excel, altem System oder Listen. <strong style="color:var(--accent-light);">Bei 12 Monaten Laufzeit verrechnen wir die Hälfte mit den Monatsraten.</strong> Alle Preise netto. Von Go-Live bis zur ersten geprüften Anfrage: ca. 10 Arbeitstage.</p>
+      <p data-i18n="setup"><strong>Setup wird einmalig berechnet: 1.900 – 4.900 €</strong> — je nach Artikeln, Kunden und Prozessen. Wir übernehmen die Migration aus Excel, altem System oder Listen. <strong style="color:var(--accent-light);">Bei 12 Monaten Laufzeit verrechnen wir die Hälfte mit den Monatsraten.</strong> Alle Preise netto. Von Go-Live bis zur ersten geprüften Anfrage: ca. 10 Arbeitstage.</p>
     </div>
   </div>
 </section>
@@ -996,6 +996,11 @@ elevenlabs-convai { z-index: 60; }
         <h4>E-Mail</h4>
         <p data-i18n="k4.p">info@zeynah.cloud — Antwort in 24 h</p>
       </a>
+      <a class="contact-card glass" id="pitchLink" href="assets/pitch/zeynah-pitch-grosshandel-de.pdf" target="_blank" rel="noopener">
+        <div class="contact-icon">📊</div>
+        <h4 data-i18n="pitch.btn">Pitch-Deck (PDF)</h4>
+        <p>Zeynah · 10 Slides · 16:9</p>
+      </a>
     </div>
     <div class="footer-contact">
       <a href="tel:+491776480485">0177 6480485</a> · <a href="mailto:info@zeynah.cloud">info@zeynah.cloud</a>
@@ -1095,7 +1100,7 @@ tr: {
 'p1.note':'Tek lokasyon, ayda ~300 talebe kadar','p1.f1':'WhatsApp ve e-posta ile talep alımı','p1.f2':'Yazım hatası & çift kontrol','p1.f3':'Ürünler, müşteriler, fiyat kademeleri','p1.f4':'Sınırsız çalışan',
 'p2.note':'İşleyen bir şirket için standart','p2.f1':'Start’taki her şey','p2.f2':'Sesli mesajlar okunur','p2.f3':'Partiler, izlenebilirlik','p2.f4':'Soğuk zincir & ölçüm planı','p2.f5':'Açık hesaplar & hatırlatmalar','p2.f6':'Arayüzde altı dil',
 'p3.note':'Birden fazla lokasyon veya şube','p3.f1':'Pro’daki her şey','p3.f2':'Birden fazla lokasyon & depo','p3.f3':'Mevcut sistemlere özel bağlantılar','p3.f4':'Sabit kişisel danışman',
-'setup':'<strong>Kurulum bir kerelik ücretlendirilir: 3.900 – 9.900 €</strong> — ürün, müşteri ve süreçlere göre. Excel, eski sistem veya listelerden taşımayı biz üstleniyoruz. <strong style="color:var(--accent-deep);">12 aylık sürede yarısını aylık taksitlerle mahsup ediyoruz.</strong> Tüm fiyatlar net. Canlı geçişten ilk kontrol edilmiş talebe: yaklaşık 10 iş günü.',
+'setup':'<strong>Kurulum bir kerelik ücretlendirilir: 1.900 – 4.900 €</strong> — ürün, müşteri ve süreçlere göre. Excel, eski sistem veya listelerden taşımayı biz üstleniyoruz. <strong style="color:var(--accent-deep);">12 aylık sürede yarısını aylık taksitlerle mahsup ediyoruz.</strong> Tüm fiyatlar net. Canlı geçişten ilk kontrol edilmiş talebe: yaklaşık 10 iş günü.',
 'form.h3':'🚀 Pilot yeri talep et','form.p':'Sadece 3 yer mevcut. 24 saat içinde dönüş yapıyoruz.',
 'f.firma':'Şirket adı *','f.name':'Adınız *','f.tel':'Telefon *','f.mail':'E-posta *','f.branche':'Sektör *','f.woche':'Haftada yaklaşık talep','f.problem':'Talep alımındaki en büyük sorununuz nedir?',
 'form.btn':'Talep gönder →','form.note':'🔒 Verileriniz KVKK/GDPR uyumlu işlenir. Spam yok, paylaşım yok.',
@@ -1110,7 +1115,7 @@ tr: {
 'q6':'Peki veri koruma?','a6':'GDPR uyumlu, sunucular AB’de, tüm veriler şifreli. Bunu baştan inşa ettik — sonradan değil.',
 'q7':'Zeynah bir soruyu yanıtlayamazsa ne olur?','a7':'Zeynah bunu fark eder, geri arama ayarlar veya görüşmeyi çalışanınıza aktarır — otomatik ve arayan için kesintisiz.',
 'kontakt.h2':'Bir daha hiçbir talebi kaçırmamaya hazır mısınız?','kontakt.p':'Bizimle konuşun — size uyan kanaldan.','kontakt.btn':'Pilot yeri talep et →',
-'k1.p':'Bize doğrudan yazın — dakikalar içinde yanıt','k2.h4':'Telefon','k3.h4':'Demo ayırt','k3.p':'15 dakika — canlı, sizin sektörünüzde','k4.p':'info@zeynah.cloud — 24 saatte yanıt',
+'k1.p':'Bize doğrudan yazın — dakikalar içinde yanıt','k2.h4':'Telefon','k3.h4':'Demo ayırt','k3.p':'15 dakika — canlı, sizin sektörünüzde','k4.p':'info@zeynah.cloud — 24 saatte yanıt','pitch.btn':'Sunum (PDF)',
 'footer.l1':'© 2026 Zeynah — Hamburg · 20+ dil · GDPR uyumlu · 7/24 ulaşılabilir',
 'alert':'Talebiniz için teşekkürler! 24 saat içinde dönüş yapacağız.',
 'imp.h1':'📍 Künye','imp.ust':'KDV No: [eklenecek]','imp.hr':'Ticaret Sicili: [eklenecek]','imp.note':'Hukuken bağlayıcı olan Almanca metindir.',
@@ -1159,7 +1164,7 @@ en: {
 'p1.note':'One location, up to ~300 requests/month','p1.f1':'Request intake via WhatsApp & email','p1.f2':'Typo & duplicate check','p1.f3':'Items, customers, price tiers','p1.f4':'Unlimited staff',
 'p2.note':'The standard for a running business','p2.f1':'Everything in Start','p2.f2':'Voice messages read aloud','p2.f3':'Batches, traceability','p2.f4':'Cold chain & measuring plan','p2.f5':'Open invoices & dunning','p2.f6':'Six languages in the interface',
 'p3.note':'Multiple locations or branches','p3.f1':'Everything in Pro','p3.f2':'Multiple locations & warehouses','p3.f3':'Custom integrations with existing systems','p3.f4':'Dedicated personal contact',
-'setup':'<strong>Setup is charged once: €3,900 – €9,900</strong> — depending on items, customers and processes. We handle migration from Excel, legacy systems or lists. <strong style="color:var(--accent-deep);">With a 12-month term we credit half against the monthly rates.</strong> All prices net. From go-live to the first checked request: approx. 10 working days.',
+'setup':'<strong>Setup is charged once: €1,900 – €4,900</strong> — depending on items, customers and processes. We handle migration from Excel, legacy systems or lists. <strong style="color:var(--accent-deep);">With a 12-month term we credit half against the monthly rates.</strong> All prices net. From go-live to the first checked request: approx. 10 working days.',
 'form.h3':'🚀 Request a pilot spot','form.p':'Only 3 spots available. We reply within 24 hours.',
 'f.firma':'Company name *','f.name':'Your name *','f.tel':'Phone *','f.mail':'Email *','f.branche':'Industry *','f.woche':'Approx. requests per week','f.problem':'What is your biggest problem with request intake?',
 'form.btn':'Send request →','form.note':'🔒 Your data is processed GDPR-compliant. No spam, no sharing.',
@@ -1174,7 +1179,7 @@ en: {
 'q6':'What about data protection?','a6':'GDPR-compliant, servers in the EU, all data encrypted. We built it in from the start — not retrofitted.',
 'q7':'What happens if Zeynah can’t answer a question?','a7':'Zeynah recognizes that, arranges a callback or hands the call to your human colleague — automatically and seamlessly for the caller.',
 'kontakt.h2':'Ready to never miss a request again?','kontakt.p':'Talk to us — via the channel that suits you.','kontakt.btn':'Request pilot spot →',
-'k1.p':'Message us directly — reply in minutes','k2.h4':'Phone','k3.h4':'Book a demo','k3.p':'15 minutes — live, in your industry','k4.p':'info@zeynah.cloud — reply within 24 h',
+'k1.p':'Message us directly — reply in minutes','k2.h4':'Phone','k3.h4':'Book a demo','k3.p':'15 minutes — live, in your industry','k4.p':'info@zeynah.cloud — reply within 24 h','pitch.btn':'Pitch deck (PDF)',
 'footer.l1':'© 2026 Zeynah — Hamburg · 20+ languages · GDPR-compliant · reachable 24/7',
 'alert':'Thanks for your request! We’ll get back to you within 24 hours.',
 'imp.h1':'📍 Legal Notice','imp.ust':'VAT ID: [to be added]','imp.hr':'Commercial Register: [to be added]','imp.note':'Only the German version is legally binding.',
@@ -1223,7 +1228,7 @@ ar: {
 'p1.note':'موقع واحد، حتى ~300 طلب شهرياً','p1.f1':'استقبال الطلبات عبر واتساب والبريد','p1.f2':'فحص الأخطاء المطبعية والتكرار','p1.f3':'الأصناف، العملاء، شرائح الأسعار','p1.f4':'موظفون غير محدودين',
 'p2.note':'المعيار لشركة عاملة','p2.f1':'كل ما في البداية','p2.f2':'قراءة الرسائل الصوتية','p2.f3':'التشغيلات، التتبع','p2.f4':'سلسلة التبريد وخطة القياس','p2.f5':'الفواتير المفتوحة والتذكير','p2.f6':'ست لغات في الواجهة',
 'p3.note':'عدة مواقع أو فروع','p3.f1':'كل ما في Pro','p3.f2':'مواقع ومستودعات متعددة','p3.f3':'تكاملات مخصصة مع الأنظمة القائمة','p3.f4':'جهة اتصال شخصية ثابتة',
-'setup':'<strong>يُحتسب الإعداد مرة واحدة: 3.900 – 9.900 €</strong> — حسب الأصناف والعملاء والعمليات. نتولى الترحيل من Excel أو النظام القديم أو القوائم. <strong style="color:var(--accent-deep);">مع مدة 12 شهراً نخصم النصف من الأقساط الشهرية.</strong> جميع الأسعار صافية. من الانطلاق إلى أول طلب مُتحقق منه: حوالي 10 أيام عمل.',
+'setup':'<strong>يُحتسب الإعداد مرة واحدة: 1.900 – 4.900 €</strong> — حسب الأصناف والعملاء والعمليات. نتولى الترحيل من Excel أو النظام القديم أو القوائم. <strong style="color:var(--accent-deep);">مع مدة 12 شهراً نخصم النصف من الأقساط الشهرية.</strong> جميع الأسعار صافية. من الانطلاق إلى أول طلب مُتحقق منه: حوالي 10 أيام عمل.',
 'form.h3':'🚀 اطلب مكاناً تجريبياً','form.p':'3 أماكن فقط متاحة. نرد خلال 24 ساعة.',
 'f.firma':'اسم الشركة *','f.name':'اسمك *','f.tel':'الهاتف *','f.mail':'البريد الإلكتروني *','f.branche':'القطاع *','f.woche':'عدد الطلبات أسبوعياً تقريباً','f.problem':'ما أكبر مشكلة لديك في استقبال الطلبات؟',
 'form.btn':'أرسل الطلب ←','form.note':'🔒 تُعالج بياناتك وفق GDPR. لا رسائل مزعجة، لا مشاركة.',
@@ -1238,7 +1243,7 @@ ar: {
 'q6':'ماذا عن حماية البيانات؟','a6':'متوافق مع GDPR، خوادم في الاتحاد الأوروبي، جميع البيانات مشفرة. بنيناها منذ البداية — وليست إضافة لاحقة.',
 'q7':'ماذا يحدث إذا لم تستطع زينة الإجابة عن سؤال؟','a7':'تدرك زينة ذلك، فترتب معاودة اتصال أو تحوّل المكالمة إلى موظفك — تلقائياً ودون انقطاع للمتصل.',
 'kontakt.h2':'مستعد لألا تفوتك أي طلبية بعد الآن؟','kontakt.p':'تحدث معنا — عبر القناة التي تناسبك.','kontakt.btn':'اطلب مكاناً تجريبياً ←',
-'k1.p':'راسلنا مباشرة — الرد خلال دقائق','k2.h4':'الهاتف','k3.h4':'احجز عرضاً','k3.p':'15 دقيقة — مباشرة، في مجالك','k4.p':'info@zeynah.cloud — الرد خلال 24 ساعة',
+'k1.p':'راسلنا مباشرة — الرد خلال دقائق','k2.h4':'الهاتف','k3.h4':'احجز عرضاً','k3.p':'15 دقيقة — مباشرة، في مجالك','k4.p':'info@zeynah.cloud — الرد خلال 24 ساعة','pitch.btn':'العرض التقديمي (PDF)',
 'footer.l1':'© 2026 زينة — هامبورغ · أكثر من 20 لغة · متوافق مع GDPR · متاح 24/7',
 'alert':'شكراً لطلبك! سنعود إليك خلال 24 ساعة.',
 'imp.h1':'📍 البيانات القانونية','imp.ust':'رقم ضريبة القيمة المضافة: [يُضاف لاحقاً]','imp.hr':'السجل التجاري: [يُضاف لاحقاً]','imp.note':'النسخة الألمانية هي الملزمة قانوناً.',
@@ -1287,7 +1292,7 @@ el: {
 'p1.note':'Μία τοποθεσία, έως ~300 αιτήματα/μήνα','p1.f1':'Λήψη αιτημάτων μέσω WhatsApp & e-mail','p1.f2':'Έλεγχος τυπογραφικών & διπλών','p1.f3':'Είδη, πελάτες, κλίμακες τιμών','p1.f4':'Απεριόριστοι υπάλληλοι',
 'p2.note':'Το στάνταρ για μια λειτουργούσα εταιρεία','p2.f1':'Όλα από το Start','p2.f2':'Τα φωνητικά μηνύματα διαβάζονται','p2.f3':'Παρτίδες, ιχνηλασιμότητα','p2.f4':'Αλυσίδα ψύξης & πλάνο μέτρησης','p2.f5':'Ανοιχτά τιμολόγια & υπενθυμίσεις','p2.f6':'Έξι γλώσσες στη διεπαφή',
 'p3.note':'Πολλαπλές τοποθεσίες ή υποκαταστήματα','p3.f1':'Όλα από το Pro','p3.f2':'Πολλαπλές τοποθεσίες & αποθήκες','p3.f3':'Εξατομικευμένες συνδέσεις με υπάρχοντα συστήματα','p3.f4':'Σταθερός προσωπικός σύμβουλος',
-'setup':'<strong>Η εγκατάσταση χρεώνεται μία φορά: 3.900 – 9.900 €</strong> — ανάλογα με είδη, πελάτες και διαδικασίες. Αναλαμβάνουμε τη μεταφορά από Excel, παλαιό σύστημα ή λίστες. <strong style="color:var(--accent-deep);">Με διάρκεια 12 μηνών συμψηφίζουμε το ήμισυ με τις μηνιαίες δόσεις.</strong> Όλες οι τιμές καθαρές. Από την έναρξη έως το πρώτο ελεγμένο αίτημα: περίπου 10 εργάσιμες ημέρες.',
+'setup':'<strong>Η εγκατάσταση χρεώνεται μία φορά: 1.900 – 4.900 €</strong> — ανάλογα με είδη, πελάτες και διαδικασίες. Αναλαμβάνουμε τη μεταφορά από Excel, παλαιό σύστημα ή λίστες. <strong style="color:var(--accent-deep);">Με διάρκεια 12 μηνών συμψηφίζουμε το ήμισυ με τις μηνιαίες δόσεις.</strong> Όλες οι τιμές καθαρές. Από την έναρξη έως το πρώτο ελεγμένο αίτημα: περίπου 10 εργάσιμες ημέρες.',
 'form.h3':'🚀 Ζητήστε πιλοτική θέση','form.p':'Μόνο 3 θέσεις διαθέσιμες. Απαντάμε εντός 24 ωρών.',
 'f.firma':'Όνομα εταιρείας *','f.name':'Το όνομά σας *','f.tel':'Τηλέφωνο *','f.mail':'E-mail *','f.branche':'Κλάδος *','f.woche':'Περίπου αιτήματα ανά εβδομάδα','f.problem':'Ποιο είναι το μεγαλύτερο πρόβλημά σας στη λήψη αιτημάτων;',
 'form.btn':'Αποστολή αιτήματος →','form.note':'🔒 Τα δεδομένα σας επεξεργάζονται σύμφωνα με GDPR. Χωρίς spam, χωρίς κοινοποίηση.',
@@ -1302,7 +1307,7 @@ el: {
 'q6':'Και η προστασία δεδομένων;','a6':'Σύμφωνη με GDPR, διακομιστές στην ΕΕ, όλα τα δεδομένα κρυπτογραφημένα. Το χτίσαμε από την αρχή — όχι μεταγενέστερα.',
 'q7':'Τι γίνεται αν η Zeynah δεν μπορεί να απαντήσει;','a7':'Η Zeynah το αναγνωρίζει, κανονίζει επανάκληση ή μεταβιβάζει την κλήση στον υπάλληλό σας — αυτόματα και απρόσκοπτα για τον καλούντα.',
 'kontakt.h2':'Έτοιμοι να μην χάσετε ξανά κανένα αίτημα;','kontakt.p':'Μιλήστε μαζί μας — μέσω του καναλιού που σας ταιριάζει.','kontakt.btn':'Ζητήστε πιλοτική θέση →',
-'k1.p':'Γράψτε μας απευθείας — απάντηση σε λεπτά','k2.h4':'Τηλέφωνο','k3.h4':'Κλείστε demo','k3.p':'15 λεπτά — ζωντανά, στον κλάδο σας','k4.p':'info@zeynah.cloud — απάντηση εντός 24 ωρών',
+'k1.p':'Γράψτε μας απευθείας — απάντηση σε λεπτά','k2.h4':'Τηλέφωνο','k3.h4':'Κλείστε demo','k3.p':'15 λεπτά — ζωντανά, στον κλάδο σας','k4.p':'info@zeynah.cloud — απάντηση εντός 24 ωρών','pitch.btn':'Παρουσίαση (PDF)',
 'footer.l1':'© 2026 Zeynah — Αμβούργο · 20+ γλώσσες · σύμφωνα με GDPR · διαθέσιμοι 24/7',
 'alert':'Ευχαριστούμε για το αίτημά σας! Θα επικοινωνήσουμε εντός 24 ωρών.',
 'imp.h1':'📍 Νομικά στοιχεία','imp.ust':'ΑΦΜ ΦΠΑ: [προστίθεται]','imp.hr':'Εμπορικό Μητρώο: [προστίθεται]','imp.note':'Νομικά δεσμευτική είναι η γερμανική έκδοση.',
@@ -1351,7 +1356,7 @@ ru: {
 'p1.note':'Одна локация, до ~300 заявок/мес','p1.f1':'Приём заявок через WhatsApp и e-mail','p1.f2':'Проверка опечаток и дублей','p1.f3':'Товары, клиенты, ценовые уровни','p1.f4':'Неограниченное число сотрудников',
 'p2.note':'Стандарт для работающей компании','p2.f1':'Всё из Start','p2.f2':'Голосовые сообщения озвучиваются','p2.f3':'Партии, прослеживаемость','p2.f4':'Холодовая цепь и план измерений','p2.f5':'Открытые счета и напоминания','p2.f6':'Шесть языков в интерфейсе',
 'p3.note':'Несколько локаций или филиалов','p3.f1':'Всё из Pro','p3.f2':'Несколько локаций и складов','p3.f3':'Индивидуальные подключения к существующим системам','p3.f4':'Постоянный личный консультант',
-'setup':'<strong>Настройка оплачивается один раз: 3 900 – 9 900 €</strong> — в зависимости от товаров, клиентов и процессов. Миграцию из Excel, старой системы или списков берём на себя. <strong style="color:var(--accent-deep);">При сроке 12 месяцев зачитываем половину в ежемесячные платежи.</strong> Все цены нетто. От запуска до первой проверенной заявки: около 10 рабочих дней.',
+'setup':'<strong>Настройка оплачивается один раз: 1 900 – 4 900 €</strong> — в зависимости от товаров, клиентов и процессов. Миграцию из Excel, старой системы или списков берём на себя. <strong style="color:var(--accent-deep);">При сроке 12 месяцев зачитываем половину в ежемесячные платежи.</strong> Все цены нетто. От запуска до первой проверенной заявки: около 10 рабочих дней.',
 'form.h3':'🚀 Запросить пилотное место','form.p':'Свободны только 3 места. Отвечаем в течение 24 часов.',
 'f.firma':'Название компании *','f.name':'Ваше имя *','f.tel':'Телефон *','f.mail':'E-mail *','f.branche':'Отрасль *','f.woche':'Примерно заявок в неделю','f.problem':'Какая у вас самая большая проблема с приёмом заявок?',
 'form.btn':'Отправить заявку →','form.note':'🔒 Ваши данные обрабатываются по GDPR. Без спама, без передачи.',
@@ -1366,7 +1371,7 @@ ru: {
 'q6':'А как насчёт защиты данных?','a6':'Соответствие GDPR, серверы в ЕС, все данные зашифрованы. Мы заложили это с самого начала — не добавили потом.',
 'q7':'Что происходит, если Zeynah не может ответить на вопрос?','a7':'Zeynah это распознаёт, назначает перезвон или передаёт звонок вашему сотруднику — автоматически и незаметно для звонящего.',
 'kontakt.h2':'Готовы больше не упускать ни одной заявки?','kontakt.p':'Поговорите с нами — через удобный вам канал.','kontakt.btn':'Запросить пилотное место →',
-'k1.p':'Напишите нам напрямую — ответ в течение минут','k2.h4':'Телефон','k3.h4':'Забронировать демо','k3.p':'15 минут — вживую, в вашей отрасли','k4.p':'info@zeynah.cloud — ответ в течение 24 часов',
+'k1.p':'Напишите нам напрямую — ответ в течение минут','k2.h4':'Телефон','k3.h4':'Забронировать демо','k3.p':'15 минут — вживую, в вашей отрасли','k4.p':'info@zeynah.cloud — ответ в течение 24 часов','pitch.btn':'Презентация (PDF)',
 'footer.l1':'© 2026 Zeynah — Гамбург · 20+ языков · соответствие GDPR · доступны 24/7',
 'alert':'Спасибо за вашу заявку! Мы свяжемся с вами в течение 24 часов.',
 'imp.h1':'📍 Правовая информация','imp.ust':'ИНН НДС: [добавить]','imp.hr':'Торговый реестр: [добавить]','imp.note':'Юридически обязательна только немецкая версия.',
@@ -1413,6 +1418,12 @@ function setLang(lang) {
              : 'assets/audio/voice-demo-gastro-' + lang + '.mp3';
     if (!v1.currentSrc.endsWith(s1)) { v1.src = s1; }
     if (!v2.currentSrc.endsWith(s2)) { v2.src = s2; }
+  }
+  /* Pitch-Deck in der passenden Sprache verlinken */
+  const pl = document.getElementById('pitchLink');
+  if (pl) {
+    const pll = ['de','en','tr','ar','el','ru'].includes(lang) ? lang : 'de';
+    pl.href = 'assets/pitch/zeynah-pitch-grosshandel-' + pll + '.pdf';
   }
 }
 /* Deutsche Originaltexte sichern, damit der Rückwechsel nach DE funktioniert */
