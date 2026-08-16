@@ -116,10 +116,21 @@ img, video { max-width: 100%; display: block; }
 .section-light .order-bubble.highlight { border-color: rgba(0,113,227,0.35); background: rgba(0,113,227,0.07); }
 .section-light .price-features li { border-bottom-color: rgba(35,38,44,0.08); }
 .section-light .price-card.popular { background: rgba(0,113,227,0.07); border-color: rgba(0,113,227,0.28); }
-.section-light .dash-tile { background: rgba(255,255,255,0.55); border-color: rgba(35,38,44,0.08); }
+.section-light .dash-tile {
+  background: linear-gradient(160deg, rgba(255,255,255,0.78), rgba(255,255,255,0.52));
+  backdrop-filter: blur(30px) saturate(1.8);
+  -webkit-backdrop-filter: blur(30px) saturate(1.8);
+  border-color: rgba(35,38,44,0.08);
+  box-shadow: 0 18px 50px rgba(95,85,65,0.16), inset 0 1px 0 rgba(255,255,255,0.85);
+}
 .section-light .dash-tile:hover { border-color: rgba(35,38,44,0.18); }
 .section-light .dash-updated { color: #1e7e34; }
 .section-light .dash-dot { box-shadow: 0 0 12px rgba(30,126,52,0.6); }
+.section-light .video-box {
+  background: linear-gradient(160deg, rgba(255,255,255,0.78), rgba(255,255,255,0.52));
+  border-color: rgba(35,38,44,0.08);
+  box-shadow: 0 18px 50px rgba(95,85,65,0.16), inset 0 1px 0 rgba(255,255,255,0.85);
+}
 .section-light .btn-secondary { background: rgba(35,38,44,0.06); color: var(--ink); border-color: rgba(35,38,44,0.12); }
 .section-light .btn-secondary:hover { background: rgba(35,38,44,0.10); }
 .section-light .faq-q:hover { color: var(--accent-deep); }
@@ -149,16 +160,20 @@ html[dir="rtl"] .roi-box { flex-direction: row-reverse; }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-9px); }
 }
-.sos-card, .step-card, .voice-card, .price-card, .contact-card, .dash-tile {
+.sos-card, .step-card, .voice-card, .price-card, .contact-card, .dash-tile,
+.faq-item, .form-card, .video-box {
   animation: cardFloat 7s ease-in-out infinite;
 }
 .sos-card:nth-child(2), .step-card:nth-child(2), .voice-card:nth-child(2),
-.price-card:nth-child(2), .contact-card:nth-child(2), .dash-tile:nth-child(2) { animation-delay: -1.2s; }
-.sos-card:nth-child(3), .step-card:nth-child(3), .contact-card:nth-child(3), .dash-tile:nth-child(3) { animation-delay: -2.4s; }
-.sos-card:nth-child(4), .contact-card:nth-child(4), .dash-tile:nth-child(4) { animation-delay: -3.6s; }
-.dash-tile:nth-child(5) { animation-delay: -4.2s; }
-.dash-tile:nth-child(6) { animation-delay: -5s; }
-.dash-tile:nth-child(7) { animation-delay: -5.8s; }
+.price-card:nth-child(2), .contact-card:nth-child(2), .dash-tile:nth-child(2),
+.faq-item:nth-child(2) { animation-delay: -1.2s; }
+.sos-card:nth-child(3), .step-card:nth-child(3), .contact-card:nth-child(3), .dash-tile:nth-child(3),
+.faq-item:nth-child(3) { animation-delay: -2.4s; }
+.sos-card:nth-child(4), .contact-card:nth-child(4), .dash-tile:nth-child(4),
+.faq-item:nth-child(4) { animation-delay: -3.6s; }
+.dash-tile:nth-child(5), .faq-item:nth-child(5) { animation-delay: -4.2s; }
+.dash-tile:nth-child(6), .faq-item:nth-child(6) { animation-delay: -5s; }
+.dash-tile:nth-child(7), .faq-item:nth-child(7) { animation-delay: -5.8s; }
 .dash-tile:nth-child(8) { animation-delay: -6.4s; }
 .sos-card:hover, .step-card:hover, .voice-card:hover,
 .price-card:hover, .contact-card:hover, .dash-tile:hover {
@@ -271,7 +286,14 @@ html[dir="rtl"] .roi-box { flex-direction: row-reverse; }
 .sos-content p { font-size: 14px; color: var(--text-secondary); }
 
 /* VIDEO */
-.video-box { border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(12,14,17,0.55); }
+.video-box {
+  border-radius: 24px; overflow: hidden;
+  background: var(--glass);
+  backdrop-filter: blur(30px) saturate(1.8);
+  -webkit-backdrop-filter: blur(30px) saturate(1.8);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 60px rgba(12,14,17,0.55), inset 0 1px 0 rgba(236,231,221,0.09);
+}
 .video-box video { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--bg-elevated); }
 .video-info { padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: var(--bg-elevated); }
 .video-info h4 { font-size: 16px; font-weight: 600; color: var(--text); }
@@ -313,9 +335,12 @@ html[dir="rtl"] .roi-box { flex-direction: row-reverse; }
 .dash-updated { font-size: 12px; color: var(--green); font-weight: 600; }
 .dash-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .dash-tile {
-  background: rgba(236,231,221,0.04);
+  background: var(--glass);
+  backdrop-filter: blur(30px) saturate(1.8);
+  -webkit-backdrop-filter: blur(30px) saturate(1.8);
   border: 1px solid var(--glass-border);
   border-radius: 16px; padding: 22px;
+  box-shadow: var(--shadow-glass);
   transition: all var(--t);
 }
 .dash-tile:hover { border-color: var(--glass-border-hover); box-shadow: var(--shadow-hover); }
@@ -677,13 +702,13 @@ elevenlabs-convai { z-index: 60; }
         <div class="voice-label" data-i18n="v1.label">🥙 Großhandel</div>
         <h3 data-i18n="v1.h3">Bestellung per Sprachnachricht</h3>
         <p data-i18n="v1.p">Der Kunde spricht, wie er immer spricht — Zeynah erfasst, prüft und bestätigt.</p>
-        <audio controls preload="none" src="assets/audio/hoerbeispiel-grosshandel-de.mp3"></audio>
+        <audio controls preload="none" id="voice1" src="assets/audio/hoerbeispiel-grosshandel-de.mp3"></audio>
       </div>
       <div class="voice-card glass">
         <div class="voice-label" data-i18n="v2.label">🍽️ Gastro</div>
         <h3 data-i18n="v2.h3">Bestellung am Telefon</h3>
         <p data-i18n="v2.p">Bestellung, Reservierung, Fragen — Zeynah nimmt entgegen und bestätigt.</p>
-        <audio controls preload="none" src="assets/audio/voice-demo-gastro.mp3"></audio>
+        <audio controls preload="none" id="voice2" src="assets/audio/voice-demo-gastro.mp3"></audio>
       </div>
     </div>
   </div>
@@ -1247,6 +1272,17 @@ function setLang(lang) {
     const vl = ['de','en','tr','ar'].includes(lang) ? lang : 'de';
     const src = 'https://zeynah.cloud/videos/grosshandel/bereiche_' + vl + '.mp4';
     if (!v.currentSrc.includes('bereiche_' + vl)) { v.src = src; v.load(); }
+  }
+  /* Voice-Demos in der passenden Sprache laden (DE/EN/TR/AR) */
+  const v1 = document.getElementById('voice1');
+  const v2 = document.getElementById('voice2');
+  if (v1 && v2) {
+    const s1 = lang === 'de' ? 'assets/audio/hoerbeispiel-grosshandel-de.mp3'
+             : 'assets/audio/hoerbeispiel-grosshandel-' + lang + '.mp3';
+    const s2 = lang === 'de' ? 'assets/audio/voice-demo-gastro.mp3'
+             : 'assets/audio/voice-demo-gastro-' + lang + '.mp3';
+    if (!v1.currentSrc.endsWith(s1)) { v1.src = s1; }
+    if (!v2.currentSrc.endsWith(s2)) { v2.src = s2; }
   }
 }
 /* Deutsche Originaltexte sichern, damit der Rückwechsel nach DE funktioniert */
