@@ -462,6 +462,8 @@ html[dir="rtl"] .roi-box { flex-direction: row-reverse; }
   transition: background .15s;
 }
 .voice-gate-btn:hover { background: var(--accent-light); }
+@keyframes gatePulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); box-shadow: 0 0 0 14px rgba(0,113,227,0.22), var(--shadow-hover); } }
+.gate-pulse { animation: gatePulse 0.9s ease-in-out 4; }
 .voice-gate p { font-size: 12px; color: var(--text-muted); margin-top: 10px; line-height: 1.5; }
 .voice-gate p a { color: var(--accent-light); text-decoration: none; }
 .voice-gate p a:hover { text-decoration: underline; }
@@ -514,7 +516,7 @@ elevenlabs-convai { z-index: 60; }
 
 <!-- ELEVENLABS GATE — erst nach Zustimmung wird geladen (DSGVO) -->
 <div id="voiceGate" class="voice-gate glass">
-  <button class="voice-gate-btn" onclick="startVoice()" data-i18n="gate.btn">🎙️ Sprachberatung starten</button>
+  <button class="voice-gate-btn" onclick="startVoice()" data-i18n="gate.btn">🎙️ Jetzt live mit Zeynah sprechen</button>
   <p><span data-i18n="gate.note">Dabei wird ein Dienst von ElevenLabs (USA) geladen.</span> <a href="#impressum" data-i18n="gate.privacy">Datenschutz</a></p>
 </div>
 
@@ -555,6 +557,7 @@ elevenlabs-convai { z-index: 60; }
         <div class="hero-ctas">
           <a href="#pilot-form" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Pilot anfragen →</a>
           <a href="#live" class="btn btn-secondary btn-lg" data-i18n="hero.cta2">Live-Dashboard öffnen</a>
+          <button class="btn btn-secondary btn-lg" onclick="pulseGate()" data-i18n="hero.cta3">🎙️ Live testen — mit Zeynah sprechen</button>
         </div>
       </div>
       <div class="orb-wrap">
@@ -1114,7 +1117,7 @@ elevenlabs-convai { z-index: 60; }
 const I18N = {
 tr: {
 'cookie.text':'🍪 Yalnızca teknik olarak gerekli çerezleri kullanıyoruz.','cookie.btn':'Anladım',
-'gate.btn':'🎙️ Sesli danışmanlığı başlat','gate.note':'Bu sırada ElevenLabs (ABD) hizmeti yüklenir.','gate.privacy':'Gizlilik',
+'gate.btn':'🎙️ Zeynah ile şimdi canlı konuşun','hero.cta3':'🎙️ Canlı test — Zeynah ile konuşun','gate.note':'Bu sırada ElevenLabs (ABD) hizmeti yüklenir.','gate.privacy':'Gizlilik',
 'nav.problem':'Sorun','nav.stimme':'Ses','nav.ablauf':'Süreç','nav.live':'Canlı Panel','nav.preise':'Fiyatlar','nav.faq':'SSS','nav.kontakt':'İletişim','nav.cta':'Pilot talep et',
 'hero.badge':'🚀 Pilot programı — 3 yer mevcut','hero.h1':'Telefonunuz <span class="accent">her zaman</span> açılır. Saat 22.00’de bile.','hero.lead':'Zeynah mesajları okur, yazım hatalarını kontrol eder ve belirsizliklerde sorar — bir hata pahalıya mal olmadan önce. Gece gündüz. 20+ dilde.','hero.cta1':'Pilot talep et →','hero.cta2':'Canlı paneli aç',
 'sos.h2':'Zeynah’ın tek bir sabah buldukları','sos.p':'Bu dört uyarı gerçek işletmelerden. Uydurma değil.',
@@ -1178,7 +1181,7 @@ tr: {
 },
 en: {
 'cookie.text':'🍪 We only use technically necessary cookies.','cookie.btn':'Got it',
-'gate.btn':'🎙️ Start voice assistant','gate.note':'This loads a service from ElevenLabs (USA).','gate.privacy':'Privacy',
+'gate.btn':'🎙️ Talk to Zeynah live now','hero.cta3':'🎙️ Live test — talk to Zeynah','gate.note':'This loads a service from ElevenLabs (USA).','gate.privacy':'Privacy',
 'nav.problem':'The Problem','nav.stimme':'Voice','nav.ablauf':'How it works','nav.live':'Live Dashboard','nav.preise':'Pricing','nav.faq':'FAQ','nav.kontakt':'Contact','nav.cta':'Request pilot',
 'hero.badge':'🚀 Pilot program — 3 spots available','hero.h1':'Your phone <span class="accent">always</span> answers. Even at 10 pm.','hero.lead':'Zeynah reads messages, checks for typos and asks when things are unclear — before a mistake gets expensive. Around the clock. In 20+ languages.','hero.cta1':'Request pilot →','hero.cta2':'Open live dashboard',
 'sos.h2':'What Zeynah finds in a single morning','sos.p':'These four warnings come from real businesses. Not made up.',
@@ -1242,7 +1245,7 @@ en: {
 },
 ar: {
 'cookie.text':'🍪 نستخدم فقط ملفات تعريف الارتباط الضرورية تقنياً.','cookie.btn':'فهمت',
-'gate.btn':'🎙️ ابدأ المساعد الصوتي','gate.note':'سيتم تحميل خدمة من ElevenLabs (الولايات المتحدة).','gate.privacy':'الخصوصية',
+'gate.btn':'🎙️ تحدثوا مع Zeynah مباشرة الآن','hero.cta3':'🎙️ جرّبوا مباشرة — تحدثوا مع Zeynah','gate.note':'سيتم تحميل خدمة من ElevenLabs (الولايات المتحدة).','gate.privacy':'الخصوصية',
 'nav.problem':'المشكلة','nav.stimme':'الصوت','nav.ablauf':'كيف يعمل','nav.live':'لوحة مباشرة','nav.preise':'الأسعار','nav.faq':'الأسئلة','nav.kontakt':'اتصل بنا','nav.cta':'اطلب التجربة',
 'hero.badge':'🚀 البرنامج التجريبي — 3 أماكن متاحة','hero.h1':'هاتفك يرد <span class="accent">دائماً</span>. حتى في الساعة 10 مساءً.','hero.lead':'زينة تقرأ الرسائل، وتتحقق من الأخطاء المطبعية، وتسأل عند وجود غموض — قبل أن يصبح الخطأ مكلفاً. على مدار الساعة. بأكثر من 20 لغة.','hero.cta1':'اطلب التجربة ←','hero.cta2':'افتح اللوحة المباشرة',
 'sos.h2':'ما تجده زينة في صباح واحد','sos.p':'هذه التحذيرات الأربعة من شركات حقيقية. غير مختلقة.',
@@ -1306,7 +1309,7 @@ ar: {
 },
 el: {
 'cookie.text':'🍪 Χρησιμοποιούμε μόνο τεχνικά απαραίτητα cookies.','cookie.btn':'Το κατάλαβα',
-'gate.btn':'🎙️ Ξεκινήστε τη φωνητική συμβουλή','gate.note':'Φορτώνεται υπηρεσία της ElevenLabs (ΗΠΑ).','gate.privacy':'Απόρρητο',
+'gate.btn':'🎙️ Μιλήστε τώρα ζωντανά με τη Zeynah','hero.cta3':'🎙️ Ζωντανή δοκιμή — μιλήστε με τη Zeynah','gate.note':'Φορτώνεται υπηρεσία της ElevenLabs (ΗΠΑ).','gate.privacy':'Απόρρητο',
 'nav.problem':'Το πρόβλημα','nav.stimme':'Φωνή','nav.ablauf':'Πώς λειτουργεί','nav.live':'Ζωντανός πίνακας','nav.preise':'Τιμές','nav.faq':'FAQ','nav.kontakt':'Επικοινωνία','nav.cta':'Ζητήστε πιλοτικό',
 'hero.badge':'🚀 Πιλοτικό πρόγραμμα — 3 θέσεις διαθέσιμες','hero.h1':'Το τηλέφωνό σας απαντά <span class="accent">πάντα</span>. Ακόμη και στις 10 το βράδυ.','hero.lead':'Η Zeynah διαβάζει μηνύματα, ελέγχει για τυπογραφικά λάθη και ρωτά όταν κάτι δεν είναι ξεκάθαρο — πριν ένα λάθος κοστίσει ακριβά. Όλο το 24ωρο. Σε 20+ γλώσσες.','hero.cta1':'Ζητήστε πιλοτικό →','hero.cta2':'Ανοίξτε τον ζωντανό πίνακα',
 'sos.h2':'Τι βρίσκει η Zeynah σε ένα μόνο πρωινό','sos.p':'Αυτές οι τέσσερις προειδοποιήσεις προέρχονται από πραγματικές επιχειρήσεις. Δεν είναι φανταστικές.',
@@ -1370,7 +1373,7 @@ el: {
 },
 ru: {
 'cookie.text':'🍪 Мы используем только технически необходимые файлы cookie.','cookie.btn':'Понятно',
-'gate.btn':'🎙️ Начать голосовую консультацию','gate.note':'При этом загружается сервис ElevenLabs (США).','gate.privacy':'Конфиденциальность',
+'gate.btn':'🎙️ Поговорите с Zeynah прямо сейчас','hero.cta3':'🎙️ Живой тест — поговорите с Zeynah','gate.note':'При этом загружается сервис ElevenLabs (США).','gate.privacy':'Конфиденциальность',
 'nav.problem':'Проблема','nav.stimme':'Голос','nav.ablauf':'Как это работает','nav.live':'Живая панель','nav.preise':'Цены','nav.faq':'Вопросы','nav.kontakt':'Контакт','nav.cta':'Запросить пилот',
 'hero.badge':'🚀 Пилотная программа — 3 места свободны','hero.h1':'Ваш телефон отвечает <span class="accent">всегда</span>. Даже в 22:00.','hero.lead':'Zeynah читает сообщения, проверяет опечатки и спрашивает при неясностях — прежде чем ошибка станет дорогой. Круглосуточно. На 20+ языках.','hero.cta1':'Запросить пилот →','hero.cta2':'Открыть живую панель',
 'sos.h2':'Что Zeynah находит за одно утро','sos.p':'Эти четыре предупреждения — из реальных компаний. Не выдумка.',
@@ -1531,6 +1534,8 @@ function startVoice() {
   s.async = true;
   document.body.appendChild(s);
 }
+
+function pulseGate() { const g = document.getElementById('voiceGate'); if (!g) return; g.classList.remove('gate-pulse'); void g.offsetWidth; g.classList.add('gate-pulse'); setTimeout(() => g.classList.remove('gate-pulse'), 3800); }
 
 function hideCookie() { document.getElementById('cookieBanner').style.display = 'none'; localStorage.setItem('cookiesAccepted', 'true'); }
 if (localStorage.getItem('cookiesAccepted')) document.getElementById('cookieBanner').style.display = 'none';
